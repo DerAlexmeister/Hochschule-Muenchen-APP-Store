@@ -25,6 +25,6 @@ def login_(request):
         else:
             return HttpResponse("Not logged in")
     elif request.user.is_authenticated:
-        return HttpResponse("Hallo Welt")
+        return HttpResponse("Hallo Welt User")
     else:
         return HttpResponse("Hallo Welt")
