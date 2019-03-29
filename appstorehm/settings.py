@@ -23,6 +23,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #Non standerd
     'rest_framework',
+    'rest_framework.authtoken',
+    'rest_auth',
     #'corsheaders'
     # My Apps
     'app_product',
