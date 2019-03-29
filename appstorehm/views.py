@@ -28,3 +28,10 @@ def login_(request):
         return HttpResponse("Hallo Welt User")
     else:
         return HttpResponse("Hallo Welt")
+
+
+def logout_(request):
+    if request.method == 'POST' and request.user.is_authenticated:
+        return HttpResponse("You are now Logged out")
+    else:
+        return HttpResponse("Hallo Welt")
