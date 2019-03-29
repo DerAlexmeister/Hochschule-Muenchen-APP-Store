@@ -1,0 +1,21 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <div class="w-100 p-3 container-fluid align-self-center">
+            <div class="row row_">
+                    <div class="col-4 col_">
+                            <form class="form-group" method="POST" action="login">
+                                {% csrf_token %}
+                                Username:<br>
+                                <input class="form-control" type="text" name="username"><br>
+                                Password:<br>
+                                <input class="form-control" type="password" name="psw"><br>
+                                <button class="btn btn-primary" type="submit" >Login</button>
+                            </form>
+                    </div>
+            </div>
+    </div>
+    </body>
+</html>
