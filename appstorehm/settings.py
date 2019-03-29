@@ -10,7 +10,7 @@ SECRET_KEY = 'z5%myh$tga)(z-7mzy7)ep%w1$g_s5f%tt)*atkc-40!f*&ay6'
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['*', '.herokuapp.com', "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = [] #'*', '.herokuapp.com', "localhost", "127.0.0.1"
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
