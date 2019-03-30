@@ -5,6 +5,7 @@ from . import views
 urlpatterns = [
     #path('admin/', admin.site.urls),
     path('', views.index),
+    path('admin/', admin.site.urls),
     path('api/', include('users.urls')),
     path('rest-auth/', include('rest_auth.urls')),
     path('test2/', views.test2),
