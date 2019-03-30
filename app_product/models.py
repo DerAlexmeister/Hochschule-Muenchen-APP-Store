@@ -7,9 +7,9 @@ from django.utils import timezone
 def user_directory_path(instance, filename):
       return 'media/user_{0}/{1}'.format(instance.user.id, filename)
 
-class imagesForApp(models.Model):
-    img = models.ImageField(upload_to=user_directory_path)
-    name = models.TextField()
+# class imagesForApp(models.Model):
+#     img = models.ImageField(upload_to=user_directory_path)
+#     name = models.TextField()
  
 class APP(models.Model):
     appID = models.AutoField(primary_key=True)
@@ -20,7 +20,7 @@ class APP(models.Model):
     appname = models.CharField(max_length=128)
     body = models.TextField(max_length=500)
     downloads = models.IntegerField(default=0)
-    upload = models.ManyToManyField(imagesForApp)
+    #upload = models.ManyToManyField(imagesForApp)
     keywords = JSONField()
     createdAt = models.DateTimeField(default=timezone.now)
     lastMod = models.DateField(auto_now=True)
