@@ -23,7 +23,7 @@ INSTALLED_APPS = [
     'rest_framework',
     #'corsheaders'
     # My Apps
-    'app_product',
+    'appproduct',
     'authentication',
     'restService',
     'users'
