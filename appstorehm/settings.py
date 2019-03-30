@@ -1,5 +1,5 @@
 import os
-import django_heroku
+#import django_heroku
 import dj_database_url
 import psycopg2
 
@@ -125,4 +125,4 @@ REST_FRAMEWORK = {
 #        'localhost:3000',
 # )
 
-django_heroku.settings(locals())
+#django_heroku.settings(locals())
