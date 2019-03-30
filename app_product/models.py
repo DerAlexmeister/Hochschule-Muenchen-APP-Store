@@ -10,17 +10,7 @@ def user_directory_path(instance, filename):
 class imagesForApp(models.Model):
     img = models.ImageField(upload_to=user_directory_path)
     name = models.TextField()
-
-
-class appKomments(models.Model):
-    models.AutoField(primary_key=True)
-    creator = models.ForeignKey(
-      settings.AUTH_USER_MODEL,
-      on_delete=models.CASCADE
-    )
-    title = models.CharField(max_length=255)
-    kommentar = models.CharField(max_length=1024)
-
+ 
 class APP(models.Model):
     appID = models.AutoField(primary_key=True)
     creator = models.ForeignKey(
@@ -37,4 +27,13 @@ class APP(models.Model):
     website = models.URLField(max_length=512, blank=True, null=True)
     contectEmail = models.EmailField(max_length=70)
     sourcefiles = models.FileField(upload_to=user_directory_path)
-    comments = ArrayField(appKomments)
+  
+class appKomments(models.Model):
+    models.AutoField(primary_key=True)
+    creator = models.ForeignKey(
+      settings.AUTH_USER_MODEL,
+      on_delete=models.CASCADE
+    )
+    post = models.ForeignKey(APP)
+    title = models.CharField(max_length=255)
+    kommentar = models.CharField(max_length=1024)
