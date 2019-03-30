@@ -34,6 +34,8 @@ class appKomments(models.Model):
       settings.AUTH_USER_MODEL,
       on_delete=models.CASCADE
     )
-    post = models.ForeignKey(APP)
+    post = models.ForeignKey(
+            APP,
+            on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
     kommentar = models.CharField(max_length=1024)
