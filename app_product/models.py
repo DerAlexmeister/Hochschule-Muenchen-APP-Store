@@ -37,4 +37,4 @@ class APP(models.Model):
     website = models.URLField(max_length=512, blank=True, null=True)
     contectEmail = models.EmailField(max_length=70)
     sourcefiles = models.FileField(upload_to=user_directory_path)
-    comments = ArrayField()
+    comments = ArrayField(appKomments)
