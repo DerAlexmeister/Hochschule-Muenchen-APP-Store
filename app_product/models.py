@@ -5,7 +5,7 @@ from django.utils import timezone
 #from users.models import CustomUser
 
 def user_directory_path(instance, filename):
-      return 'media/user_{0}/{1}'.format(instance.creator.getUserName(), filename)
+      return 'user_{0}/{1}'.format(instance.creator.getUserName(), filename)
 
 # class imagesForApp(models.Model):
 #     img = models.ImageField(upload_to=user_directory_path)
