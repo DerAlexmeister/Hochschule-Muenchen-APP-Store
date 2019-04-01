@@ -6,6 +6,7 @@ from . import serializers
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.decorators import api_view
 
+
 class AppListView(generics.ListCreateAPIView):
     queryset = appModel.objects.all()
     serializer_class = serializers.AppSerializer
@@ -25,6 +26,17 @@ class newestAppsListView(generics.ListCreateAPIView):
 class oldestAppsListView(generics.ListCreateAPIView):
     queryset = appModel.objects.all().order_by('createdAt')
     serializer_class = serializers.AppSerializer
+
+
+class mostDownloadsListView(generics.ListCreateAPIView):
+    queryset = appModel.objects.all().order_by('-downloads')
+    serializer_class = serializers.AppSerializer
+
+
+class tinyDownloadsListView(generics.ListCreateAPIView):
+    queryset = appModel.objects.all().order_by('downloads')
+    serializer_class = serializers.AppSerializer
+
 
 '''
 @api_view(['GET', 'POST'])

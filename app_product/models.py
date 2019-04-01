@@ -15,9 +15,9 @@ class APP(models.Model):
     TypeOfUserAccount = (
     ('ST', 'Student'), #student
     ('SA', 'Staff'), #staff
-    ('PR', 'Professor'), # prof
+    ('PR', 'Professor'), #Prof
     ('Fr', 'Externer Student'), #foreign
-    ('All','Non Type') # for Everybody
+    ('All','Non Type') #for Everybody
     )
 
     FK = (
@@ -46,7 +46,7 @@ class APP(models.Model):
     appname = models.CharField(max_length=128)
     body = models.TextField(max_length=500)
     downloads = models.IntegerField(default=0)
-    keywords = JSONField()
+    keywords = ArrayField(models.CharField(max_length=30, blank=True),size=20,)
     createdAt = models.DateTimeField(default=timezone.now)
     lastMod = models.DateField(auto_now=True)
     website = models.URLField(max_length=512, blank=True, null=True)
