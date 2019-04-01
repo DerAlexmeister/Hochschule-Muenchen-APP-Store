@@ -10,7 +10,7 @@ class AppSerializer(serializers.ModelSerializer):
             'appname', 
             'body',
             'downloads',
-            'keywords',
+            #'keywords',
             'createdAt',
             'lastMod',
             'website',
