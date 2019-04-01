@@ -1,4 +1,4 @@
 from django.contrib import admin
-from .models import APP
+from . import models
 
-admin.site.register(APP)
+admin.site.register(models.APP)
