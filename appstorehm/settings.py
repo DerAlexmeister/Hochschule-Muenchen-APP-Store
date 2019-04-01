@@ -27,7 +27,7 @@ INSTALLED_APPS = [
     'rest_auth',
     #'corsheaders'
     # My Apps
-    'appproduct',
+    'app_product',
     'authentication',
     'restService',
     'users'
