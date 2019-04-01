@@ -3,7 +3,7 @@ from rest_framework import generics
 from app_product.models import APP as appModel
 from users.models import CustomUser as userModel
 from . import serializers
-from rest_framework.permissions import IsAuthenticated 
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 
 class AppListView(generics.ListCreateAPIView):
     queryset = appModel.objects.all()
@@ -11,8 +11,11 @@ class AppListView(generics.ListCreateAPIView):
 
 
 class UserListView(generics.ListCreateAPIView):
-    permission_classes = (IsAuthenticated,IsAdminUser)
+    permission_classes = (IsAuthenticated & IsAdminUser)
     queryset = userModel.objects.all()
     serializer_class = serializers.UserSerializer
 
 
+class newestAppsListView(generics.ListCreateAPIView):
+    queryset = appModel.objects.all().order_by('-createdAt')
+    serializer_class = serializers.UserSerializer
