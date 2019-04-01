@@ -4,6 +4,7 @@ from app_product.models import APP as appModel
 from users.models import CustomUser as userModel
 from . import serializers
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
+from rest_framework.decorators import api_view
 
 class AppListView(generics.ListCreateAPIView):
     queryset = appModel.objects.all()
@@ -19,3 +20,17 @@ class UserListView(generics.ListCreateAPIView):
 class newestAppsListView(generics.ListCreateAPIView):
     queryset = appModel.objects.all().order_by('-createdAt')
     serializer_class = serializers.UserSerializer
+
+
+class oldestAppsListView(generics.ListCreateAPIView):
+    queryset = appModel.objects.all().order_by('createdAt')
+    serializer_class = serializers.UserSerializer
+
+'''
+@api_view(['GET', 'POST'])
+def sortedByFakListView():
+    if request.method == 'POST':
+        
+    else:
+        queryset = appModel.objects.all().order_by('createdAt')
+        serializer_class = serializers.UserSerializer '''
