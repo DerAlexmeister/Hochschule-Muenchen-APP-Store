@@ -39,5 +39,9 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = userModel.CustomUser
         fields = ('email', 
-            'typOfAccount', 
+            'is_staff',
+            'is_active',
+            'date_joined',
+            'typOfAccount',
+            'Fakultaet'
         )
