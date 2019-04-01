@@ -27,6 +27,8 @@ class APP(models.Model):
     website = models.URLField(max_length=512, blank=True, null=True)
     contectEmail = models.EmailField(max_length=70)
     sourcefiles = models.FileField(upload_to=user_directory_path)
+    smallPic = models.ImageField(upload_to=user_directory_path, blank=True)
+    bigimg = models.ImageField(upload_to=user_directory_path, blank=True)
     objects = models.Manager()
 
     def __str__(self):
@@ -37,9 +39,7 @@ class appKomments(models.Model):
       settings.AUTH_USER_MODEL,
       on_delete=models.CASCADE
     )
-    post = models.ForeignKey(
-            APP,
-            on_delete=models.CASCADE)
+    post = models.ForeignKey(APP, on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
     kommentar = models.CharField(max_length=1024)
     objects = models.Manager()
