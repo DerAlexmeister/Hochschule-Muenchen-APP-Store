@@ -33,7 +33,6 @@ class APP(models.Model):
       return "APP-Name: " + str(self.appname) + " APP-ID:" + str(self.appID) + " APP-Creator:" + str(self.creator)
   
 class appKomments(models.Model):
-    models.AutoField(primary_key=True)
     creator = models.ForeignKey(
       settings.AUTH_USER_MODEL,
       on_delete=models.CASCADE
@@ -44,3 +43,8 @@ class appKomments(models.Model):
     title = models.CharField(max_length=255)
     kommentar = models.CharField(max_length=1024)
     objects = models.Manager()
+    createdAt = models.DateTimeField(default=timezone.now)
+    lastMod = models.DateField(auto_now=True)
+
+    def __str__(self):
+      return "Comment-Title:" + str(self.title) + " Comment-Creator:" + str(self.creator)
