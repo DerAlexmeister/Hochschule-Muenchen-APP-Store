@@ -30,7 +30,7 @@ class APP(models.Model):
     objects = models.Manager()
 
     def __str__(self):
-      return str(self.appname) + " " + str(self.appID) + " " + str(self.creator)
+      return "APP-Name: " + str(self.appname) + " APP-ID:" + str(self.appID) + " APP-Creator:" + str(self.creator)
   
 class appKomments(models.Model):
     models.AutoField(primary_key=True)
