@@ -19,12 +19,12 @@ class UserListView(generics.ListCreateAPIView):
 
 class newestAppsListView(generics.ListCreateAPIView):
     queryset = appModel.objects.all().order_by('-createdAt')
-    serializer_class = serializers.UserSerializer
+    serializer_class = serializers.AppSerializer
 
 
 class oldestAppsListView(generics.ListCreateAPIView):
     queryset = appModel.objects.all().order_by('createdAt')
-    serializer_class = serializers.UserSerializer
+    serializer_class = serializers.AppSerializer
 
 '''
 @api_view(['GET', 'POST'])
