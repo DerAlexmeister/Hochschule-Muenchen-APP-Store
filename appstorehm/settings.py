@@ -1,5 +1,4 @@
 import os
-#import django_heroku
 import dj_database_url
 import psycopg2
 
@@ -10,7 +9,7 @@ SECRET_KEY = 'z5%myh$tga)(z-7mzy7)ep%w1$g_s5f%tt)*atkc-40!f*&ay6'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['*'] #'*', '.herokuapp.com', "localhost", "127.0.0.1"
+ALLOWED_HOSTS = ['*']
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
@@ -21,11 +20,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #Non standerd
+    # Non standerd
     'rest_framework',
     'rest_framework.authtoken',
     'rest_auth',
-    #'corsheaders'
+    # 'corsheaders'
     # My Apps
     'app_product',
     'authentication',
@@ -64,17 +63,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'appstorehm.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-
 DATABASES = {
     'default': dj_database_url.config()
 }
-
-
-# Password validation
-# https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -125,5 +116,3 @@ REST_FRAMEWORK = {
 # CORS_ORIGIN_WHITELIST = (
 #        'localhost:3000',
 # )
-
-#django_heroku.settings(locals())
