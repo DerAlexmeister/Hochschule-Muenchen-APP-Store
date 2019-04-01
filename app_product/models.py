@@ -46,7 +46,6 @@ class APP(models.Model):
     appname = models.CharField(max_length=128)
     body = models.TextField(max_length=500)
     downloads = models.IntegerField(default=0)
-    keywords = JSONField(null=True)
     createdAt = models.DateTimeField(default=timezone.now)
     lastMod = models.DateField(auto_now=True)
     website = models.URLField(max_length=512, blank=True, null=True)
