@@ -32,7 +32,7 @@ class APP(models.Model):
     objects = models.Manager()
 
     def __str__(self):
-      return "APP-Name: " + str(self.appname) + " APP-ID:" + str(self.appID) + " APP-Creator:" + str(self.creator)
+      return "APP-Name: " + str(self.appname) + " APP-ID: " + str(self.appID) + " APP-Creator: " + str(self.creator)
   
 class appKomments(models.Model):
     creator = models.ForeignKey(
