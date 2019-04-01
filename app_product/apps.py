@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class AppProductConfig(AppConfig):
-    name = 'appproduct'
+    name = 'app_product'

@@ -27,6 +27,7 @@ class APP(models.Model):
     website = models.URLField(max_length=512, blank=True, null=True)
     contectEmail = models.EmailField(max_length=70)
     sourcefiles = models.FileField(upload_to=user_directory_path)
+    objects = models.Manager()
   
 class appKomments(models.Model):
     models.AutoField(primary_key=True)
@@ -39,3 +40,4 @@ class appKomments(models.Model):
             on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
     kommentar = models.CharField(max_length=1024)
+    objects = models.Manager()
