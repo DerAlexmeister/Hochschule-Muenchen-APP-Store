@@ -18,7 +18,7 @@ class AppSerializer(serializers.ModelSerializer):
             'sourcefiles',
             'smallPic',
             'bigimg',
-            'typeOfAccount',
+            'typOfAccount',
             'Fakultaet'
         )
 
