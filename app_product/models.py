@@ -12,6 +12,32 @@ def user_directory_path(instance, filename):
 #     name = models.TextField()
  
 class APP(models.Model):
+    TypeOfUserAccount = (
+    ('ST', 'Student'), #student
+    ('SA', 'Staff'), #staff
+    ('PR', 'Professor'), # prof
+    ('Fr', 'Externer Student'), #foreign
+    ('All','Non Type') # for Everybody
+    )
+
+    FK = (
+    ('FK00', 'General'),
+    ('FK01', 'Fakultät 01'),  
+    ('FK02', 'Fakultät 02'),  
+    ('FK03', 'Fakultät 03'),  
+    ('FK04', 'Fakultät 04'),  
+    ('FK05', 'Fakultät 05'),  
+    ('FK06', 'Fakultät 06'),  
+    ('FK07', 'Fakultät 07'),  
+    ('FK08', 'Fakultät 08'),  
+    ('FK09', 'Fakultät 09'),  
+    ('FK10', 'Fakultät 10'),  
+    ('FK11', 'Fakultät 11'),  
+    ('FK12', 'Fakultät 12'),  
+    ('FK13', 'Fakultät 13'),  
+    ('FK14', 'Fakultät 14'),  
+    )
+
     appID = models.AutoField(primary_key=True)
     creator = models.ForeignKey(
       settings.AUTH_USER_MODEL,
@@ -28,6 +54,16 @@ class APP(models.Model):
     sourcefiles = models.FileField(upload_to=user_directory_path)
     smallPic = models.ImageField(upload_to=user_directory_path, blank=True)
     bigimg = models.ImageField(upload_to=user_directory_path, blank=True)
+    typOfAccount = models.CharField(
+        max_length=4,
+        choices=TypeOfUserAccount,
+        default='All',
+    )
+    Fakultaet = models.CharField(
+        max_length=4,
+        choices=FK,
+        default='FK00',
+    )
     objects = models.Manager()
 
     def __str__(self):
