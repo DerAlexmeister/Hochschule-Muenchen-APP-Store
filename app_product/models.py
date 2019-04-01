@@ -11,6 +11,10 @@ def user_directory_path(instance, filename):
 #     img = models.ImageField(upload_to=user_directory_path)
 #     name = models.TextField()
  
+def get_default_data():
+    return { 'null':'null' }
+
+
 class APP(models.Model):
     TypeOfUserAccount = (
     ('ST', 'Student'), #student
@@ -46,6 +50,7 @@ class APP(models.Model):
     appname = models.CharField(max_length=128)
     body = models.TextField(max_length=500)
     downloads = models.IntegerField(default=0)
+    keywords = JSONField(default=get_default_data, blank=True, null=True)
     createdAt = models.DateTimeField(default=timezone.now)
     lastMod = models.DateField(auto_now=True)
     website = models.URLField(max_length=512, blank=True, null=True)
