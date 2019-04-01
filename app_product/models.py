@@ -28,6 +28,9 @@ class APP(models.Model):
     contectEmail = models.EmailField(max_length=70)
     sourcefiles = models.FileField(upload_to=user_directory_path)
     objects = models.Manager()
+
+    def __str__(self):
+      return str(self.appname) + " " + str(self.appID) + " " + str(self.creator)
   
 class appKomments(models.Model):
     models.AutoField(primary_key=True)
