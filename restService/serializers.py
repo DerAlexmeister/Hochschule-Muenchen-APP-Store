@@ -3,14 +3,19 @@ from app_product import models
 from users import models as userModel
 
 class AppSerializer(serializers.ModelSerializer):
+    '''
+    Serializer Class for the APP Model.
+    '''
     class Meta:
+        '''
+        Meta Class for the APP Model.
+        '''
         model = models.APP
         fields = ('appID', 
             'creator', 
             'appname', 
             'body',
             'downloads',
-            #'keywords',
             'createdAt',
             'lastMod',
             'website',
@@ -23,7 +28,13 @@ class AppSerializer(serializers.ModelSerializer):
         )
 
 class CommentSerializer(serializers.ModelSerializer):
+    '''
+    Serializer Class for the Comment Model.
+    '''
     class Meta:
+        '''
+        Meta Class for the Comment Model.
+        '''
         model = models.appKomments
         fields = ('creator',
             'post',
@@ -35,7 +46,13 @@ class CommentSerializer(serializers.ModelSerializer):
 
 
 class UserSerializer(serializers.ModelSerializer):
+    '''
+    Serializer Class for the User Model.
+    '''
     class Meta:
+        '''
+        Meta Class for the User Model.
+        '''
         model = userModel.CustomUser
         fields = ('email', 
             'is_staff',

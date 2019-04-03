@@ -30,7 +30,6 @@ INSTALLED_APPS = [
     # 'corsheaders'
     # My Apps
     'app_product',
-    'authentication',
     'restService',
     'users'
 ]

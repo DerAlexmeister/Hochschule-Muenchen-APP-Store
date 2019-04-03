@@ -2,7 +2,9 @@ from django.urls import include, path
 from django.views.decorators.csrf import csrf_exempt  
 from . import views
 
-
+'''
+URL Pattern for the entire REST-API
+'''
 urlpatterns = [
     #Apps
     path('apps/', views.appListView.as_view(), name="Apps-Basic-Url"),
