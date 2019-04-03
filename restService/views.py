@@ -11,25 +11,25 @@ from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
+from django.shortcuts import redirect
 
 @csrf_exempt
-@api_view(['GET', 'POST'])
 def app_list(request):
-    queryset = appModel.objects.all()
-    serializer_class = serializers.AppSerializer
-    if request.method == 'GET':
-        apps = appModel.objects.all()
-        serializer = serializers.AppSerializer(apps, many=True)
-        return JsonResponse(serializer.data, safe=False)
-
-    elif request.method == 'POST':
+    if request.method == 'POST':
         data = JSONParser().parse(request)
         serializer = serializers.AppSerializer(data=data)
         if serializer.is_valid():
             serializer.save()
             return JsonResponse(serializer.data, status=201)
         return JsonResponse(serializer.errors, status=400)
+    else:
+        return redirect('Apps-Basic-Url')
 
+
+class appListView(generics.ListCreateAPIView):
+    http_method_names = ['GET', 'POST']
+    queryset = appModel.objects.all()
+    serializer_class = serializers.AppSerializer
 
 @csrf_exempt
 def app_details(request, pk):
