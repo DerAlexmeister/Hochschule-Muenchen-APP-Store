@@ -11,5 +11,5 @@ urlpatterns = [
     path('apps/lessdownloads', views.tinyDownloadsListView.as_view()),
 
     #User/Permission
-    path('users/', views.UserListView)
+    path('users/', views.UserListView.as_view())
 ]
