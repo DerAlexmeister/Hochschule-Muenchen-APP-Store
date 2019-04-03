@@ -50,7 +50,7 @@ ROOT_URLCONF = 'appstorehm.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['../app/staticfiles/templates/'],
+        'DIRS': ['os.path.join('BASE_DIR, 'build')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -98,7 +98,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, "build/static"),
 )
 
 STATIC_ROOT = os.path.join(BASE_DIR, "live-static-files", "static-root")
