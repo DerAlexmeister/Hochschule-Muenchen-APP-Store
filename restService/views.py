@@ -25,19 +25,6 @@ def app_list(request):
     else:
         return redirect('Apps-Basic-Url')
 
-
-@csrf_exempt
-def createUser(request):
-    if request.method == 'POST':
-        data = JSONParser().parse(request)
-        serializer = serializers.UserSerializer(data=data)
-        if serializer.is_valid():
-            serializer.save()
-            return JsonResponse(serializer.data, status=201)
-        return JsonResponse(serializer.errors, status=400)
-    else:
-        return redirect('Basic_user_url')
-
 class appListView(generics.ListCreateAPIView):
     http_method_names = ['get']
     queryset = appModel.objects.all()
@@ -77,3 +64,27 @@ class tinyDownloadsListView(generics.ListCreateAPIView):
     queryset = appModel.objects.all().order_by('downloads')
     serializer_class = serializers.AppSerializer
 
+@csrf_exempt
+def createUser(request):
+    if request.method == 'POST':
+        data = JSONParser().parse(request)
+        serializer = serializers.UserSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data, status=201)
+        return JsonResponse(serializer.errors, status=400)
+    else:
+        return redirect('Basic_user_url')
+
+
+@csrf_exempt
+def newComments(request):
+    if request.method == 'POST':
+        data = JSONParser().parse(request)
+        serializer = serializers.CommentSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data, status=201)
+        return JsonResponse(serializer.errors, status=400)
+    else:
+        return redirect('newComment')
