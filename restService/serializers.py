@@ -2,7 +2,7 @@ from rest_framework import serializers
 from app_product import models
 from users import models as userModel
 
-class AppSerializer(serializers.Serializer):
+class AppSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.APP
         fields = ('appID', 
