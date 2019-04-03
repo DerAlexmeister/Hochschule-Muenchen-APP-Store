@@ -6,7 +6,7 @@ from django.conf.urls.static import static
 from django.views.generic import TemplateView
 
 urlpatterns = [
-    path('', views.index),
+    #path('', views.index),
     path('admin/', admin.site.urls),
     path('api/', include('restService.urls')),
     path('rest-auth/', include('rest_auth.urls')),
