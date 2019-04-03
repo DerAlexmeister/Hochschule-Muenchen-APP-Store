@@ -7,17 +7,33 @@ from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from django.http import HttpResponse, JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from rest_framework.renderers import JSONRenderer
+from rest_framework.parsers import JSONParser
+from django.shortcuts import redirect
 
-class AppListView(APIView):
+@csrf_exempt
+def app_list(request):
+    if request.method == 'POST':
+        data = JSONParser().parse(request)
+        serializer = serializers.AppSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data, status=201)
+        return JsonResponse(serializer.errors, status=400)
+    else:
+        return redirect('Apps-Basic-Url')
 
-    def get_queryset(self):
-        queryset = appModel.objects.all()
-        return queryset
 
-    def get(self, request):
-        return Response({
-            "Apps-List:": self.get_queryset()
-        })
+class appListView(generics.ListCreateAPIView):
+    http_method_names = ['get']
+    queryset = appModel.objects.all()
+    serializer_class = serializers.AppSerializer
+
+@csrf_exempt
+def app_details(request, pk):
+    return JsonResponse('lala', status=200)
 
 
 class UserListView(generics.ListCreateAPIView):
@@ -27,25 +43,25 @@ class UserListView(generics.ListCreateAPIView):
 
 
 class newestAppsListView(generics.ListCreateAPIView):
-    http_method_names = ['get']
+    http_method_names = ['GET']
     queryset = appModel.objects.all().order_by('-createdAt')
     serializer_class = serializers.AppSerializer
 
 
 class oldestAppsListView(generics.ListCreateAPIView):
-    http_method_names = ['get']
+    http_method_names = ['GET']
     queryset = appModel.objects.all().order_by('createdAt')
     serializer_class = serializers.AppSerializer
 
 
 class mostDownloadsListView(generics.ListCreateAPIView):
-    http_method_names = ['get']
+    http_method_names = ['GET']
     queryset = appModel.objects.all().order_by('-downloads')
     serializer_class = serializers.AppSerializer
 
 
 class tinyDownloadsListView(generics.ListCreateAPIView):
-    http_method_names = ['get']
+    http_method_names = ['GET']
     queryset = appModel.objects.all().order_by('downloads')
     serializer_class = serializers.AppSerializer
 

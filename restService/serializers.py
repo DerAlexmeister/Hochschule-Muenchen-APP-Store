@@ -22,7 +22,6 @@ class AppSerializer(serializers.ModelSerializer):
             'Fakultaet'
         )
 
-
 class CommentSerilzaer(serializers.ModelSerializer):
     class Meta:
         model = models.appKomments
