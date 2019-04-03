@@ -27,7 +27,7 @@ def app_list(request):
 
 
 class appListView(generics.ListCreateAPIView):
-    http_method_names = ['GET', 'POST']
+    http_method_names = ['GET']
     queryset = appModel.objects.all()
     serializer_class = serializers.AppSerializer
 
@@ -43,25 +43,25 @@ class UserListView(generics.ListCreateAPIView):
 
 
 class newestAppsListView(generics.ListCreateAPIView):
-    http_method_names = ['get']
+    http_method_names = ['GET']
     queryset = appModel.objects.all().order_by('-createdAt')
     serializer_class = serializers.AppSerializer
 
 
 class oldestAppsListView(generics.ListCreateAPIView):
-    http_method_names = ['get']
+    http_method_names = ['GET']
     queryset = appModel.objects.all().order_by('createdAt')
     serializer_class = serializers.AppSerializer
 
 
 class mostDownloadsListView(generics.ListCreateAPIView):
-    http_method_names = ['get']
+    http_method_names = ['GET']
     queryset = appModel.objects.all().order_by('-downloads')
     serializer_class = serializers.AppSerializer
 
 
 class tinyDownloadsListView(generics.ListCreateAPIView):
-    http_method_names = ['get']
+    http_method_names = ['GET']
     queryset = appModel.objects.all().order_by('downloads')
     serializer_class = serializers.AppSerializer
 

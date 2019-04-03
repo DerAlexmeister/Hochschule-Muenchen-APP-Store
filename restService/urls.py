@@ -4,7 +4,7 @@ from . import views
 
 urlpatterns = [
     #Apps
-    path('apps/', views.appListView, name="Apps-Basic-Url"),
+    path('apps/', views.appListView.as_view(), name="Apps-Basic-Url"),
     path('apps/new', views.app_list),
     path('apps/<int:pk>', views.app_details),
     path('apps/newest', views.newestAppsListView.as_view()),
