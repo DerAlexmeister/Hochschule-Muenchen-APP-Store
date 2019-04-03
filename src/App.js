@@ -17,6 +17,7 @@ class App extends Component {
             target="_blank"
             rel="noopener noreferrer"
           >
+          <menu></menu>
             Learn React
           </a>
         </header>
@@ -24,5 +25,11 @@ class App extends Component {
     );
   }
 }
-
+class menu extends Component {
+  render() {
+    return (
+      <div>Test</div>
+    )
+  }
+}
 export default App;
