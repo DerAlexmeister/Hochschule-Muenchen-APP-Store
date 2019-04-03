@@ -1,4 +1,8 @@
 {
     "creator" : 1,
-    "appname" : "Test via "
+    "appname" : "Test via ",
+    "body" : "Some body",
+    "contectEmail" : "testes@plantree.de",
+    "typOfAccount" : "All",
+    "Fakultaet" : "FK07"
 }
