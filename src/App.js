@@ -5,12 +5,12 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-        <menu></menu>
+        <h1>Test</h1>
     );
   }
 }
 
-class menu extends Component {
+class menu2 extends Component {
   render() {
     return (
       <div>Test</div>
