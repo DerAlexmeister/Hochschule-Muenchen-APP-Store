@@ -21,7 +21,7 @@ def app_list(request):
 
     elif request.method == 'POST':
         data = JSONParser().parse(request)
-        serializer = serializers.AppSerializer(data)
+        serializer = serializers.AppSerializer(data=data)
         if serializer.is_valid():
             serializer.save()
             return JsonResponse(serializer.data, status=201)
