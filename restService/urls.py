@@ -13,7 +13,8 @@ urlpatterns = [
     path('apps/mostdownloads', views.mostDownloadsListView.as_view()),
     path('apps/lessdownloads', views.tinyDownloadsListView.as_view()),
     path('apps/newcomments', views.newComments, name="newComment"),
-
+    path('apps/changecomment', views.changecomment, name="changecomment"),
+    
     #User/Permission
     path('users/', views.UserListView.as_view(), name="Basic_user_url"),
     path('users/new', views.createUser, name="new User")

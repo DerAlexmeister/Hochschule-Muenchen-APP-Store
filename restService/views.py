@@ -88,3 +88,16 @@ def newComments(request):
         return JsonResponse(serializer.errors, status=400)
     else:
         return redirect('newComment')
+
+
+@csrf_exempt
+def changecomment(request):
+    if request.method == 'PATCH':
+        data = JSONParser().parse(request)
+        serializer = serializers.CommentSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data, status=201)
+        return JsonResponse(serializer.errors, status=400)
+    else:
+        return redirect('Apps-Basic-Url')
