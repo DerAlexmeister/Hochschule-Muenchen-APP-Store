@@ -15,6 +15,8 @@ from rest_framework.parsers import JSONParser
 @csrf_exempt
 @api_view(['GET', 'POST'])
 def app_list(request):
+    queryset = appModel.objects.all()
+    serializer_class = serializers.AppSerializer
     if request.method == 'GET':
         apps = appModel.objects.all()
         serializer = serializers.AppSerializer(apps, many=True)
