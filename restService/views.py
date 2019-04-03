@@ -9,10 +9,15 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 class AppListView(APIView):
-    
+
+    def get_queryset(self):
+        queryset = appModel.objects.all()
+        return queryset
+
     def get(self, request):
+        serializer_class = serializers.AppSerializer(self.get_queryset())
         return Response({
-            "Apps-List:": serializers.AppSerializer(appModel.objects.all())
+            "Apps-List:": serializer_class
         })
 
 
@@ -23,21 +28,25 @@ class UserListView(generics.ListCreateAPIView):
 
 
 class newestAppsListView(generics.ListCreateAPIView):
+    http_method_names = ['get']
     queryset = appModel.objects.all().order_by('-createdAt')
     serializer_class = serializers.AppSerializer
 
 
 class oldestAppsListView(generics.ListCreateAPIView):
+    http_method_names = ['get']
     queryset = appModel.objects.all().order_by('createdAt')
     serializer_class = serializers.AppSerializer
 
 
 class mostDownloadsListView(generics.ListCreateAPIView):
+    http_method_names = ['get']
     queryset = appModel.objects.all().order_by('-downloads')
     serializer_class = serializers.AppSerializer
 
 
 class tinyDownloadsListView(generics.ListCreateAPIView):
+    http_method_names = ['get']
     queryset = appModel.objects.all().order_by('downloads')
     serializer_class = serializers.AppSerializer
 
