@@ -43,5 +43,6 @@ class UserSerializer(serializers.ModelSerializer):
             'is_active',
             'date_joined',
             'typOfAccount',
-            'Fakultaet'
+            'Fakultaet',
+            'verified'
         )
