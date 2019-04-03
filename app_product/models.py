@@ -48,9 +48,8 @@ class APP(models.Model):
       on_delete=models.CASCADE
     )
     appname = models.CharField(max_length=128)
-    body = models.TextField(max_length=500)
+    body = models.TextField(max_length=512)
     downloads = models.IntegerField(default=0)
-    keywords = JSONField()
     createdAt = models.DateTimeField(default=timezone.now)
     lastMod = models.DateField(auto_now=True)
     website = models.URLField(max_length=512, blank=True, null=True)
@@ -79,7 +78,7 @@ class appKomments(models.Model):
       on_delete=models.CASCADE
     )
     post = models.ForeignKey(APP, on_delete=models.CASCADE)
-    title = models.CharField(max_length=255)
+    title = models.CharField(max_length=128)
     kommentar = models.CharField(max_length=1024)
     objects = models.Manager()
     createdAt = models.DateTimeField(default=timezone.now)
