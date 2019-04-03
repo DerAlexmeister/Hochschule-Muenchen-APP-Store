@@ -15,9 +15,8 @@ class AppListView(APIView):
         return queryset
 
     def get(self, request):
-        serializer_class = serializers.AppSerializer(self.get_queryset())
         return Response({
-            "Apps-List:": serializer_class
+            "Apps-List:": self.get_queryset()
         })
 
 
