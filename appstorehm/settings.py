@@ -25,6 +25,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'rest_auth',
+    'django_jenkins',
     # 'corsheaders'
     # My Apps
     'app_product',
@@ -84,6 +85,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+JENKINS_TASKS = (
+    'django_jenkins.tasks.run_pep8',
+    'django_jenkins.tasks.run_pyflakes',
+    'django_jenkins.tasks.run_jslint',
+    'django_jenkins.tasks.run_csslint',
+    'django_jenkins.tasks.run_sloccount'
+)
 
 LANGUAGE_CODE = 'de-DE'
 
