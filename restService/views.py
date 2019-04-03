@@ -13,7 +13,7 @@ class AppListView(generics.ListCreateAPIView):
 
 
 class UserListView(generics.ListCreateAPIView):
-    permission_classes = (IsAuthenticated & IsAdminUser)
+    permission_classes = (IsAuthenticated, IsAdminUser)
     queryset = userModel.objects.all()
     serializer_class = serializers.UserSerializer
 
