@@ -13,6 +13,7 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 
 @csrf_exempt
+@api_view()
 def app_list(request):
     if request.method == 'GET':
         apps = appModel.objects.all()

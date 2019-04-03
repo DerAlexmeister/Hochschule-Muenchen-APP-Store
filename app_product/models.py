@@ -54,7 +54,7 @@ class APP(models.Model):
     lastMod = models.DateField(auto_now=True)
     website = models.URLField(max_length=512, blank=True, null=True)
     contectEmail = models.EmailField(max_length=70)
-    sourcefiles = models.FileField(upload_to=user_directory_path)
+    sourcefiles = models.FileField(upload_to=user_directory_path, blank=True)
     smallPic = models.ImageField(upload_to=user_directory_path, blank=True)
     bigimg = models.ImageField(upload_to=user_directory_path, blank=True)
     typOfAccount = models.CharField(
