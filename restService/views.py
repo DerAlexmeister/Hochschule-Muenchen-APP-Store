@@ -5,11 +5,15 @@ from users.models import CustomUser as userModel
 from . import serializers
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
-
-class AppListView(generics.ListCreateAPIView):
-    queryset = appModel.objects.all()
-    serializer_class = serializers.AppSerializer
+class AppListView(APIView):
+    
+    def get(self, request):
+        return Response({
+            "Apps-List:": serializers.AppSerializer(appModel.objects.all())
+        })
 
 
 class UserListView(generics.ListCreateAPIView):
