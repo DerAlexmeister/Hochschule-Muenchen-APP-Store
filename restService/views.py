@@ -27,7 +27,7 @@ def app_list(request):
 
 
 class appListView(generics.ListCreateAPIView):
-    http_method_names = ['GET']
+    http_method_names = ['get']
     queryset = appModel.objects.all()
     serializer_class = serializers.AppSerializer
 
