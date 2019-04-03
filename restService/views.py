@@ -26,6 +26,18 @@ def app_list(request):
         return redirect('Apps-Basic-Url')
 
 
+@csrf_exempt
+def createUser(request):
+    if request.method == 'POST':
+        data = JSONParser().parse(request)
+        serializer = serializers.UserSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data, status=201)
+        return JsonResponse(serializer.errors, status=400)
+    else:
+        return redirect('Basic_user_url')
+
 class appListView(generics.ListCreateAPIView):
     http_method_names = ['get']
     queryset = appModel.objects.all()

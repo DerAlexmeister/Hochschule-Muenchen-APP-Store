@@ -13,5 +13,6 @@ urlpatterns = [
     path('apps/lessdownloads', views.tinyDownloadsListView.as_view()),
 
     #User/Permission
-    path('users/', views.UserListView.as_view())
+    path('users/', views.UserListView.as_view(), name="Basic_user_url"),
+    path('users/new', views.createUser)
 ]
