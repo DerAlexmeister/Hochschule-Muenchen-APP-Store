@@ -121,7 +121,7 @@ def app_details(request, pk):
 def appsFromCreator(request, creator):
     if request.method == 'GET':
         try:
-            data = appModel.objects.get(creator=creator)
+            data = appModel.objects.all().filter(creator=creator)
         except Exception as error:
             print(error)
         if data is None:
