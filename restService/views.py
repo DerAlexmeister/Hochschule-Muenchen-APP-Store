@@ -89,7 +89,6 @@ class tinyDownloadsListView(generics.ListCreateAPIView):
 #
 
 @csrf_exempt
-@api_view(["GET"])
 def app_details(request, pk):
     if request.method == 'GET':
         data = appModel.objects.all().filter(appID=pk)
@@ -98,9 +97,12 @@ def app_details(request, pk):
                 "error": "Unknown App"
             }, status=400)
         return JsonResponse(data, status=200)
+    else:
+        return JsonResponse({
+                "error": "Only GET - Requests are allowed"
+            }, status=400)
 
 @csrf_exempt
-@api_view(["GET"])
 def appsFromCreator(request, creator):
     if request.method == 'GET':
         data = appModel.objects.all().filter(appID=creator)
@@ -109,7 +111,10 @@ def appsFromCreator(request, creator):
                 "error": "Unknown Creator"
             }, status=400)
         return JsonResponse(data, status=200)
-
+    else:
+        return JsonResponse({
+                "error": "Only GET - Requests are allowed"
+            }, status=400)
 
 @csrf_exempt
 def createUser(request):
