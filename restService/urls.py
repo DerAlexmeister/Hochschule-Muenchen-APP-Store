@@ -18,7 +18,7 @@ urlpatterns = [
 
     # Dynamic App URLs
     path('apps/<int:pk>', views.app_details),
-    #path('apps/creator/<int:creator>', views.appsFromCreator, name="appsfromCreatorByID"),
+    path('apps/c-<int:creator>', views.appsFromCreator, name="appsfromCreatorByID"),
     
     # User/Permission
     path('users/', views.UserListView.as_view(), name="Basic_user_url"),

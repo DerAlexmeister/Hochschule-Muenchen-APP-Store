@@ -108,20 +108,24 @@ def app_details(request, pk):
                 "error": "Only GET - Requests are allowed"
             }, status=400)
 
-'''@csrf_exempt
+@csrf_exempt
+@permission_classes((AllowAny, ))
 def appsFromCreator(request, creator):
     if request.method == 'GET':
-        data = appModel.objects.all().filter(creator=creator)
+        try:
+            data = appModel.objects.get(creator=creator)
+        except:
+            return Response(status=HTTP_404_NOT_FOUND)
         if data is None:
             return JsonResponse({
-                "error": "Unknown Creator"
-            }, status=400)
-        return JsonResponse(data, status=200)
+            "error": "Unknown Creator"
+        }, status=400)
+        serialized_data = serializers.AppSerializer(data, many=True)
+        return JsonResponse(serialized_data.data, status=200)
     else:
         return JsonResponse({
                 "error": "Only GET - Requests are allowed"
             }, status=400)
-'''
 
 @csrf_exempt
 def createUser(request):
