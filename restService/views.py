@@ -101,7 +101,7 @@ def app_details(request, pk):
         except:
             return Response(status=HTTP_404_NOT_FOUND)
         serialized_data = serializers.AppSerializer(data)
-        return Response(serialized_data.data, status=200)
+        return JsonResponse(serialized_data.data, status=200)
     else:
         return JsonResponse({
                 "error": "Only GET - Requests are allowed"
