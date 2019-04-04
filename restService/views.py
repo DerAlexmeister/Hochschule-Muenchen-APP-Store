@@ -88,22 +88,26 @@ class tinyDownloadsListView(generics.ListCreateAPIView):
 #
 #
 
+'''        if serialized_data is None:
+            return JsonResponse({
+                "error": "Unknown App"
+            }, status=400)'''
+
 @csrf_exempt
 def app_details(request, pk):
     if request.method == 'GET':
-        data = appModel.objects.all().filter(appID=pk)
+        try:
+            data = appModel.objects.get(appID=pk)
+        except:
+            return Response(status=HTTP_404_NOT_FOUND)
         serialized_data = serializers.AppSerializer(data)
-        if serialized_data is None:
-            return JsonResponse({
-                "error": "Unknown App"
-            }, status=400)
         return Response(serialized_data.data, status=200)
     else:
         return JsonResponse({
                 "error": "Only GET - Requests are allowed"
             }, status=400)
 
-@csrf_exempt
+'''@csrf_exempt
 def appsFromCreator(request, creator):
     if request.method == 'GET':
         data = appModel.objects.all().filter(creator=creator)
@@ -116,6 +120,7 @@ def appsFromCreator(request, creator):
         return JsonResponse({
                 "error": "Only GET - Requests are allowed"
             }, status=400)
+'''
 
 @csrf_exempt
 def createUser(request):
