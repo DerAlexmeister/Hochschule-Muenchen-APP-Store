@@ -92,7 +92,7 @@ class tinyDownloadsListView(generics.ListCreateAPIView):
 def app_details(request, pk):
     if request.method == 'GET':
         data = appModel.objects.all().filter(appID=pk)
-        serialized_data = serializers.AppSerializer(date=data)
+        serialized_data = serializers.AppSerializer(data)
         if serialized_data is None:
             return JsonResponse({
                 "error": "Unknown App"
