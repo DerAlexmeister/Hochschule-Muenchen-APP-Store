@@ -92,6 +92,9 @@ class tinyDownloadsListView(generics.ListCreateAPIView):
 @api_view(['GET'])
 @permission_classes((AllowAny, ))
 def app_details(request, pk):
+    '''
+    Method to get a detailed-view of an APP
+    '''
     if request.method == 'GET':
         try:
             data = appModel.objects.get(appID=pk)
@@ -108,22 +111,20 @@ def app_details(request, pk):
                 "error": "Only GET - Requests are allowed"
             }, status=400)
 
-
-'''
-            return JsonResponse({
-                "error" : "Unknown Creator ..."
-            }, status=400)
-'''
-
 @csrf_exempt
 @api_view(['GET'])
 @permission_classes((AllowAny, ))
 def appsFromCreator(request, creator):
+    '''
+    Method to get all apps created by a creator
+    '''
     if request.method == 'GET':
         try:
             data = appModel.objects.all().filter(creator=creator)
-        except Exception as error:
-            print(error)
+        except:
+            return JsonResponse({
+                "error" : "Unknown Creator"
+            }, status=400)
         if data is None:
             return JsonResponse({
             "error": "Unknown Creator"
