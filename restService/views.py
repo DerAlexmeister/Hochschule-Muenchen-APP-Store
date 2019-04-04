@@ -97,7 +97,7 @@ def app_details(request, pk):
             return JsonResponse({
                 "error": "Unknown App"
             }, status=400)
-        return JsonResponse(serialized_data, status=200)
+        return Response(serialized_data.data, status=200)
     else:
         return JsonResponse({
                 "error": "Only GET - Requests are allowed"
