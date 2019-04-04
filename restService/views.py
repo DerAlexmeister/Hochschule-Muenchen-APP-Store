@@ -117,7 +117,7 @@ def appsFromCreator(request, creator):
             data = appModel.objects.get(creator=creator)
         except:
             return JsonResponse({
-                "error" : "Unknown Creator"
+                "error" : "Unknown Creator ..."
             }, status=400)
         if data is None:
             return JsonResponse({
