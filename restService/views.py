@@ -88,18 +88,19 @@ class tinyDownloadsListView(generics.ListCreateAPIView):
 #
 #
 
-'''        if serialized_data is None:
-            return JsonResponse({
-                "error": "Unknown App"
-            }, status=400)'''
-
 @csrf_exempt
+@api_view(['GET'])
+@permission_classes((AllowAny, ))
 def app_details(request, pk):
     if request.method == 'GET':
         try:
             data = appModel.objects.get(appID=pk)
         except:
             return Response(status=HTTP_404_NOT_FOUND)
+        if data is None:
+            return JsonResponse({
+            "error": "Unknown App"
+        }, status=400)
         serialized_data = serializers.AppSerializer(data)
         return JsonResponse(serialized_data.data, status=200)
     else:
