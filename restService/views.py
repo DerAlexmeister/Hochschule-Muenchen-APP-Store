@@ -74,6 +74,7 @@ class UserListView(generics.ListCreateAPIView):
     only accessably as an Loggedin Admin
     '''
     permission_classes = (IsAuthenticated, IsAdminUser)
+    http_method_names = ['get']
     queryset = userModel.objects.all()
     serializer_class = serializers.UserSerializer
 
