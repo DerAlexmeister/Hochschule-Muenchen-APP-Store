@@ -19,5 +19,6 @@ urlpatterns = [
     
     #User/Permission
     path('users/', views.UserListView.as_view(), name="Basic_user_url"),
-    path('users/new', views.createUser, name="new User")
+    path('users/new', views.createUser, name="new User"),
+    path('users/login', views.login, name="login_via_rest")
 ]
