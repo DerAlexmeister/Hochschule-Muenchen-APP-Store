@@ -106,7 +106,7 @@ def app_details(request, pk):
 @csrf_exempt
 def appsFromCreator(request, creator):
     if request.method == 'GET':
-        data = appModel.objects.all().filter(appID=creator)
+        data = appModel.objects.all().filter(creator=creator)
         if data is None:
             return JsonResponse({
                 "error": "Unknown Creator"
