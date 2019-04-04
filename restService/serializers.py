@@ -2,6 +2,25 @@ from rest_framework import serializers
 from app_product import models
 from users import models as userModel
 
+class AppSmallSerializer(serializers.ModelSerializer):
+    '''
+    Serializer Class for the APP Model. (non Detailed Views)
+    '''
+    class Meta:
+        '''
+        Meta Class for the APP Model.
+        '''
+        model = models.APP
+        fields = ('appID', 
+            'creator', 
+            'appname', 
+            'downloads',
+            'smallPic',
+            'typOfAccount',
+            'Fakultaet'
+        )
+
+
 class AppSerializer(serializers.ModelSerializer):
     '''
     Serializer Class for the APP Model.
