@@ -109,13 +109,16 @@ def app_details(request, pk):
             }, status=400)
 
 @csrf_exempt
+@api_view(['GET'])
 @permission_classes((AllowAny, ))
 def appsFromCreator(request, creator):
     if request.method == 'GET':
         try:
             data = appModel.objects.get(creator=creator)
         except:
-            return Response(status=HTTP_404_NOT_FOUND)
+            return JsonResponse({
+                "error" : "Unknown Creator"
+            }, status=400)
         if data is None:
             return JsonResponse({
             "error": "Unknown Creator"
