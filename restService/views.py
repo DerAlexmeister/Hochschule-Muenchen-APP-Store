@@ -99,7 +99,7 @@ def app_details(request, pk):
             return Response(status=HTTP_404_NOT_FOUND)
         if data is None:
             return JsonResponse({
-            "error": "Unknown App"
+                "error": "Unknown App"
         }, status=400)
         serialized_data = serializers.AppSerializer(data)
         return JsonResponse(serialized_data.data, status=200)
@@ -129,7 +129,7 @@ def appsFromCreator(request, creator):
             "error": "Unknown Creator"
         }, status=400)
         serialized_data = serializers.AppSerializer(data, many=True)
-        return JsonResponse(serialized_data.data, status=200)
+        return JsonResponse(serialized_data.data, status=200, safe=False)
     else:
         return JsonResponse({
                 "error": "Only GET - Requests are allowed"
