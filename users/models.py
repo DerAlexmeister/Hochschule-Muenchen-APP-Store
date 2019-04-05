@@ -49,6 +49,9 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         default='FK07',
     )
     verified = models.BooleanField(default=False)
+
+
+    
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
     objects = CustomUserManager()
@@ -58,3 +61,5 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     def getUserName(self):
         return str(self.email)
+
+
