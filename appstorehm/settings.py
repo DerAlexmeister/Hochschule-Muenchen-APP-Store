@@ -71,7 +71,7 @@ WSGI_APPLICATION = 'appstorehm.wsgi.application'
 Database Information - Postgres/Heroku
 '''
 DATABASES = {
-    'default': dj_database_url.config()
+    'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
 }
 
 '''
