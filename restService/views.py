@@ -189,6 +189,9 @@ def changecomment(request):
 @api_view(["POST"])
 @permission_classes((AllowAny,))
 def login(request):
+    '''
+    Managing login for the rest-api will respone a TOKEN to login without user/pass combination
+    '''
     username = request.data.get("username")
     password = request.data.get("password")
     if username is None or password is None:

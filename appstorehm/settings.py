@@ -13,8 +13,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-AUTH_USER_MODEL = 'users.CustomUser'
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -22,12 +20,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     # Non standerd
     'rest_framework',
     'rest_framework.authtoken',
     'rest_auth',
     #'django_jenkins',
     # 'corsheaders'
+
     # My Apps
     'app_product',
     'restService',
@@ -66,9 +66,18 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'appstorehm.wsgi.application'
 
+'''
+Database Information - Postgres/Heroku
+'''
 DATABASES = {
     'default': dj_database_url.config()
 }
+
+'''
+Authentication Stuff 
+'''
+
+AUTH_USER_MODEL = 'users.CustomUser'
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -85,6 +94,16 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
+
+
+'''
+Django-Jenkins
+'''
+
 #JENKINS_TASKS = (
 #    'django_jenkins.tasks.run_pep8',
 #    'django_jenkins.tasks.run_pyflakes',
@@ -92,6 +111,10 @@ AUTH_PASSWORD_VALIDATORS = [
 #    'django_jenkins.tasks.run_csslint',
 #    'django_jenkins.tasks.run_sloccount'
 #)
+
+'''
+General Timezone and Date Configuration
+'''
 
 LANGUAGE_CODE = 'de-DE'
 
@@ -102,6 +125,11 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+
+'''
+Static/Media Files and Configuration
+'''
 
 STATIC_URL = '/static/'
 
@@ -117,6 +145,11 @@ MEDIA_URL = "/media/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "live-static-files", "media-root")
 
+
+
+'''
+Django-REST-Framework Authentication and Permission
+'''
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
