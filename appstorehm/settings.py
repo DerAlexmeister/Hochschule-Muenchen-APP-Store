@@ -9,7 +9,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'z5%myh$tga)(z-7mzy7)ep%w1$g_s5f%tt)*atkc-40!f*&ay6'
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -70,9 +70,29 @@ WSGI_APPLICATION = 'appstorehm.wsgi.application'
 '''
 Database Information - Postgres/Heroku
 '''
-DATABASES = {
+''' DATABASES = {
     'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
 }
+ '''
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql', 
+        'NAME': 'd9q2mrigvmvsmd',
+        'USER':'jmhkbvyixtnmvg',
+        'PASSWORD': 'ed838f986227b2ef8426f8cf205d9ee64727cd7ae55db4a27a5c02f4dd26207a',
+        'HOST':'ec2-54-228-243-238.eu-west-1.compute.amazonaws.com',
+        'PORT':'5432'
+    }
+}
+
+'''
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+'''
 
 '''
 Authentication Stuff 
