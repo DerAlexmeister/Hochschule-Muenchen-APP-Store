@@ -1,22 +1,29 @@
-from django.shortcuts import render
-from rest_framework import generics
+# Local Dependencys
 from app_product.models import APP as appModel
+from app_product.models import appKomments as commentModel
 from users.models import CustomUser as userModel
 from . import serializers
+
+# Django-Import
+from django.http import HttpResponse, JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from django.shortcuts import redirect
+from django.contrib.auth import authenticate
+from django.views.decorators.csrf import csrf_exempt
+from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+
+# REST-API Import 
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from django.http import HttpResponse, JsonResponse
-from django.views.decorators.csrf import csrf_exempt
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
-from django.shortcuts import redirect
-from django.contrib.auth import authenticate
-from django.views.decorators.csrf import csrf_exempt
 from rest_framework.authtoken.models import Token
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny
+from rest_framework import generics
 from rest_framework.status import (
     HTTP_400_BAD_REQUEST,
     HTTP_404_NOT_FOUND,
@@ -150,7 +157,6 @@ def createUser(request):
     else:
         return redirect('Basic_user_url')
 
-
 @csrf_exempt
 def newComments(request):
     '''
@@ -215,3 +221,136 @@ def app_list(request):
         return JsonResponse(serializer.errors, status=400)
     else:
         return redirect('Apps-Basic-Url')
+
+
+# Delete something
+
+@csrf_exempt
+@login_required(login_url='/login/')
+def deleteComment(request):
+    '''
+    Method to delete a Comment out of a POST request
+    '''
+    if request.method == 'POST':
+        try:
+            current_user = request.user
+            data = commentModel.objects.all().filter(creator=current_user.id).filter(appID=request.data.get("comment_Id")).delete()
+            return JsonResponse({
+                "Note" : "Your Comment has been deleted {}".format(data)
+            }, status=201)
+        except:
+            return JsonResponse({
+            "error" : "Please check your credentials"
+        }, status=400)
+    else:
+        return redirect('Basic_user_url')
+
+@csrf_exempt
+@login_required(login_url='/login/')
+def deleteUser(request):
+    '''
+    Method to delete a App out of a POST request
+    '''
+    if request.method == 'POST':
+        try:
+            current_user = request.user
+            data = appModel.objects.all().filter(creator=current_user.id).filter(appID=request.data.get("app_Id")).delete()
+            return JsonResponse({
+                "Note" : "Your APP has been deleted {}".format(data)
+            }, status=201)
+        except:
+            return JsonResponse({
+            "error" : "Please check your credentials"
+        }, status=400)
+    else:
+        return redirect('Basic_user_url')
+
+
+@csrf_exempt
+@login_required(login_url='/login/')
+def deleteApp(request):
+    '''
+    Method to delete a User out of a POST request
+    '''
+    if request.method == 'POST':
+        try:
+            current_user = request.user
+            userId= current_user.id 
+            data = userModel.objects.all().filter(id=userId).delete()
+            return JsonResponse({
+                "Note" : "Your accounted has been deleted {}".format(data)
+            }, status=201)
+        except:
+            return JsonResponse({
+            "error" : "Please check your credentials"
+        }, status=400)
+    else:
+        return redirect('Basic_user_url')
+
+# Update Function
+
+@csrf_exempt
+@login_required(login_url='/login/')
+def updateApp(request):
+    '''
+    Method to update a App out of a POST request
+    '''
+    if request.method == 'POST':
+        try:
+            current_user = request.user
+            mod = appModel.objects.all().filter(creator=current_user.id).filter(appID=request.data.get("app_Id"))
+            setattr(mod, str(request.data.get("field_to_change"), request.data.get('field_value')))
+            mod.save([str(request.data.get("field_to_change"))])
+            return JsonResponse({
+                "Note" : "Your APP has been updated"
+            }, status=201)
+        except:
+            return JsonResponse({
+            "error" : "Please check your credentials"
+        }, status=400)
+    else:
+        return redirect('Basic_user_url')
+
+@csrf_exempt
+@login_required(login_url='/login/')
+def updateComment(request):
+    '''
+    Method to update a App out of a POST request
+    '''
+    if request.method == 'POST':
+        try:
+            current_user = request.user
+            mod = commentModel.objects.all().filter(creator=current_user.id).filter(post=request.data.get("app_Id"))
+            setattr(mod, str(request.data.get("field_to_change"), request.data.get('field_value')))
+            mod.save([str(request.data.get("field_to_change"))])
+            return JsonResponse({
+                "Note" : "Your Comment has been updated"
+            }, status=201)
+        except:
+            return JsonResponse({
+            "error" : "Please check your credentials"
+        }, status=400)
+    else:
+        return redirect('Basic_user_url')
+
+@csrf_exempt
+@login_required(login_url='/login/')
+def updateUser(request):
+    '''
+    Method to update a App out of a POST request
+    '''
+    if request.method == 'POST':
+        try:
+            current_user = request.user
+            mod = userModel.objects.all().filter(id=current_user.id)
+            setattr(mod, str(request.data.get("field_to_change"), request.data.get('field_value')))
+            mod.save([str(request.data.get("field_to_change"))])
+            return JsonResponse({
+                "Note" : "Your Profil has been updated"
+            }, status=201)
+        except:
+            return JsonResponse({
+            "error" : "Please check your credentials"
+        }, status=400)
+    else:
+        return redirect('Basic_user_url')
