@@ -29,8 +29,8 @@ class userTestClass(TestCase):
 
     def test_isNoStuff(self):
         testUser = CustomUser.objects.first()
-        self.assertTrue(
-            testUser.is_stuff, 
+        self.assertFalse(
+            testUser.is_staff, 
             'Got a different boolan for isNoStuff then expected'
             )
 
@@ -63,4 +63,12 @@ class userTestClass(TestCase):
         self.assertIsNotNone(
             testUser.date_joined, 
             'date_joined is None but expected not to be none'
+            )
+
+    def test_getName(self):
+        testUser = CustomUser.objects.first()
+        self.assertEqual(
+            testUser.getUserName(), 
+            'test@test.com',
+            'Got a different value for getUserName() then expected'
             )
