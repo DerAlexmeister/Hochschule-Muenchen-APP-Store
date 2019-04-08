@@ -1,8 +1,6 @@
 from django.test import TestCase
 from .models import APP,appKomments
 from users.models import CustomUser
-# Create your tests here.
-
 
 class AppUserCommentsRelationshipTestCase(TestCase):
     
