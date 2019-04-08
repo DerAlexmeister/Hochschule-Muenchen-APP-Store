@@ -50,8 +50,6 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     )
     verified = models.BooleanField(default=False)
 
-
-    
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
     objects = CustomUserManager()
