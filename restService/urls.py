@@ -8,11 +8,11 @@ URL Pattern for the entire REST-API
 urlpatterns = [
     # Apps
     path('apps/', views.appListView.as_view(), name="Apps-Basic-Url"),
-    path('apps/new', views.app_list),
-    path('apps/newest', views.newestAppsListView.as_view()),
-    path('apps/oldest', views.oldestAppsListView.as_view()),
-    path('apps/mostdownloads', views.mostDownloadsListView.as_view()),
-    path('apps/lessdownloads', views.tinyDownloadsListView.as_view()),
+    path('apps/new', views.app_list, name="newAppsCreator"),
+    path('apps/newest', views.newestAppsListView.as_view(), name="newestApps"),
+    path('apps/oldest', views.oldestAppsListView.as_view(), name="oldestApps"),
+    path('apps/mostdownloads', views.mostDownloadsListView.as_view(), name="mostDownloads"),
+    path('apps/lessdownloads', views.tinyDownloadsListView.as_view(), name="lessDownloads"),
     path('apps/newcomments', views.newComments, name="newComment"),
     path('apps/changecomment', views.changecomment, name="changecomment"),
 
