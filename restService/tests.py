@@ -20,7 +20,6 @@ class testClassBasedGetRestAPIViews(TestCase):
             email = 'test@test.com',
             password = 'dashieristeintestpasswort',
         )
-
         self.valid_user = {
             "username" : "test@test.com",
             "password" : "dashieristeintestpasswort"

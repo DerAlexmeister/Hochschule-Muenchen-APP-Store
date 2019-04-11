@@ -4,17 +4,16 @@ from django.contrib.postgres.fields import JSONField,ArrayField
 from django.utils import timezone
 #from users.models import CustomUser
 
+'''
+creating the directory depending on the username 
+and the file to store it
+'''
 def user_directory_path(instance, filename):
       return 'user_{0}/{1}'.format(instance.creator.getUserName(), filename)
 
-# class imagesForApp(models.Model):
-#     img = models.ImageField(upload_to=user_directory_path)
-#     name = models.TextField()
- 
-def get_default_data():
-    return { 'null':'null' }
-
-
+'''
+Model for APPs
+'''
 class APP(models.Model):
     TypeOfUserAccount = (
     ('ST', 'Student'), #student
@@ -71,7 +70,11 @@ class APP(models.Model):
 
     def __str__(self):
       return "APP-Name: " + str(self.appname) + " APP-ID: " + str(self.appID) + " APP-Creator: " + str(self.creator)
-  
+
+
+'''
+Model for the Comments of a APP
+'''
 class appKomments(models.Model):
     creator = models.ForeignKey(
       settings.AUTH_USER_MODEL,
@@ -86,3 +89,14 @@ class appKomments(models.Model):
 
     def __str__(self):
       return "Comment-Title:" + str(self.title) + " Comment-Creator:" + str(self.creator)
+
+'''
+UNUSED Methods
+class imagesForApp(models.Model):
+     img = models.ImageField(upload_to=user_directory_path)
+     name = models.TextField()
+
+
+def get_default_data():
+    return { 'null':'null' }
+'''
