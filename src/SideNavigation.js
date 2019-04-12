@@ -12,7 +12,7 @@ const styles = theme => ({
       overflow: "hidden"
     },
     sidebar: {
-      zIndex: 2,
+      zIndex: -1,
       position: "absolute",
       top: 0,
       bottom: 0,
