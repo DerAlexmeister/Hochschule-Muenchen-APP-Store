@@ -1,8 +1,11 @@
 
-[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Appmon-logo"
+[logo]: https://github.com/DerAlexx/HM-APP-Store/blob/master/src/assets/hm_app_store_logo_final.png "Appmon-logo"
 
 # Appmon 
 
+
+
+[logo]: https://github.com/DerAlexx/HM-APP-Store/blob/master/src/assets/banner1.jpg "Appmon-mainpage" 
 # FAQ
 ## Was ist Appmon
 ``` Informationen
