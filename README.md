@@ -1,11 +1,13 @@
+<<<<<<< HEAD
 
 ![](https://github.com/DerAlexx/HM-APP-Store/blob/master/src/assets/hm_app_store_logo_final.png)
 
+=======
+![](https://github.com/DerAlexx/HM-APP-Store/blob/master/src/assets/hm_app_store_logo_final.png)
+>>>>>>> 8083b27490a495ccb43bdb8c21be11d350881a60
 # Appmon 
 
-
-
-[logo]: https://github.com/DerAlexx/HM-APP-Store/blob/master/src/assets/banner1.jpg "Appmon-mainpage" 
+![](https://github.com/DerAlexx/HM-APP-Store/blob/master/src/assets/banner1.jpg)
 # FAQ
 ## Was ist Appmon
 ``` Informationen
