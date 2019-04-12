@@ -1,11 +1,7 @@
-
-[logo]: https://github.com/DerAlexx/HM-APP-Store/blob/master/src/assets/hm_app_store_logo_final.png "Appmon-logo"
-
+![](https://github.com/DerAlexx/HM-APP-Store/blob/master/src/assets/hm_app_store_logo_final.png)
 # Appmon 
 
-
-
-[logo]: https://github.com/DerAlexx/HM-APP-Store/blob/master/src/assets/banner1.jpg "Appmon-mainpage" 
+![](https://github.com/DerAlexx/HM-APP-Store/blob/master/src/assets/banner1.jpg)
 # FAQ
 ## Was ist Appmon
 ``` Informationen
