@@ -1,5 +1,5 @@
 
-[logo]: https://github.com/DerAlexx/HM-APP-Store/blob/master/src/assets/hm_app_store_logo_final.png "Appmon-logo"
+![](https://github.com/DerAlexx/HM-APP-Store/blob/master/src/assets/hm_app_store_logo_final.png)
 
 # Appmon 
 
