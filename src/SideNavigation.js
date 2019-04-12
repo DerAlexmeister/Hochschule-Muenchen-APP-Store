@@ -1,62 +1,14 @@
 import React from "react";
 import Sidebar from "react-sidebar";
 import { withStyles } from '@material-ui/core/styles';
-
-const styles = theme => ({
-    root: {
-      position: "absolute",
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      overflow: "hidden"
-    },
-    sidebar: {
-      zIndex: -1,
-      position: "absolute",
-      top: 0,
-      bottom: 0,
-      transition: "transform .3s ease-out",
-      WebkitTransition: "-webkit-transform .3s ease-out",
-      willChange: "transform",
-      overflowY: "auto"
-    },
-    content: {
-      position: "absolute",
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      overflowY: "auto",
-      WebkitOverflowScrolling: "touch",
-      transition: "left .3s ease-out, right .3s ease-out"
-    },
-    overlay: {
-      zIndex: 1,
-      position: "fixed",
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      opacity: 0,
-      visibility: "hidden",
-      transition: "opacity .3s ease-out, visibility .3s ease-out",
-      backgroundColor: "rgba(0,0,0,.3)"
-    },
-    dragHandle: {
-      zIndex: 1,
-      position: "fixed",
-      top: 0,
-      bottom: 0
-    }
-  });
-
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
 
 class SideNavPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      sidebarOpen: true
+      sidebarOpen: false
     };
     this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
   }
@@ -68,17 +20,74 @@ class SideNavPage extends React.Component {
   render() {
     return (
       <Sidebar
-        sidebar={<b>Sidebar content</b>}
+        sidebar={
+          <div>
+            <h1 style={{textDecoration:'underline'}}>Menu</h1><br></br>
+            <a>Newest Apps</a>
+            <a>Most Downloads</a>
+            <br></br>
+          
+
+          </div>
+        }
         open={this.state.sidebarOpen}
         onSetOpen={this.onSetSidebarOpen}
-        styles={{ sidebar: { background: "white" } }}
-      >
-        <button onClick={() => this.onSetSidebarOpen(true)}>
-          Open sidebar
-        </button>
+        styles={{ sidebar: {color:'#fff', zIndex:100, width:300, backgroundColor: '#000', paddingTop:60, paddingLeft:100 } }}>
+        <IconButton style={{position:'absolute', top:10, right:20, fontSize:56, color:'#fff'}} onClick={() => this.onSetSidebarOpen(true)}>
+            <MenuIcon />
+          </IconButton>
       </Sidebar>
     );
   }
 }
  
+const styles = theme => ({
+  root: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    overflow: "hidden"
+  },
+  sidebar: {
+    zIndex: -1,
+    position: "absolute",
+    top: 0,
+    bottom: 0,
+    transition: "transform .3s ease-out",
+    WebkitTransition: "-webkit-transform .3s ease-out",
+    willChange: "transform",
+    overflowY: "auto"
+  },
+  content: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    overflowY: "auto",
+    WebkitOverflowScrolling: "touch",
+    transition: "left .3s ease-out, right .3s ease-out"
+  },
+  overlay: {
+    zIndex: 1,
+    position: "fixed",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    opacity: 0,
+    visibility: "hidden",
+    transition: "opacity .3s ease-out, visibility .3s ease-out",
+    backgroundColor: "rgba(0,0,0,.5)"
+  },
+  dragHandle: {
+    zIndex: 1,
+    position: "fixed",
+    top: 0,
+    bottom: 0
+  }
+});
+
 export default withStyles(styles)(SideNavPage);

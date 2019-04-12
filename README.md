@@ -127,4 +127,5 @@ Natürlich! Jeder der Hochschule München ist willkommen!
     1. Eine Verbindung der Accounts mit offiziellen Primusaccounts
     2. Zugriff für anderen Universitäten und Hochschulen
     3. Höhere Vielfalt an Apps und Software
+    4. Mobile Appstore
 ```
