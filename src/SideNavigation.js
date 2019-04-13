@@ -4,12 +4,9 @@ import { withStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import logo from './assets/logo_with_name.png';
-import PropTypes from 'prop-types';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
 import InputBase from '@material-ui/core/InputBase';
-import { fade } from '@material-ui/core/styles/colorManipulator';
 import SearchIcon from '@material-ui/icons/Search';
+import { Link } from 'react-router-dom'
 
 class SideNavPage extends React.Component {
   constructor(props) {
@@ -33,6 +30,8 @@ class SideNavPage extends React.Component {
             <hr style={{backgroundColor:'#fff'}}></hr>
             <div style={{width:'100%', paddingLeft:80, listStyleType: "none", color:'#ccc'}}>
               <h1>Menu</h1><br></br>
+              <Link to="/">Home</Link>
+              <Link to="/apps/">Home</Link>
               <br></br>
             </div>
             <hr style={{backgroundColor:'#fff'}}></hr>
