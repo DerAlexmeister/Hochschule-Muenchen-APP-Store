@@ -8,13 +8,7 @@ export default class Carousel extends React.Component{
   render(){
     return (
     <div> 
-      <SearchAppBar/>
-      <SideNavPage/>
-      <ButtonDrop/>  
-      <div style = {{position: "absolute", top: 200, left: 150}}>
-      <SimpleCard/> 
-      </div>
-       
+             
     </div>
     )
   }

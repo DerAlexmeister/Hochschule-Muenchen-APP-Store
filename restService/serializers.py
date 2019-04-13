@@ -17,7 +17,8 @@ class AppSmallSerializer(serializers.ModelSerializer):
             'downloads',
             'smallPic',
             'typOfAccount',
-            'Fakultaet'
+            'Fakultaet', 
+            'linkImg'
         )
 
 

@@ -56,6 +56,7 @@ class APP(models.Model):
     sourcefiles = models.FileField(upload_to=user_directory_path, blank=True)
     smallPic = models.ImageField(upload_to=user_directory_path, blank=True)
     bigimg = models.ImageField(upload_to=user_directory_path, blank=True)
+    linkImg = models.URLField(max_length=512, blank=True, null=True)
     typOfAccount = models.CharField(
         max_length=4,
         choices=TypeOfUserAccount,
