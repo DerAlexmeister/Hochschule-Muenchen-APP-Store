@@ -3,6 +3,13 @@ import Sidebar from "react-sidebar";
 import { withStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import logo from './assets/logo_with_name.png';
+import PropTypes from 'prop-types';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import InputBase from '@material-ui/core/InputBase';
+import { fade } from '@material-ui/core/styles/colorManipulator';
+import SearchIcon from '@material-ui/icons/Search';
 
 class SideNavPage extends React.Component {
   constructor(props) {
@@ -21,19 +28,30 @@ class SideNavPage extends React.Component {
     return (
       <Sidebar
         sidebar={
-          <div>
-            <h1 style={{textDecoration:'underline'}}>Menu</h1><br></br>
-            <a>Newest Apps</a>
-            <a>Most Downloads</a>
-            <br></br>
-          
-            
+          <div style={{width:'100%',paddingRight:20}}>
+            <img style={{width:180, height:60, zIndex:10}} src={logo} alt="Logo" />
+            <hr style={{backgroundColor:'#fff'}}></hr>
+            <div style={{width:'100%', paddingLeft:80, listStyleType: "none", color:'#ccc'}}>
+              <h1>Menu</h1><br></br>
+              <ul style={{listStyleType: "none"}}>
+                <li>test</li>
+                <li>test</li>
+                <li>test</li>
+                <li>test</li>
+              </ul>
+              <br></br>
+            </div>
+            <hr style={{backgroundColor:'#fff'}}></hr>
+            <div style={{color:'#fff'}}>
+            <InputBase style={{color:'#fff'}}placeholder="Search…" /> <SearchIcon />
+            </div>
+            <hr style={{backgroundColor:'#fff'}}></hr>
           </div>
         }
         open={this.state.sidebarOpen}
         onSetOpen={this.onSetSidebarOpen}
-        styles={{ sidebar: {color:'#000', position:'fixed', zIndex:4000, width:300, backgroundColor: '#ccc', paddingTop:60, paddingLeft:100,} }}>
-        <IconButton style={{position:'fixed', top:10, right:20,zIndex:3000, fontSize:56, color:'#fff', borderColor:'#fff',  borderWidth:0.5 }} onClick={() => this.onSetSidebarOpen(true)}>
+        styles={{ sidebar: {color:'#000', position:'fixed', zIndex:4500, width:300, backgroundColor: '#171a21', paddingTop:20, paddingLeft:10, paddingRight:10} }}>
+        <IconButton style={{position:'fixed', top:10, left:20, zIndex:3000, fontSize:56, color:'#fff', borderColor:'#fff',  borderWidth:0.5 }} onClick={() => this.onSetSidebarOpen(true)}>
             <MenuIcon />
           </IconButton>
       </Sidebar>
