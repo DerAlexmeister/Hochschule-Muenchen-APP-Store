@@ -29,13 +29,10 @@ function SimpleCard(props) {
   const { classes } = props;
 
   return (
-    <div style = {{position: "absolute", top: 150, left: 0}}>
+    <div style = {{position: "absolute", top: 200, left: 150}}>
       <Card className={classes.card}>
         <CardContent>
           <Typography className={classes.title} color="textSecondary">
-            App1
-          </Typography>
-          <Typography variant="headline" component="h2">
             App
           </Typography>
           <Typography className={classes.pos} color="textSecondary">

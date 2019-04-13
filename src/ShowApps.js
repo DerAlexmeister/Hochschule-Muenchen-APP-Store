@@ -1,6 +1,7 @@
 import SearchAppBar from "./MenueBar.js";
 import SideNavPage from "./SideNavigation"
 import SimpleCard from "./Cards"
+import ButtonDrop from "./ButtonDropdown"
 import React from "react";
 
 export default class AppShow extends React.Component{
@@ -9,6 +10,7 @@ export default class AppShow extends React.Component{
     <div> 
       <SearchAppBar/>
       <SideNavPage/>
+      <ButtonDrop/>  
       <SimpleCard/>  
     </div>
     )
