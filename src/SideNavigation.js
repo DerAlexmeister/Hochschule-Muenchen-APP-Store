@@ -6,7 +6,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import logo from './assets/logo_with_name.png';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
-import { Link } from 'react-router-dom'
+import { FaFacebookF, FaTwitter, FaYoutube, FaLinkedinIn, FaXing } from 'react-icons/fa';
 
 class SideNavPage extends React.Component {
   constructor(props) {
@@ -28,10 +28,16 @@ class SideNavPage extends React.Component {
           <div style={{width:'100%',paddingRight:20}}>
             <img style={{width:180, height:60, zIndex:10}} src={logo} alt="Logo" />
             <hr style={{backgroundColor:'#fff'}}></hr>
-            <div style={{width:'100%', paddingLeft:80, listStyleType: "none", color:'#ccc'}}>
-              <h1>Menu</h1><br></br>
-              <Link to="/">Home</Link>
-              <Link to="/apps/">Home</Link>
+            <div style={{width:'100%', paddingLeft:0,}}>
+              <h2 style={{width:'100%', textAlign: 'center', color:'#ccc'}}><u>Menu</u></h2>
+              <ul style={{listStyleType: "none", color:'#ccc', textAlign: 'center',paddingLeft:0,}}>
+                <li><a style={{listStyleType: "none", color:'#ccc'}} href="/">Home</a></li>
+                <li><a style={{listStyleType: "none", color:'#ccc'}} href="/apps">Apps</a></li>
+                <li><a style={{listStyleType: "none", color:'#ccc'}} href="/">Profil</a></li>
+                <li><a style={{listStyleType: "none", color:'#ccc'}} target='blank' href="https://www.hm.edu/sekundaer_navigation/impressum/index.de.html">Impressum</a></li>
+                <li><a style={{listStyleType: "none", color:'#ccc'}} target='blank'href="https://www.hm.edu/sekundaer_navigation/impressum/datenschutz/index.de.html">Datenschutz</a></li>
+                <li><a style={{listStyleType: "none", color:'#ccc'}} target='blank' href="https://www.hm.edu/allgemein/kontakt/index.de.html">Kontakt</a></li>
+              </ul>
               <br></br>
             </div>
             <hr style={{backgroundColor:'#fff'}}></hr>
@@ -39,6 +45,15 @@ class SideNavPage extends React.Component {
             <InputBase style={{color:'#fff'}}placeholder="Search…" /> <SearchIcon />
             </div>
             <hr style={{backgroundColor:'#fff'}}></hr>
+            <div>
+                <ul>
+                  <li style={{display:'Inline', paddingLeft:30 }}><a style={{color:'#ccc'}} target='blank' href="https://www.facebook.com/HochschuleMuenchen"><FaFacebookF/></a></li>
+                  <li style={{display:'Inline', paddingLeft:10 }}><a style={{color:'#ccc'}} target='blank' href="https://twitter.com/HAW_Muenchen"><FaTwitter/></a></li>
+                  <li style={{display:'Inline', paddingLeft:10 }}><a style={{color:'#ccc'}} target='blank' href="https://www.youtube.com/user/HochschuleMuenchen1"><FaYoutube/></a></li>
+                  <li style={{display:'Inline', paddingLeft:10 }}><a style={{color:'#ccc'}} target='blank' href="https://www.linkedin.com/school/hochschule-muenchen"><FaLinkedinIn/></a></li>
+                  <li style={{display:'Inline', paddingLeft:10 }}><a style={{color:'#ccc'}} target='blank' href="https://www.xing.com/communities/groups/hochschule-muenchen-hochschule-fuer-angewandte-wissenschaften-1073062"><FaXing/></a></li>
+                </ul>
+            </div>
           </div>
         }
         open={this.state.sidebarOpen}
