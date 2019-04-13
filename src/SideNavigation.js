@@ -32,8 +32,8 @@ class SideNavPage extends React.Component {
         }
         open={this.state.sidebarOpen}
         onSetOpen={this.onSetSidebarOpen}
-        styles={{ sidebar: {color:'#fff', zIndex:100, width:300, backgroundColor: '#000', paddingTop:60, paddingLeft:100 } }}>
-        <IconButton style={{position:'absolute', top:10, right:20, fontSize:56, color:'#fff'}} onClick={() => this.onSetSidebarOpen(true)}>
+        styles={{ sidebar: {color:'#000', zIndex:100, width:300, backgroundColor: '#ccc', paddingTop:60, paddingLeft:100,} }}>
+        <IconButton style={{position:'fixed', top:10, right:20,zIndex:3000, fontSize:56, color:'#000', borderColor:'#fff',  borderWidth:0.5 }} onClick={() => this.onSetSidebarOpen(true)}>
             <MenuIcon />
           </IconButton>
       </Sidebar>

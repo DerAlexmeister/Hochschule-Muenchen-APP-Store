@@ -72,9 +72,9 @@ function SearchAppBar(props) {
   const { classes } = props;
   return (
     <div className={classes.root}>
-      <AppBar style={{backgroundColor: '#000'}} position="static">
-        <Toolbar>
-        <img style={{position:'absolute', left:10, width:240, height:80, zIndex:10}} src={logo} alt="Logo" />
+      <AppBar style={{position:'static'}}>
+        <Toolbar style={{position:'fixed',width:'100%', backgroundColor: '#ccc', color:'#000', boxShadow: '1px 7px 5px #111', zIndex:2000}}>
+        <img style={{position:'absolute', left:10, width:180, height:60, zIndex:10}} src={logo} alt="Logo" />
         </Toolbar>
       </AppBar>
     </div>
