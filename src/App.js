@@ -28,7 +28,7 @@ export default class App extends React.Component{
         <br></br>
       </div>
       <Bemobile />
-      <div style={{backgroundColor:'#fff', position:'absolute', top:'249%', width:'100%', height:'300px'}}>
+      <div style={{backgroundColor:'#fff', position:'absolute', top:'243%', width:'100%', height:'300px'}}>
         <br></br>
         <h1 style={{alignContent:'center'}}>Ausergewöhnliche Software überall</h1>
         <br></br>
