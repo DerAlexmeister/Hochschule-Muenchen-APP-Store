@@ -6,7 +6,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import logo from './assets/logo_with_name.png';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
-import { FaFacebookF, FaTwitter, FaYoutube, FaLinkedinIn, FaXing } from 'react-icons/fa';
+import { FaFacebookF, FaTwitter, FaYoutube, FaLinkedinIn, FaXing, FaRegCopyright } from 'react-icons/fa';
 
 class SideNavPage extends React.Component {
   constructor(props) {
@@ -62,6 +62,7 @@ class SideNavPage extends React.Component {
         <IconButton style={{position:'fixed', top:10, left:20, zIndex:3000, fontSize:56, color:'#fff', borderColor:'#fff',  borderWidth:0.5 }} onClick={() => this.onSetSidebarOpen(true)}>
             <MenuIcon />
           </IconButton>
+        <b><FaRegCopyright/> Alexander M. Westphal &amp; Paul Schröder</b>
       </Sidebar>
     );
   }

@@ -14,11 +14,13 @@ class AppSmallSerializer(serializers.ModelSerializer):
         fields = ('appID', 
             'creator', 
             'appname', 
+            'body',
             'downloads',
             'smallPic',
             'typOfAccount',
             'Fakultaet', 
-            'linkImg'
+            'linkImg',
+            'createdAt',
         )
 
 
