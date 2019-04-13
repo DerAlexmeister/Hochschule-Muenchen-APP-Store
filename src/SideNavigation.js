@@ -27,12 +27,12 @@ class SideNavPage extends React.Component {
             <a>Most Downloads</a>
             <br></br>
           
-
+            
           </div>
         }
         open={this.state.sidebarOpen}
         onSetOpen={this.onSetSidebarOpen}
-        styles={{ sidebar: {color:'#000', zIndex:4000, width:300, backgroundColor: '#ccc', paddingTop:60, paddingLeft:100,} }}>
+        styles={{ sidebar: {color:'#000', position:'fixed', zIndex:4000, width:300, backgroundColor: '#ccc', paddingTop:60, paddingLeft:100,} }}>
         <IconButton style={{position:'fixed', top:10, right:20,zIndex:3000, fontSize:56, color:'#fff', borderColor:'#fff',  borderWidth:0.5 }} onClick={() => this.onSetSidebarOpen(true)}>
             <MenuIcon />
           </IconButton>
