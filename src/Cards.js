@@ -9,12 +9,12 @@ import Typography from '@material-ui/core/Typography';
 
 const styles = {
   card: {
-    minWidth: 275,
+    width: 180,
   },
   bullet: {
     display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
+    margin: '20px',
+    padding: "20px",
   },
   title: {
     marginBottom: 16,
@@ -27,28 +27,26 @@ const styles = {
 
 function SimpleCard(props) {
   const { classes } = props;
-  const bull = <span className={classes.bullet}>•</span>;
 
   return (
-    <div>
+    <div style = {{position: "absolute", top: 150, left: 0}}>
       <Card className={classes.card}>
         <CardContent>
           <Typography className={classes.title} color="textSecondary">
-            Word of the Day
+            App1
           </Typography>
           <Typography variant="headline" component="h2">
-            be{bull}nev{bull}o{bull}lent
+            App
           </Typography>
           <Typography className={classes.pos} color="textSecondary">
-            adjective
+            Tag
           </Typography>
           <Typography component="p">
-            well meaning and kindly.<br />
-            {'"a benevolent smile"'}
+           Beschreibung
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small">Learn More</Button>
+          <Button size="small">Download</Button>
         </CardActions>
       </Card>
     </div>
