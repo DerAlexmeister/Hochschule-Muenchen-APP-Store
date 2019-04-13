@@ -11,7 +11,10 @@ export default class AppShow extends React.Component{
       <SearchAppBar/>
       <SideNavPage/>
       <ButtonDrop/>  
-      <SimpleCard/>  
+      <div style = {{position: "absolute", top: 200, left: 150}}>
+      <SimpleCard/> 
+      </div>
+       
     </div>
     )
   }
