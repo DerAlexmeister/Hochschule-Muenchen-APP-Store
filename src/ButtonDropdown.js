@@ -19,10 +19,10 @@ export default class ButtonDrop extends React.Component {
 
   render() {
     return (
-    <div style = {{position: "absolute", top: 100, left: 0}}>
+    <div style = {{position: "absolute", top: 10, right: 0}}>
           <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
         <DropdownToggle caret>
-          Sortierung
+          Sortieren
         </DropdownToggle>
         <DropdownMenu>
           <DropdownItem>Neueste UP</DropdownItem>

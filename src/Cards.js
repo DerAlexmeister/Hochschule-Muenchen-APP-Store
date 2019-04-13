@@ -11,11 +11,10 @@ import axios from 'axios';
 const styles = {
   card: {
     width: 180,
+    backgroundColor: '#ccc',
+    paddingRight:20
   },
   bullet: {
-    display: 'inline-block',
-    margin: '20px',
-    padding: "20px",
   },
   title: {
     marginBottom: 16,
@@ -50,10 +49,11 @@ class SimpleCard extends React.Component{
       return <h1>loading</h1>
     } else if (typeof items !== 'undefined') {
       return (
-          <ul>
+          <ul style={{marginRight:20, paddingLeft:20, paddindRight:20, listStyleType: "none",  justifyContent: 'center',  alignItems: 'center'}}> 
             {items.map(item => (
-              <Card key={item.appID} className={styles.card}>
-                <CardContent>
+              <div >
+                <Card style={{paddindRight:20}} className={styles.card}>
+                <CardContent key={item.appID}  style={{backgroundColor:'#ccc', paddingRight:20}}>
                   <Typography className={styles.title} color="textSecondary">
                     {item.appname}
                   </Typography>
@@ -64,11 +64,14 @@ class SimpleCard extends React.Component{
                     {item.body}
                   </Typography>
                 </CardContent>
-                <CardActions>
-                  <Button size="small">Download</Button>
+                <CardActions style={{backgroundColor:'#222'}}>
+                  <Button style={{color:'#fff'}} size="small">Download</Button>
                 </CardActions>
             </Card>
+            <br></br><br></br>
+              </div>
           ))}
+          
       </ul>
       );
     } else {
