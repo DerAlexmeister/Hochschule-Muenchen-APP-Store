@@ -33,12 +33,6 @@ class SideNavPage extends React.Component {
             <hr style={{backgroundColor:'#fff'}}></hr>
             <div style={{width:'100%', paddingLeft:80, listStyleType: "none", color:'#ccc'}}>
               <h1>Menu</h1><br></br>
-              <ul style={{listStyleType: "none"}}>
-                <li>test</li>
-                <li>test</li>
-                <li>test</li>
-                <li>test</li>
-              </ul>
               <br></br>
             </div>
             <hr style={{backgroundColor:'#fff'}}></hr>
