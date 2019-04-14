@@ -56,6 +56,14 @@ class CustomUserAdmin(UserAdmin):
         'typOfAccount',
         'Fakultaet',
         'nickname',
+        'fb', 
+        'twitter',
+        'xing',
+        'linkedin', 
+        'youtube',
+        'github',
+        'insta', 
+        'website' 
 
     )}),
         ('Permissions', {'fields': ('is_staff', 'is_active')}),
@@ -77,6 +85,14 @@ class CustomUserAdmin(UserAdmin):
                 'typOfAccount',
                 'Fakultaet',
                 'nickname',
+                'fb', 
+                'twitter',
+                'xing',
+                'linkedin', 
+                'youtube',
+                'github',
+                'insta', 
+                'website' 
     )}
         ),
     )

@@ -1,7 +1,9 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import axios from 'axios';
-import {FaRegEnvelope, FaRegCompass, FaStreetView, FaRegCopyright, FaCheckCircle} from "react-icons/fa"
+import {FaRegEnvelope, FaRegCompass, FaStreetView, FaRegCopyright, FaCheckCircle,
+    FaFacebookF, FaTwitter, FaInstagram, FaXing, FaLinkedinIn, FaGithub, FaYoutube
+        } from "react-icons/fa"
 import { Link } from 'react-router-dom'
 
 const styles = {
@@ -53,7 +55,7 @@ class CreatorsApp extends React.Component{
                     <img style={{borderRadius:50, width:200, height:200}} src={"http://localhost:8000" + item.smallPic}  alt="hshshsdh!" />
                     <h1 style={{color:'#fff', paddingLeft:40, paddingTop:150}}> {item.nickname}</h1>
                     <div style={{paddingTop:158, paddingLeft:20, maxHeight:300, maxWidth:300 }}>
-                    { this.isVerified(item.verified)}
+                    { this.isVerified(item.verified) }
                     </div>
                   </div>
                   <hr style={{backgroundColor:'#fff'}}></hr>
@@ -61,7 +63,18 @@ class CreatorsApp extends React.Component{
                     <ul style={{paddingLeft:0, display:'flex', listStyle:'none'}}>
                       <li style={{paddingLeft:0}}><b>Email</b><br></br><a style={{color:'#f10b51', fontSize:26, paddingLeft: 6}} href={"mailto:" + item.email}><FaRegEnvelope/></a></li>
                       <li style={{paddingLeft:20}}><b>Web</b><br></br><a style={{color:'#f10b51', fontSize:26, paddingLeft:6}} href={"" + item.website}><FaRegCompass/></a></li>
-                      <li style={{paddingLeft:20}}><b>Creator</b><br></br><Link to={`/creator/${item.creator}`} style={{color:'#f10b51', fontSize:26, paddingLeft:14}}><FaStreetView/></Link></li>
+                    </ul>
+                  </p>
+                  <hr style={{backgroundColor:'#fff'}}></hr>
+                  <p style={{color:'#fff'}}><h5><b>Soziale Medien</b></h5><br></br>
+                    <ul style={{paddingLeft:0, display:'flex', listStyle:'none'}}>
+                      {this.hasFb(item.fb, item)}
+                      {this.hasTwitter(item.twitter, item)}
+                      {this.hasYoutube(item.youtube, item)}
+                      {this.hasinsta(item.insta, item)}
+                      {this.hasXing(item.xing, item)}
+                      {this.hasLinkedin(item.linkedin, item)}
+                      {this.hasGithub(item.github, item)}
                     </ul>
                   </p>
                   <hr style={{backgroundColor:'#fff'}}></hr>
@@ -79,6 +92,62 @@ class CreatorsApp extends React.Component{
             return <FaCheckCircle style={{color:'#FF0000', fontSize:30}} />
         }
     }
+
+    hasFb(boo, item) {
+        if (boo) {
+            return <li style={{paddingLeft:0}}><b>Facebook</b><br></br><a style={{color:'#f10b51', fontSize:26, paddingLeft: 6}} href={"" + item.fb}><FaFacebookF style={{paddingLeft: 15, fontSize:35}}/></a></li>
+        } else {
+            return <li style={{paddingLeft:0}}><b>Facebook</b><br></br><a style={{color:'#ccc', fontSize:26, paddingLeft: 6}} href="#"><FaFacebookF style={{paddingLeft: 15, fontSize:35}}/></a></li>
+        }
+    }
+
+    hasTwitter(boo, item) {
+        if (boo) {
+            return <li style={{paddingLeft:30}}><b>Twitter</b><br></br><a style={{color:'#f10b51', fontSize:26, paddingLeft:6}} href={"" + item.twitter}><FaTwitter style={{paddingLeft: 8, fontSize:40}} /></a></li>
+        } else {
+            return <li style={{paddingLeft:30}}><b>Twitter</b><br></br><a style={{color:'#ccc', fontSize:26, paddingLeft:6}} href='#'><FaTwitter style={{paddingLeft: 8, fontSize:40}}/></a></li>
+        }
+    }
+
+    hasXing(boo, item) {
+        if (boo) {
+            return <li style={{paddingLeft:30}}><b>Xing</b><br></br><a style={{color:'#f10b51', fontSize:26, paddingLeft: 6}} href={"mailto:" + item.xing}><FaXing/></a></li>
+        } else {
+            return <li style={{paddingLeft:30}}><b>Xing</b><br></br><a style={{color:'#ccc', fontSize:26, paddingLeft: 6}} href='#'><FaXing/></a></li>
+        }
+    }
+
+    hasLinkedin(boo, item) {
+        if (boo) {
+            return <li style={{paddingLeft:30}}><b>LinkedIn</b><br></br><a style={{color:'#f10b51', fontSize:26, paddingLeft:6}} href={"" + item.linkedin}><FaLinkedinIn style={{paddingLeft: 10, fontSize:40}}/></a></li>
+        } else {
+            return <li style={{paddingLeft:30}}><b>LinkedIn</b><br></br><a style={{color:'#ccc', fontSize:26, paddingLeft: 6}} href='#'><FaLinkedinIn style={{paddingLeft: 10, fontSize:40}} /></a></li>
+        }
+    }
+
+    hasYoutube(boo, item) {
+        if (boo) {
+            return <li style={{paddingLeft:30}}><b>YouTube</b><br></br><a style={{color:'#f10b51', fontSize:26, paddingLeft:6}} href={"" + item.youtube}><FaYoutube style={{paddingLeft: 10, fontSize:40}}/></a></li>
+        } else {
+            return <li style={{paddingLeft:30}}><b>YouTube</b><br></br><a style={{color:'#ccc', fontSize:26, paddingLeft: 6}} href='#'><FaYoutube style={{paddingLeft: 10, fontSize:40}} /></a></li>
+        }
+    }
+
+    hasGithub(boo, item) {
+        if (boo) {
+            return <li style={{paddingLeft:30}}><b>GitHub</b><br></br><a style={{color:'#f10b51', fontSize:26, paddingLeft:6}} href={"" + item.github}><FaGithub style={{paddingLeft: 10, fontSize:40}} /></a></li>
+        } else {
+            return <li style={{paddingLeft:30}}><b>GitHub</b><br></br><a style={{color:'#ccc', fontSize:26, paddingLeft: 6}} href='#'><FaGithub style={{paddingLeft: 10, fontSize:40}} /></a></li>
+        }
+    }
+
+    hasinsta(boo, item) {
+        if (boo) {
+            return <li style={{paddingLeft:30}}><b>Instagram</b><br></br><a style={{color:'#f10b51', fontSize:26, paddingLeft:6}} href={"" + item.github}><FaInstagram style={{paddingLeft: 10, fontSize:40}} /></a></li>
+        } else {
+            return <li style={{paddingLeft:30}}><b>Instagram</b><br></br><a style={{color:'#ccc', fontSize:26, paddingLeft: 6}} href='#'><FaInstagram style={{paddingLeft: 10, fontSize:40}} /></a></li>
+        }
+    }
 }
-  
-  export default withStyles(styles)(CreatorsApp);
+
+export default withStyles(styles)(CreatorsApp);

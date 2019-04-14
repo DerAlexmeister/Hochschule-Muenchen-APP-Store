@@ -84,5 +84,13 @@ class UserSerializer(serializers.ModelSerializer):
             'linkImg',
             'verified',
             'typOfAccount',
-            'Fakultaet'
+            'Fakultaet',
+            'fb', 
+            'twitter',
+            'xing',
+            'linkedin', 
+            'youtube',
+            'github',
+            'insta', 
+            'website' 
         )

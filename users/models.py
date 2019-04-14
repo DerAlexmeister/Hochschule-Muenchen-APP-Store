@@ -57,6 +57,14 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     )
     smallPic = models.ImageField(upload_to=user_directory_path, blank=True)
     linkImg = models.URLField(max_length=512, blank=True, null=True)
+    fb = models.URLField(max_length=512, blank=True, null=True)
+    twitter = models.URLField(max_length=512, blank=True, null=True)
+    xing = models.URLField(max_length=512, blank=True, null=True)
+    linkedin = models.URLField(max_length=512, blank=True, null=True)
+    youtube =  models.URLField(max_length=512, blank=True, null=True)
+    github = models.URLField(max_length=512, blank=True, null=True)
+    insta = models.URLField(max_length=512, blank=True, null=True)
+    website = models.URLField(max_length=512, blank=True, null=True)
     verified = models.BooleanField(default=False)
 
     USERNAME_FIELD = 'email'
