@@ -78,9 +78,8 @@ class UserSerializer(serializers.ModelSerializer):
         model = userModel.CustomUser
         fields = (
             'email', 
-            'is_staff', 
-            'is_active',
             'date_joined',
+            'nickname',
             'smallPic',
             'linkImg',
             'verified',

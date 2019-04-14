@@ -54,7 +54,8 @@ class CustomUserAdmin(UserAdmin):
         'linkImg',
         'verified',
         'typOfAccount',
-        'Fakultaet'
+        'Fakultaet',
+        'nickname',
 
     )}),
         ('Permissions', {'fields': ('is_staff', 'is_active')}),
@@ -74,7 +75,8 @@ class CustomUserAdmin(UserAdmin):
                 'linkImg',
                 'verified',
                 'typOfAccount',
-                'Fakultaet'
+                'Fakultaet',
+                'nickname',
     )}
         ),
     )
