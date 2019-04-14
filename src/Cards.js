@@ -7,17 +7,10 @@ import Typography from '@material-ui/core/Typography';
 import axios from 'axios';
 import { FaClock, FaArrowCircleRight} from 'react-icons/fa';
 import { Link } from 'react-router-dom'
-<<<<<<< HEAD
-//import getBaseUrl from './consts.js'
-//import CardMedia from '@material-ui/core/CardMedia';
-
-=======
->>>>>>> c11aa0d80bb733eeb5178a25af942deb5070a974
 
 const styles = {
   card: {
     width: 180,
-    backgroundColor: '#ccc',
     paddingRight: 20,
   },
   title: {
@@ -56,20 +49,20 @@ class SimpleCard extends React.Component{
           <ul style={{marginRight:20, paddingLeft:20, paddindRight:20, listStyleType: "none",  justifyContent: 'center',  alignItems: 'center', fontFamily: 'Montserrat',}}> 
             {items.map(item => (
               <div >
-                <Card style={{paddindRight:20}} className={styles.card}>
-                <CardContent key={item.appID}  style={{backgroundColor:'#ccc', paddingRight:20}}>
-                  <Typography className={styles.title} color="textSecondary">
-                    <p style={{color:'#df0c0c', fontSize:30, fontFamily: 'Montserrat',  textAlign:'justify'}}>{item.appname}</p><br></br>
+                <Card className={styles.card}>
+                <CardContent key={item.appID}  style={{backgroundColor:'#666666', paddingRight:20}}>
+                  <Typography className={styles.title}>
+                  <h1><b><p style={{color:'#fff', fontSize:30, fontFamily: 'Montserrat',  textAlign:'justify'}}>{item.appname}</p></b></h1>   
                   </Typography>
                   <div style={{display: 'flex'}}>
                   <div style={{maxWidth: '80%', minWidth: '80%'}}>
-                  <Typography className={styles.pos} color="textSecondary">
-                    <b style={{fontFamily: 'Montserrat'}}>{item.body}</b>
+                  <Typography className={styles.pos}>
+                    <div style={{color: '#fff', fontFamily: 'Montserrat'}}>{item.body}</div>
                   </Typography>
                   </div>
                   <div style={{paddingLeft: 100}}>
                   <Typography>
-                  <img style={{borderRadius:10, width: 150, height: 150}} src={item.smallPic}  alt="hshshsdh!" />
+                  <img style={{borderRadius:10, width: 150, height: 150}} src={item.smallPic}  alt="No Pic found!" />
                   </Typography>
                   </div>
                   </div>
@@ -95,6 +88,5 @@ class SimpleCard extends React.Component{
 }
 
 //Link to={{ pathname:`/apps/${item.appID} `}}
-//<img style={{borderRadius:'50%'}} src={item.smallPic}  alt="hshshsdh!" />
 
 export default withStyles(styles)(SimpleCard);

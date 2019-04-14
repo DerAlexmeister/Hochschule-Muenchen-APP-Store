@@ -25,10 +25,10 @@ export default class ButtonDrop extends React.Component {
           Sortieren
         </DropdownToggle>
         <DropdownMenu>
-          <DropdownItem>Neueste UP</DropdownItem>
-          <DropdownItem>Neueste DOWN</DropdownItem>
-          <DropdownItem>Beliebteste UP</DropdownItem>
-          <DropdownItem>Beliebteste DOWN</DropdownItem>
+          <DropdownItem>Neueste ↑</DropdownItem>
+          <DropdownItem>Neueste ↓</DropdownItem>
+          <DropdownItem>Beliebteste ↑</DropdownItem>
+          <DropdownItem>Beliebteste ↓</DropdownItem>
         </DropdownMenu>
       </ButtonDropdown>
     </div>
