@@ -12,9 +12,7 @@ const styles = {
   card: {
     width: 180,
     backgroundColor: '#ccc',
-    paddingRight:20
-  },
-  bullet: {
+    paddingRight: 20,
   },
   title: {
     marginBottom: 16,
@@ -57,9 +55,18 @@ class SimpleCard extends React.Component{
                   <Typography className={styles.title} color="textSecondary">
                     <p style={{color:'#df0c0c', fontSize:30, fontFamily: 'Montserrat',  textAlign:'justify'}}>{item.appname}</p><br></br>
                   </Typography>
+                  <div style={{display: 'flex'}}>
+                  <div style={{maxWidth: '80%', minWidth: '80%'}}>
                   <Typography className={styles.pos} color="textSecondary">
-                    <b style={{fontFamily: 'Montserrat',}}>{item.body}</b>
+                    <b style={{fontFamily: 'Montserrat'}}>{item.body}</b>
                   </Typography>
+                  </div>
+                  <div style={{paddingLeft: 100}}>
+                  <Typography>
+                  <img style={{borderRadius:10, width: 150, height: 150}} src={item.smallPic}  alt="hshshsdh!" />
+                  </Typography>
+                  </div>
+                  </div>
                   <Typography component="p">
                   <br></br>
                   <FaClock style={{color:'#333'}}/>  {item.createdAt} 
@@ -82,5 +89,6 @@ class SimpleCard extends React.Component{
 }
 
 //Link to={{ pathname:`/apps/${item.appID} `}}
+//<img style={{borderRadius:'50%'}} src={item.smallPic}  alt="hshshsdh!" />
 
 export default withStyles(styles)(SimpleCard);
