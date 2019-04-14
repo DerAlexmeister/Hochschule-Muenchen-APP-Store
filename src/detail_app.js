@@ -3,6 +3,7 @@ import { withStyles } from '@material-ui/core/styles';
 import axios from 'axios';
 import {FaRegEnvelope, FaRegCompass, FaStreetView, FaRegCopyright} from "react-icons/fa"
 import { IoMdDownload, IoMdTime, IoIosPerson, IoIosSchool } from "react-icons/io";
+import { Link } from 'react-router-dom'
 
 const styles = {
   card: {
@@ -75,7 +76,7 @@ class Appdetails extends React.Component{
                   <ul style={{paddingLeft:0, display:'flex', listStyle:'none'}}>
                     <li style={{paddingLeft:0}}><b>Email</b><br></br><a style={{color:'#f10b51', fontSize:26, paddingLeft: 6}} href={"mailto:" + item.contectEmail}><FaRegEnvelope/></a></li>
                     <li style={{paddingLeft:20}}><b>Web</b><br></br><a style={{color:'#f10b51', fontSize:26, paddingLeft:6}} href={"" + item.website}><FaRegCompass/></a></li>
-                    <li style={{paddingLeft:20}}><b>Creator</b><br></br><a style={{color:'#f10b51', fontSize:26, paddingLeft:14}} href={"mailto:" + item.creator}><FaStreetView/></a></li>
+                    <li style={{paddingLeft:20}}><b>Creator</b><br></br><Link to={`/creator/${item.creator}`} style={{color:'#f10b51', fontSize:26, paddingLeft:14}}><FaStreetView/></Link></li>
                   </ul>
                 </p>
                 <hr style={{backgroundColor:'#fff'}}></hr>
