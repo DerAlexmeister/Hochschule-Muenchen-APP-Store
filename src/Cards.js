@@ -9,14 +9,17 @@ import axios from 'axios';
 import { FaClock, FaArrowCircleRight} from 'react-icons/fa';
 import { Link } from 'react-router-dom'
 //import getBaseUrl from './consts.js'
+//import CardMedia from '@material-ui/core/CardMedia';
+
 
 const styles = {
   card: {
     width: 180,
     backgroundColor: '#ccc',
-    paddingRight:20
+    paddingRight: 20,
   },
-  bullet: {
+  media: {
+    padding: 200,
   },
   title: {
     marginBottom: 16,
@@ -24,6 +27,7 @@ const styles = {
   },
   pos: {
     marginBottom: 12,
+    
   },
 };
 
@@ -59,9 +63,14 @@ class SimpleCard extends React.Component{
                   <Typography className={styles.title} color="textSecondary">
                     <p style={{color:'#df0c0c', fontSize:30, fontFamily: 'Montserrat',  textAlign:'justify'}}>{item.appname}</p><br></br>
                   </Typography>
+                  <div style={{display: 'flex', maxWidth: '80%', maxHeight: '5%'}}>
                   <Typography className={styles.pos} color="textSecondary">
-                    <b style={{fontFamily: 'Montserrat',}}>{item.body}</b>
+                    <b style={{fontFamily: 'Montserrat'}}>{item.body}</b>
                   </Typography>
+                  <Typography className={styles.media}>
+                  <img style={{borderRadius:10, width: 100}} src={item.smallPic}  alt="hshshsdh!" />
+                  </Typography>
+                  </div>
                   <Typography component="p">
                   <br></br>
                   <FaClock style={{color:'#333'}}/>  {item.createdAt} 
@@ -84,5 +93,6 @@ class SimpleCard extends React.Component{
 }
 
 //Link to={{ pathname:`/apps/${item.appID} `}}
+//<img style={{borderRadius:'50%'}} src={item.smallPic}  alt="hshshsdh!" />
 
 export default withStyles(styles)(SimpleCard);
