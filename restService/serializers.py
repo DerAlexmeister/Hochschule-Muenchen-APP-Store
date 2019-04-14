@@ -76,11 +76,21 @@ class UserSerializer(serializers.ModelSerializer):
         Meta Class for the User Model.
         '''
         model = userModel.CustomUser
-        fields = ('email', 
-            'is_staff',
-            'is_active',
+        fields = (
+            'email', 
             'date_joined',
+            'nickname',
+            'smallPic',
+            'linkImg',
+            'verified',
             'typOfAccount',
             'Fakultaet',
-            'verified'
+            'fb', 
+            'twitter',
+            'xing',
+            'linkedin', 
+            'youtube',
+            'github',
+            'insta', 
+            'website' 
         )

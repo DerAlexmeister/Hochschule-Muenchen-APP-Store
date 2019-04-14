@@ -46,8 +46,8 @@ class Appdetails extends React.Component{
     const {items } = this.state;
     console.log(items)
       return (
-          <ul style={{marginRight:20, paddingLeft:20, paddindRight:20, listStyleType: "none",  justifyContent: 'center',  alignItems: 'center', fontFamily: 'Montserrat',}}> 
-            { items.map(item => (
+          <ul style={{marginRight:20, paddingLeft:20, paddindRight:20, listStyleType: "none",  justifyContent: 'center',  alignItems: 'center', fontFamily: 'Montserrat'}}> 
+            {items.map(item => (
               <div>
                 <div style={{display:'flex'}}>
                   <img style={{borderRadius:50, width:200, height:200}} src={"http://localhost:8000" + item.smallPic}  alt="hshshsdh!" />

@@ -54,7 +54,7 @@ class SideNavPage extends React.Component {
                   <li style={{display:'Inline', paddingLeft:10 }}><a style={{color:'#ccc'}} target='blank' href="https://www.xing.com/communities/groups/hochschule-muenchen-hochschule-fuer-angewandte-wissenschaften-1073062"><FaXing/></a></li>
                 </ul>
             </div>
-            <div style={{position: 'absolute', bottom: 20, paddingLeft: 0, width: 280, textAlign: 'center', color:'#fff', fontFamily: 'Montserrat',fontSize:14}}>
+            <div style={{position: 'absolute', bottom: 20, paddingLeft: 0, width: 280, textAlign: 'center', color:'#fff', fontFamily: 'Montserrat', fontSize:14}}>
             Copyright <FaRegCopyright /> Appmon
             </div>
           </div>

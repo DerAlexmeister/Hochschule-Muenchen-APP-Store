@@ -143,6 +143,31 @@ def appsFromCreator(request, creator):
             }, status=400)
 
 @csrf_exempt
+@api_view(['GET'])
+@permission_classes((AllowAny, ))
+def infoCreator(request, creator):
+    '''
+    Method to get all apps created by a creator
+    '''
+    if request.method == 'GET':
+        try:
+            data = userModel.objects.all().filter(id=creator)
+        except:
+            return JsonResponse({
+                "error" : "Unknown Creator"
+            }, status=400)
+        if data is None:
+            return JsonResponse({
+            "error": "Unknown Creator"
+        }, status=400)
+        serialized_data = serializers.UserSerializer(data, many=True)
+        return JsonResponse(serialized_data.data, status=200, safe=False)
+    else:
+        return JsonResponse({
+                "error": "Only GET - Requests are allowed"
+            }, status=400)
+
+@csrf_exempt
 def createUser(request):
     '''
     Method to create a User out of a POST request

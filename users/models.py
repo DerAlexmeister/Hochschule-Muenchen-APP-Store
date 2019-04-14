@@ -12,7 +12,7 @@ creating the directory depending on the username
 and the file to store it
 '''
 def user_directory_path(instance, filename):
-      return 'user_{0}/{1}'.format(instance.creator.getUserName(), filename)
+      return 'user_{0}/{1}'.format(instance.getUserName(), filename)
 
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
@@ -41,6 +41,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     )
 
     email = models.EmailField(_('email address'), unique=True)
+    nickname = models.CharField(max_length=128, blank=True , default="Anonym")
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     date_joined = models.DateTimeField(default=timezone.now)
@@ -55,8 +56,15 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         default='FK07',
     )
     smallPic = models.ImageField(upload_to=user_directory_path, blank=True)
-    bigimg = models.ImageField(upload_to=user_directory_path, blank=True)
     linkImg = models.URLField(max_length=512, blank=True, null=True)
+    fb = models.URLField(max_length=512, blank=True, null=True)
+    twitter = models.URLField(max_length=512, blank=True, null=True)
+    xing = models.URLField(max_length=512, blank=True, null=True)
+    linkedin = models.URLField(max_length=512, blank=True, null=True)
+    youtube =  models.URLField(max_length=512, blank=True, null=True)
+    github = models.URLField(max_length=512, blank=True, null=True)
+    insta = models.URLField(max_length=512, blank=True, null=True)
+    website = models.URLField(max_length=512, blank=True, null=True)
     verified = models.BooleanField(default=False)
 
     USERNAME_FIELD = 'email'
