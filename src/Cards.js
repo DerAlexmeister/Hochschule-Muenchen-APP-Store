@@ -3,14 +3,16 @@ import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-//import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import axios from 'axios';
 import { FaClock, FaArrowCircleRight} from 'react-icons/fa';
 import { Link } from 'react-router-dom'
+<<<<<<< HEAD
 //import getBaseUrl from './consts.js'
 //import CardMedia from '@material-ui/core/CardMedia';
 
+=======
+>>>>>>> c11aa0d80bb733eeb5178a25af942deb5070a974
 
 const styles = {
   card: {
