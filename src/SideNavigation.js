@@ -25,12 +25,12 @@ class SideNavPage extends React.Component {
     return (
       <Sidebar
         sidebar={
-          <div style={{width:'100%',paddingRight:20}}>
+          <div style={{width:'100%', height:'100%', paddingRight:20, fontFamily: 'Montserrat'}}>
             <img style={{width:180, height:60, zIndex:10}} src={logo} alt="Logo" />
             <hr style={{backgroundColor:'#fff'}}></hr>
             <div style={{width:'100%', paddingLeft:0,}}>
               <h2 style={{width:'100%', textAlign: 'center', color:'#ccc'}}><u>Menu</u></h2>
-              <ul style={{listStyleType: "none", color:'#ccc', textAlign: 'center',paddingLeft:0,}}>
+              <ul style={{listStyleType: "none", color:'#ccc', textAlign: 'center', paddingLeft: 0}}>
                 <li><a style={{listStyleType: "none", color:'#ccc'}} href="/">Home</a></li>
                 <li><a style={{listStyleType: "none", color:'#ccc'}} href="/apps">Apps</a></li>
                 <li><a style={{listStyleType: "none", color:'#ccc'}} href="/">Profil</a></li>
@@ -42,7 +42,7 @@ class SideNavPage extends React.Component {
             </div>
             <hr style={{backgroundColor:'#fff'}}></hr>
             <div style={{color:'#fff'}}>
-            <InputBase style={{color:'#fff'}}placeholder="Search…" /> <SearchIcon />
+            <InputBase style={{color:'#fff', paddingLeft: 22.5}}placeholder="Search…" /> <SearchIcon />
             </div>
             <hr style={{backgroundColor:'#fff'}}></hr>
             <div>
@@ -54,6 +54,9 @@ class SideNavPage extends React.Component {
                   <li style={{display:'Inline', paddingLeft:10 }}><a style={{color:'#ccc'}} target='blank' href="https://www.xing.com/communities/groups/hochschule-muenchen-hochschule-fuer-angewandte-wissenschaften-1073062"><FaXing/></a></li>
                 </ul>
             </div>
+            <div style={{position: 'absolute', bottom: 20, paddingLeft: 0, width: 280, textAlign: 'center', color:'#fff', fontFamily: 'Montserrat',fontSize:14}}>
+            Copyright <FaRegCopyright /> Appmon
+            </div>
           </div>
         }
         open={this.state.sidebarOpen}
@@ -62,7 +65,6 @@ class SideNavPage extends React.Component {
         <IconButton style={{position:'fixed', top:10, left:20, zIndex:3000, fontSize:56, color:'#fff', borderColor:'#fff',  borderWidth:0.5 }} onClick={() => this.onSetSidebarOpen(true)}>
             <MenuIcon />
           </IconButton>
-        <b><FaRegCopyright/> Alexander M. Westphal &amp; Paul Schröder</b>
       </Sidebar>
     );
   }

@@ -1,4 +1,4 @@
-import SearchAppBar from "./MenueBar.js";
+import Bar from "./MenueBar.js";
 import Header from "./Banner.js"
 import Bemobile from "./bemobile.js"
 import SideNavPage from "./SideNavigation"
@@ -10,7 +10,7 @@ export default class App extends React.Component{
   render(){
     return (
       <div> 
-          <SearchAppBar/>
+          <Bar/>
           <Header/>
           <SideNavPage/>
             <div style={{backgroundColor:'#fff', width:'100%', height:'300px'}}>
