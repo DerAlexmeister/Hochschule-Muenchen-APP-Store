@@ -7,6 +7,7 @@ import logo from './assets/logo_with_name.png';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 import { FaFacebookF, FaTwitter, FaYoutube, FaLinkedinIn, FaXing, FaRegCopyright } from 'react-icons/fa';
+import { Link } from 'react-router-dom'
 
 class SideNavPage extends React.Component {
   constructor(props) {
@@ -43,6 +44,11 @@ class SideNavPage extends React.Component {
             <hr style={{backgroundColor:'#fff'}}></hr>
             <div style={{color:'#fff'}}>
             <InputBase style={{color:'#fff', paddingLeft: 22.5}}placeholder="Search…" /> <SearchIcon />
+            </div>
+            <hr style={{backgroundColor:'#fff'}}></hr>
+            <div style={{color:'#fff'}}>
+              <Link to="/signin/">Login</Link>
+              <Link to="/signup/">Reg</Link>
             </div>
             <hr style={{backgroundColor:'#fff'}}></hr>
             <div>

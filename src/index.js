@@ -9,7 +9,8 @@ import AppShow from './ShowApps.js'
 import App_total_details from './entire_details_app.js'
 import creatorsView from './creatorsview.js'
 import myProfil from './myProfil.js'
-
+import LoginPage from './LoginPage.js'
+import RegisterPage from './registration.js'
 
 const routing = (
     <Router>
@@ -19,6 +20,8 @@ const routing = (
         <Route path="/app/:appID" component={App_total_details} /> 
         <Route path="/creator/:creatorID" component={creatorsView} />
         <Route path="/profil/:profilID" component={myProfil} />
+        <Route path="/signin/" component={LoginPage} />
+        <Route path='/signup/' component={RegisterPage} />
       </div>
     </Router>
   )

@@ -3,7 +3,7 @@ import SideNavPage from "./SideNavigation"
 import React from "react";
 
 
-export default class myProfil extends React.Component{
+export default class myProfil extends React.Component {
   render(){
     return (
       <div> 
