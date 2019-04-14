@@ -4,6 +4,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import { withStyles } from '@material-ui/core/styles';
 import logo from './assets/logo_with_name.png';
+import { FiUser, FiPlusSquare } from "react-icons/fi";
 
 const styles = theme => ({
   root: {
@@ -68,6 +69,9 @@ function Bar(props) {
     <div className={classes.root}>
       <AppBar style={{position:'static'}}>
         <Toolbar style={{position:'fixed',width:'100%', backgroundColor: '#171a21', color:'#fff',  zIndex:2000}}>
+        <span style={{position:'absolute', left:100, top: 8, fontSize:30, color:'#fff'}}>|</span>
+        <FiPlusSquare style={{position:'absolute', left:160, top: 24, fontSize:20, color:'#fff'}} />
+        <FiUser style={{position:'absolute', left:120, fontSize:20, top: 24, color:'#fff'}}/>
         <img style={{position:'absolute', right:10, width:180, height:60, zIndex:10}} src={logo} alt="Logo" />
         </Toolbar>
       </AppBar>

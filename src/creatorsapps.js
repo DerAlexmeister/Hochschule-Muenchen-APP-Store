@@ -103,15 +103,15 @@ class CreatorsApp extends React.Component{
 
     getype(it) {
         if (it === 'ST') {
-            return  <div>Student <FiUser style={{color:'#f10b51'}} /></div>
+            return  <div>Student\in<FiUser style={{color:'#f10b51'}} /></div>
         }
         else if (it === 'SA') {
-            return  <div>Staff <FiUser style={{color:'#f10b51'}} /></div>
+            return  <div>Mitarbeiter\in <FiUser style={{color:'#f10b51'}} /></div>
         }
         else if (it === 'Fr') {
-            return  <div>Externer Student <FiUser style={{color:'#f10b51'}} /></div>
+            return  <div>Externer Student\in<FiUser style={{color:'#f10b51'}} /></div>
         } else {
-            return  <div>Professor <FiUser style={{color:'#f10b51'}} /></div>
+            return  <div>Professor\in <FiUser style={{color:'#f10b51'}} /></div>
         }
     }
 
