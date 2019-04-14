@@ -12,7 +12,7 @@ creating the directory depending on the username
 and the file to store it
 '''
 def user_directory_path(instance, filename):
-      return 'user_{0}/{1}'.format(instance.creator.getUserName(), filename)
+      return 'user_{0}/{1}'.format(instance.getUserName(), filename)
 
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
@@ -55,7 +55,6 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         default='FK07',
     )
     smallPic = models.ImageField(upload_to=user_directory_path, blank=True)
-    bigimg = models.ImageField(upload_to=user_directory_path, blank=True)
     linkImg = models.URLField(max_length=512, blank=True, null=True)
     verified = models.BooleanField(default=False)
 
