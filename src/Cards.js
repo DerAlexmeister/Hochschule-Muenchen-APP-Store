@@ -18,16 +18,12 @@ const styles = {
     backgroundColor: '#ccc',
     paddingRight: 20,
   },
-  media: {
-    padding: 200,
-  },
   title: {
     marginBottom: 16,
     fontSize: 14,
   },
   pos: {
     marginBottom: 12,
-    
   },
 };
 
@@ -63,13 +59,17 @@ class SimpleCard extends React.Component{
                   <Typography className={styles.title} color="textSecondary">
                     <p style={{color:'#df0c0c', fontSize:30, fontFamily: 'Montserrat',  textAlign:'justify'}}>{item.appname}</p><br></br>
                   </Typography>
-                  <div style={{display: 'flex', maxWidth: '80%', maxHeight: '5%'}}>
+                  <div style={{display: 'flex'}}>
+                  <div style={{maxWidth: '80%', minWidth: '80%'}}>
                   <Typography className={styles.pos} color="textSecondary">
                     <b style={{fontFamily: 'Montserrat'}}>{item.body}</b>
                   </Typography>
-                  <Typography className={styles.media}>
-                  <img style={{borderRadius:10, width: 100}} src={item.smallPic}  alt="hshshsdh!" />
+                  </div>
+                  <div style={{paddingLeft: 100}}>
+                  <Typography>
+                  <img style={{borderRadius:10, width: 150, height: 150}} src={item.smallPic}  alt="hshshsdh!" />
                   </Typography>
+                  </div>
                   </div>
                   <Typography component="p">
                   <br></br>
