@@ -30,7 +30,6 @@ class Appdetails extends React.Component{
 
   
   componentDidMount() {
-    const {appID} = this.state
         console.log("This is the APPID we got: "+ this.appID_)
         axios.get('http://localhost:8000/api/apps/' + (this.appID_)).then(res => {
             const datem = res.data;
