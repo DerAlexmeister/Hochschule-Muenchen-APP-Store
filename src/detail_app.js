@@ -1,14 +1,7 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-//import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
 import axios from 'axios';
-import { FaClock, FaArrowCircleRight} from 'react-icons/fa';
-import { Link } from 'react-router-dom'
-//import getBaseUrl from './consts.js'
+
 
 const styles = {
   card: {
@@ -33,11 +26,13 @@ class Appdetails extends React.Component{
         items: ["0"]
   };
 
+  appID_ = this.props.appID_
+
   
   componentDidMount() {
-    const {appID} = this.props.match.params
-        console.log(appID)
-        axios.get('http://localhost:8000/api/apps/' + (appID)).then(res => {
+    const {appID} = this.state
+        console.log("This is the APPID we got: "+ this.appID_)
+        axios.get('http://localhost:8000/api/apps/' + (this.appID_)).then(res => {
             const datem = res.data;
             console.log(datem)
             this.setState({items: [datem] })

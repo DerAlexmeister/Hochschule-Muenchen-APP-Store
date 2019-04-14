@@ -6,14 +6,14 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Route, BrowserRouter as Router } from 'react-router-dom'
 import AppShow from './ShowApps.js'
-import Appdetails from './detail_app.js'
+import App_total_details from './entire_details_app.js'
 
 const routing = (
     <Router>
       <div>
         <Route exact path="/" component={App} />
         <Route path="/apps/" component={AppShow} />
-        <Route path="/app/:appID" component={Appdetails} /> 
+        <Route path="/app/:appID" component={App_total_details} /> 
       </div>
     </Router>
   )
