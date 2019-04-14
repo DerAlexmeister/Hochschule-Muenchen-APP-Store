@@ -7,6 +7,7 @@ import * as serviceWorker from './serviceWorker';
 import { Route, BrowserRouter as Router } from 'react-router-dom'
 import AppShow from './ShowApps.js'
 import App_total_details from './entire_details_app.js'
+import creatorsView from './creatorsview.js'
 
 const routing = (
     <Router>
@@ -14,6 +15,7 @@ const routing = (
         <Route exact path="/" component={App} />
         <Route path="/apps/" component={AppShow} />
         <Route path="/app/:appID" component={App_total_details} /> 
+        <Route path="/creator/:creatorID" component={creatorsView} />
       </div>
     </Router>
   )
