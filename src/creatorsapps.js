@@ -4,7 +4,8 @@ import axios from 'axios';
 import {FaRegEnvelope, FaRegCompass, FaStreetView, FaRegCopyright, FaCheckCircle,
     FaFacebookF, FaTwitter, FaInstagram, FaXing, FaLinkedinIn, FaGithub, FaYoutube
         } from "react-icons/fa"
-import { Link } from 'react-router-dom'
+import { IoIosSchool } from "react-icons/io";
+import { FiUser } from "react-icons/fi";
 
 const styles = {
     card: {
@@ -62,7 +63,7 @@ class CreatorsApp extends React.Component{
                   <p style={{color:'#fff'}}><h5><b>Kontakt</b></h5><br></br>
                     <ul style={{paddingLeft:0, display:'flex', listStyle:'none'}}>
                       <li style={{paddingLeft:0}}><b>Email</b><br></br><a style={{color:'#f10b51', fontSize:26, paddingLeft: 6}} href={"mailto:" + item.email}><FaRegEnvelope/></a></li>
-                      <li style={{paddingLeft:20}}><b>Web</b><br></br><a style={{color:'#f10b51', fontSize:26, paddingLeft:6}} href={"" + item.website}><FaRegCompass/></a></li>
+                      {this.hasWebsite(item.website)}
                     </ul>
                   </p>
                   <hr style={{backgroundColor:'#fff'}}></hr>
@@ -78,12 +79,41 @@ class CreatorsApp extends React.Component{
                     </ul>
                   </p>
                   <hr style={{backgroundColor:'#fff'}}></hr>
+                  <p style={{color:'#fff'}}><h5><b>Univeritätsintern</b></h5><br></br>
+                    <ul style={{paddingLeft:0, display:'flex', listStyle:'none'}}>
+                    <li style={{paddingLeft:0}}><b>Fakultät</b><br></br>{item.Fakultaet} <IoIosSchool style={{color:'#f10b51'}} /></li>
+                    <li style={{paddingLeft:20}}><b>Typ</b><br></br>{this.getype(item.typOfAccount)}</li>
+                    </ul>
+                  </p>
+                  <hr style={{backgroundColor:'#fff'}}></hr>
                   <h6 style={{color:'#fff'}}>Copyright <FaRegCopyright /> Appmon</h6>
                 </div>
             ))}
             </ul>
         );
       }
+
+    hasWebsite(it) {
+        if(it) {
+            return <li style={{paddingLeft:20}}><b>Web</b><br></br><a style={{color:'#f10b51', fontSize:26, paddingLeft:6}} href={"" + it}><FaRegCompass/></a></li>
+        } else {
+            return <li style={{paddingLeft:20}}><b>Web</b><br></br><a style={{color:'#ccc', fontSize:26, paddingLeft:6}} href='#'><FaRegCompass/></a></li>
+        }
+    }
+
+    getype(it) {
+        if (it === 'ST') {
+            return  <div>Student <FiUser style={{color:'#f10b51'}} /></div>
+        }
+        else if (it === 'SA') {
+            return  <div>Staff <FiUser style={{color:'#f10b51'}} /></div>
+        }
+        else if (it === 'Fr') {
+            return  <div>Externer Student <FiUser style={{color:'#f10b51'}} /></div>
+        } else {
+            return  <div>Professor <FiUser style={{color:'#f10b51'}} /></div>
+        }
+    }
 
     isVerified(boo) {
         if (boo) {
@@ -111,7 +141,7 @@ class CreatorsApp extends React.Component{
 
     hasXing(boo, item) {
         if (boo) {
-            return <li style={{paddingLeft:30}}><b>Xing</b><br></br><a style={{color:'#f10b51', fontSize:26, paddingLeft: 6}} href={"mailto:" + item.xing}><FaXing/></a></li>
+            return <li style={{paddingLeft:30}}><b>Xing</b><br></br><a style={{color:'#f10b51', fontSize:26, paddingLeft: 6}} href={"" + item.xing}><FaXing/></a></li>
         } else {
             return <li style={{paddingLeft:30}}><b>Xing</b><br></br><a style={{color:'#ccc', fontSize:26, paddingLeft: 6}} href='#'><FaXing/></a></li>
         }
@@ -143,7 +173,7 @@ class CreatorsApp extends React.Component{
 
     hasinsta(boo, item) {
         if (boo) {
-            return <li style={{paddingLeft:30}}><b>Instagram</b><br></br><a style={{color:'#f10b51', fontSize:26, paddingLeft:6}} href={"" + item.github}><FaInstagram style={{paddingLeft: 10, fontSize:40}} /></a></li>
+            return <li style={{paddingLeft:30}}><b>Instagram</b><br></br><a style={{color:'#f10b51', fontSize:26, paddingLeft:6}} href={"" + item.insta}><FaInstagram style={{paddingLeft: 10, fontSize:40}} /></a></li>
         } else {
             return <li style={{paddingLeft:30}}><b>Instagram</b><br></br><a style={{color:'#ccc', fontSize:26, paddingLeft: 6}} href='#'><FaInstagram style={{paddingLeft: 10, fontSize:40}} /></a></li>
         }
