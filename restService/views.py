@@ -249,23 +249,25 @@ def login(request):
     if not user:
         return Response({'error': 'Invalid Credentials'}, status=HTTP_404_NOT_FOUND)
     token, _ = Token.objects.get_or_create(user=user)
-    print(token.key)
-    return JsonResponse({'token': token.key}, status=HTTP_200_OK)
+    return JsonResponse({'token': token.key, 'user_id': user.id}, status=HTTP_200_OK)
 
 @csrf_exempt
-def app_list(request):
+
+def createApp(request):
     '''
     Method to recieve data via POST-Method and Store it in the Database
     '''
     if request.method == 'POST':
         data = JSONParser().parse(request)
         serializer = serializers.AppSerializer(data=data)
+        print(data)
+        print(serializer.is_valid())
         if serializer.is_valid():
             serializer.save()
             return JsonResponse(serializer.data, status=201)
-        return JsonResponse(serializer.errors, status=400)
+        return JsonResponse(serializer.errors, status=502)
     else:
-        return redirect('Apps-Basic-Url')
+        return JsonResponse({"test":"est"}, status=500)
 
 
 # Delete something

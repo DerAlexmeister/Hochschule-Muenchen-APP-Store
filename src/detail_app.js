@@ -56,13 +56,13 @@ class Appdetails extends React.Component{
                     <a style={{color:'#df0c0c', border:'2px solid #f10b51', borderRadius:4, width:'100%', height:'100%', textAlign:'center', margin:'auto', padding:15 }} href="">Download</a>
                   </div>
                 </div>
-                <hr style={{backgroundColor:'#fff'}}></hr>
+                <hr style={{backgroundColor:'#fff', width:'100%', height:1}}></hr>
                 <br></br>
                 <p style={{color:'#fff'}}><h5><b>Beschreibung</b></h5>
                   {item.body}
                 </p>
                 <br></br>
-                <hr style={{backgroundColor:'#fff'}}></hr>
+                <hr style={{backgroundColor:'#fff',width:'100%', height:1}}></hr>
                 <p style={{color:'#fff'}}><h5><b>Informationen</b></h5><br></br>
                   <ul style={{paddingLeft:0, display:'flex', listStyle:'none'}}>
                     <li style={{paddingLeft:0}}><b style={{color: '#df0c0c'}}>Downloads</b> <br></br><IoMdDownload /> {item.downloads}</li>
@@ -79,7 +79,7 @@ class Appdetails extends React.Component{
                     <li style={{paddingLeft:20}}><b>Creator</b><br></br><Link to={`/creator/${item.creator}`} style={{color:'#f10b51', fontSize:26, paddingLeft:14}}><FaStreetView/></Link></li>
                   </ul>
                 </p>
-                <hr style={{backgroundColor:'#fff'}}></hr>
+                <hr style={{backgroundColor:'#fff', width:'100%', height:1}}></hr>
                 <h6 style={{color:'#fff'}}>Copyright <FaRegCopyright /> Appmon</h6>
               </div>
           ))}
