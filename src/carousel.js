@@ -1,15 +1,15 @@
-import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import axios from 'axios';
-import Slider from "react-slick";
 import { Link } from 'react-router-dom'
+import React from "react";
+import Carousel  from 'nuka-carousel';
 
-class SimpleSlider extends React.Component {
-
+ class SimpleSlider extends React.Component {
+  
   state = {
+    slideIndex: 0,
     items: [],
   };
 
@@ -20,59 +20,45 @@ class SimpleSlider extends React.Component {
     })
   }
 
-    
-
   render() {
-    const {items, error, isLoaded}  = this.state;
-    console.log("items: " + this.state.items)
-      console.log("isLoaded: " + this.state.isLoaded)
-      console.log("error: " + this.state.error)
-    if (error) {
-      return <h1>Error</h1>
-    } else if (isLoaded) {
-      return <h1>loading</h1>
-    } else if (typeof items !== 'undefined') {
+    const{items}=this.state
     return (
-      <Slider className={styles.settings}>
-        <div style={{ fontFamily: 'Montserrat',}}> 
-        <ul style={{display:'flex'}}>
-        {items.map(item => (
-          <li style={{paddingLeft:30 }}>
-              <Link to={`/app/${item.appID}`} style={{textDecoration: 'none'}}> 
-              <Card>
-                <CardContent key={item.appID}  style={{backgroundColor:'rgba(23, 26, 33, 1)', border:'2px solid  rgb(241, 11, 81)', width: 400, height: 300}}>
-                  <Typography className={styles.title}>
-                  <h1><b><p style={{color:'#fff', fontSize:16, fontFamily: 'Montserrat',  textAlign:'center'}}>{item.appname}</p></b></h1>   
-                  </Typography>
-                  <img style={{paddingLeft: 60, width: 300, height: 230}} src={item.smallPic}  alt="This app has no Picture yet" />
-                </CardContent> 
-              </Card>
-              </Link>        
-            </li>
-          ))}   
-        </ul>
-        </div>
-      </Slider>
+      <Carousel
+        slideIndex={this.state.slideIndex}
+        afterSlide={slideIndex => this.setState({ slideIndex })}
+      >
+         <img
+          src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide1"/>
+        <img
+          src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide2"/>
+        <img
+          src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide3"/>
+        <img
+          src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide4"/>
+        <img
+          src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide5"/>
+        <img
+          src="http://placehold.it/1000x400/ffffff/c0392b/&text=slide6"/>
+      </Carousel>
     );
-  } else {
-    return <h1 style={{color:'#fff'}}>undefined</h1>
-  }
   }
 }
+export default SimpleSlider;
 
 
-
-const styles = {
-  settings: {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 20,
-    slidesToScroll: 1,
-  },
-  title: {
-    fontSize: 14,
-  },
-};
-
-export default withStyles(styles)(SimpleSlider);
+<div style={{ fontFamily: 'Montserrat',}}> 
+{items.map(item => (
+  <div style={{paddingLeft:30 }}>
+      <Link to={`/app/${item.appID}`} style={{textDecoration: 'none'}}> 
+      <Card>
+        <CardContent key={item.appID}  style={{backgroundColor:'rgba(23, 26, 33, 1)', border:'2px solid  rgb(241, 11, 81)', width: 400, height: 300}}>
+          <Typography>
+          <h1><b><p style={{color:'#fff', fontSize:16, fontFamily: 'Montserrat',  textAlign:'center'}}>{item.appname}</p></b></h1>   
+          </Typography>
+          <img style={{paddingLeft: 60, width: 300, height: 230}} src={item.smallPic}  alt="This app has no Picture yet" />
+        </CardContent> 
+      </Card>
+      </Link>        
+    </div>
+  ))}   
+</div>

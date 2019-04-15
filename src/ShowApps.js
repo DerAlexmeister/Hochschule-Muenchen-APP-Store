@@ -1,6 +1,6 @@
 import SearchAppBar from "./MenueBar.js";
 import SideNavPage from "./SideNavigation"
-import SimpleCard from "./Cards"
+import SimpleCard from "./Cards_newest"
 import logo from "./assets/apps_banner.jpg"
 import ButtonDrop from "./ButtonDropdown"
 import React from "react";
