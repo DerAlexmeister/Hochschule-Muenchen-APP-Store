@@ -23,6 +23,9 @@ class SideNavPage extends React.Component {
     this.setState({ sidebarOpen: open });
   }
  
+  //<h2 style={{width:'100%', textAlign: 'center', color:'#ccc'}}><u>Menu</u></h2>
+
+
   render() {
     return (
       <Sidebar
@@ -34,22 +37,22 @@ class SideNavPage extends React.Component {
             </IconButton>
             <hr style={{backgroundColor:'#fff'}}></hr>
             <div style={{width:'100%', paddingLeft:0,}}>
-              <h2 style={{width:'100%', textAlign: 'center', color:'#ccc'}}><u>Menu</u></h2>
+            <br></br>
               <ul style={{listStyleType: "none", color:'#ccc', textAlign: 'center', paddingLeft: 0}}>
-                <li><a style={{listStyleType: "none", color:'#ccc'}} href="/">Home</a></li>
-                <li><a style={{listStyleType: "none", color:'#ccc'}} href="/apps">Apps</a></li>
-                <li><a style={{listStyleType: "none", color:'#ccc'}} href="/">Profil</a></li>
-                <li><a style={{listStyleType: "none", color:'#ccc'}} target='blank' href="https://www.hm.edu/sekundaer_navigation/impressum/index.de.html">Impressum</a></li>
-                <li><a style={{listStyleType: "none", color:'#ccc'}} target='blank'href="https://www.hm.edu/sekundaer_navigation/impressum/datenschutz/index.de.html">Datenschutz</a></li>
-                <li><a style={{listStyleType: "none", color:'#ccc'}} target='blank' href="https://www.hm.edu/allgemein/kontakt/index.de.html">Kontakt</a></li>
+                <li><a style={{listStyleType: "none", color:'#ccc', textDecoration: "none"}} href="/">Home</a></li>
+                <li><a style={{listStyleType: "none", color:'#ccc', textDecoration: "none"}} href="/apps">Apps</a></li>
+                <li><a style={{listStyleType: "none", color:'#ccc', textDecoration: "none"}} href="/">Profil</a></li>
+                <li><a style={{listStyleType: "none", color:'#ccc', textDecoration: "none"}} target='blank' href="https://www.hm.edu/sekundaer_navigation/impressum/index.de.html">Impressum</a></li>
+                <li><a style={{listStyleType: "none", color:'#ccc', textDecoration: "none"}} target='blank'href="https://www.hm.edu/sekundaer_navigation/impressum/datenschutz/index.de.html">Datenschutz</a></li>
+                <li><a style={{listStyleType: "none", color:'#ccc', textDecoration: "none"}} target='blank' href="https://www.hm.edu/allgemein/kontakt/index.de.html">Kontakt</a></li>
               </ul>
               <br></br>
             </div>
             <hr style={{backgroundColor:'#fff'}}></hr>
-            <div style={{color:'#fff'}}>
-              <Link to="/signin/">Login</Link><br></br>
-              <Link to="/signup/">Reg</Link>
-            </div>
+            <ul style={{listStyleType: "none", color:'#ccc', textAlign: 'center', paddingLeft: 0}}>
+                <li><a style={{listStyleType: "none", color:'#ccc', textDecoration: "none"}} href="/signin/">Login</a></li>
+                <li><a style={{listStyleType: "none", color:'#ccc', textDecoration: "none"}} href="/signup/">Registration</a></li>
+            </ul>
             <hr style={{backgroundColor:'#fff'}}></hr>
             <div>
                 <ul>

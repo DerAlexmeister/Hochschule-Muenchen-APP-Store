@@ -3,6 +3,7 @@ import Header from "./Banner.js"
 import Bemobile from "./bemobile.js"
 import SideNavPage from "./SideNavigation"
 import Footerown from "./footer.js"
+import SimpleSlider from "./carousel.js"
 import React from "react";
 
 
@@ -18,9 +19,12 @@ export default class App extends React.Component{
                   <h4 style={{textAlign: 'center', fontFamily: 'Montserrat'}}><i><b>David Heinemeier Hansson – (RoR)</b></i></h4>
                   <br></br>
                 </div>
-                <div style={{backgroundColor:'#282c34', width:'100%', height:'300px'}}>
-                  <h1 style={{textAlign: 'center', fontFamily: 'Montserrat', paddingTop: 20, color:'#fff'}}>Beliebte Apps</h1>
-                  <br></br>
+                <div style={{backgroundColor:'#282c34', width:'100%', height:'500px'}}>
+                <h1 style={{textAlign: 'center', fontFamily: 'Montserrat', paddingTop: 30, color: '#fff'}}>Beliebteste Apps</h1>
+                <div style={{paddingTop: 40}}>
+                <SimpleSlider/>
+                </div>
+                <br></br>
                 </div>
                 <div style={{backgroundColor:'#fff', width:'100%', height:'300px'}}>
                   <br></br>
