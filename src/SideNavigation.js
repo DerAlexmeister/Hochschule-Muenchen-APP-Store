@@ -7,6 +7,7 @@ import logo from './assets/logo_with_name.png';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 import { FaFacebookF, FaTwitter, FaYoutube, FaLinkedinIn, FaXing, FaRegCopyright } from 'react-icons/fa';
+import { MdClose } from "react-icons/md";
 import { Link } from 'react-router-dom'
 
 class SideNavPage extends React.Component {
@@ -28,6 +29,9 @@ class SideNavPage extends React.Component {
         sidebar={
           <div style={{width:'100%', height:'100%', paddingRight:20, fontFamily: 'Montserrat'}}>
             <img style={{width:180, height:60, zIndex:10}} src={logo} alt="Logo" />
+            <IconButton style={{position:'fixed', top:0, right:0, fontSize:24, color:'#fff', outline:0}} onClick={() => this.onSetSidebarOpen(false)}>
+            <MdClose/>
+            </IconButton>
             <hr style={{backgroundColor:'#fff'}}></hr>
             <div style={{width:'100%', paddingLeft:0,}}>
               <h2 style={{width:'100%', textAlign: 'center', color:'#ccc'}}><u>Menu</u></h2>
