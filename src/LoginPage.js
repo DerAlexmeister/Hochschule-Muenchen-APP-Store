@@ -9,6 +9,7 @@ class LoginPage extends React.Component {
     state = {
         email: '',
         Password: '',
+        test: '',
     }
     
     handleChange = event => {
@@ -31,8 +32,21 @@ class LoginPage extends React.Component {
         email: this.state.email,
         password : this.state.Password,
     }).then(response => {
-            console.log(response);
-            console.log(response.data);
+            if (response.status == 200) {
+                console.log('hall0o')
+                sessionStorage.setItem('token', String(response.data.token))
+                sessionStorage.setItem('isLoggedIn', true)
+                var name = sessionStorage.getItem('isLoggedIn')
+                console.log("Is LoggedIn ----->" + name)
+                console.log(response)
+                console.log(response.data)
+            } else {
+                console.log(response);
+                console.log(response.data.token);
+            }
+            this.setState({
+                test: sessionStorage.getItem('isLoggedIn')
+            })
         });
     }
 

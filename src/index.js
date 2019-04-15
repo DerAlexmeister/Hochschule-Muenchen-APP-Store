@@ -11,6 +11,7 @@ import creatorsView from './creatorsview.js'
 import myProfil from './myProfil.js'
 import LoginPage from './LoginPage.js'
 import RegisterPage from './registration.js'
+import Createapp from './createApp.js'
 
 const routing = (
     <Router>
@@ -22,6 +23,7 @@ const routing = (
         <Route path="/profil/:profilID" component={myProfil} />
         <Route path="/signin/" component={LoginPage} />
         <Route path='/signup/' component={RegisterPage} />
+        <Route path='/createapp/' component={Createapp} />
       </div>
     </Router>
   )
