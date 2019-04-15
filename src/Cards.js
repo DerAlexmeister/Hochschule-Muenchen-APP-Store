@@ -5,8 +5,10 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import axios from 'axios';
-import { FaClock, FaArrowCircleRight} from 'react-icons/fa';
+import { FaArrowCircleRight} from 'react-icons/fa';
+import { IoIosSchool } from "react-icons/io";
 import { Link } from 'react-router-dom'
+import { FiUser } from "react-icons/fi";
 
 const styles = {
   card: {
@@ -50,29 +52,33 @@ class SimpleCard extends React.Component{
             {items.map(item => (
               <div >
                 <Card className={styles.card}>
-                <CardContent key={item.appID}  style={{backgroundColor:'#666666', paddingRight:20}}>
+                <CardContent key={item.appID}  style={{backgroundColor:'rgba(23, 26, 33, 1)', paddingRight:20, border:'2px solid  rgb(241, 11, 81)', borderBottom:'0px solid #fff'}}>
                   <Typography className={styles.title}>
                   <h1><b><p style={{color:'#fff', fontSize:30, fontFamily: 'Montserrat',  textAlign:'justify'}}>{item.appname}</p></b></h1>   
                   </Typography>
                   <div style={{display: 'flex'}}>
                   <div style={{maxWidth: '80%', minWidth: '80%'}}>
                   <Typography className={styles.pos}>
+                    <br></br><br></br>
                     <div style={{color: '#fff', fontFamily: 'Montserrat'}}>{item.body}</div>
                   </Typography>
                   </div>
                   <div style={{paddingLeft: 100}}>
                   <Typography>
-                  <img style={{borderRadius:10, width: 150, height: 150}} src={item.smallPic}  alt="No Pic found!" />
+                  <img style={{borderRadius:20, width: 150, height: 150}} src={item.smallPic}  alt="This app has no Picture yet" />
                   </Typography>
                   </div>
                   </div>
                   <Typography component="p">
                   <br></br>
-                  <FaClock style={{color:'#333'}}/>  {item.createdAt} 
+                  
                   </Typography>
                 </CardContent> 
-                <CardActions style={{backgroundColor:'#222'}}>
-                <b style={{color:'#fff'}}>Beliebtheit: {item.downloads}</b> <b style={{color:'#fff'}}>|</b> <Link to={`/app/${item.appID}`} style={{color:'#df0c0c'}}>mehr Anzeigen <FaArrowCircleRight/></Link>             
+                <CardActions style={{backgroundColor:'rgba(23, 26, 33, 1)', border:'2px solid #df0c0c', borderTop:'0px solid #fff'}}>
+                  <span style={{color:'#fff'}}>Beliebtheit: {item.downloads}</span> <b style={{color:'#fff'}}>|</b> 
+                    <span style={{color:'#fff'}}><IoIosSchool style={{color:'#f10b51'}} /> {item.Fakultaet}</span>  <b style={{color:'#fff'}}>|</b>
+                    <span style={{color:'#fff'}}><FiUser style={{color:'#f10b51'}} /> {item.Fakultaet}</span>  <b style={{color:'#fff'}}>|</b>   
+                    <Link to={`/app/${item.appID}`} style={{color:'#df0c0c'}}>mehr Anzeigen <FaArrowCircleRight/></Link>             
                 </CardActions>
             </Card>
             <br></br><br></br>
