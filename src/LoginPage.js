@@ -3,6 +3,7 @@ import React from 'react';
 import Bar from "./MenueBar.js";
 import SideNavPage from "./SideNavigation"
 import axios from 'axios';
+import { Redirect } from 'react-router-dom'
 
 class LoginPage extends React.Component {
 
@@ -33,13 +34,10 @@ class LoginPage extends React.Component {
         password : this.state.Password,
     }).then(response => {
             if (response.status == 200) {
-                console.log('hall0o')
                 sessionStorage.setItem('token', String(response.data.token))
                 sessionStorage.setItem('isLoggedIn', true)
-                var name = sessionStorage.getItem('isLoggedIn')
-                console.log("Is LoggedIn ----->" + name)
-                console.log(response)
-                console.log(response.data)
+                sessionStorage.setItem('user_id', response.data.user_id )
+                
             } else {
                 console.log(response);
                 console.log(response.data.token);
