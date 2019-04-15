@@ -53,7 +53,7 @@ class Appdetails extends React.Component{
                   <img style={{borderRadius:50, width:200, height:200}} src={"http://localhost:8000" + item.smallPic}  alt="hshshsdh!" />
                   <h1 style={{color:'#fff', paddingLeft:40, paddingTop:150}}> {item.appname}</h1>
                   <div style={{paddingTop:170, paddingLeft:500, maxHeight:300, maxWidth:300 }}>
-                    <a style={{color:'#df0c0c', border:'2px solid #f10b51', borderRadius:4, width:'100%', height:'100%', textAlign:'center', margin:'auto', padding:15 }} href="">Download</a>
+                    <a style={{color:'#df0c0c', border:'2px solid #f10b51', borderRadius:4, width:'100%', height:'100%', textAlign:'center', margin:'auto', padding:15 }} href="#">Download</a>
                   </div>
                 </div>
                 <hr style={{backgroundColor:'#fff', width:'100%', height:1}}></hr>

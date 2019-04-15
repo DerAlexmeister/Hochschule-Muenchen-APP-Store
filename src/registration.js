@@ -75,7 +75,7 @@ class RegisterPage extends React.Component {
             <div >
                 <Bar/>
                 <SideNavPage/>
-                <div style={{position:'absolute', top:100, left:100, color:'#fff', width:'60%', left:'20%'}}>
+                <div style={{position:'absolute', top:100, color:'#fff', width:'60%', left:'20%'}}>
                     <h1 style={{textAlign:'center', fontFamily: 'Montserrat'}}> Registrieren</h1>
                     <br></br>
                     <form onSubmit={this.handleSubmit}>

@@ -293,14 +293,14 @@ def deleteComment(request):
         return redirect('Basic_user_url')
 
 @csrf_exempt
-@login_required(login_url='/login/')
-def deleteUser(request):
+#@login_required(login_url='/login/')
+def deleteApp(request):
     '''
     Method to delete a App out of a POST request
     '''
     if request.method == 'POST':
         try:
-            current_user = request.user
+            current_user = request.user_id
             data = appModel.objects.all().filter(creator=current_user.id).filter(appID=request.data.get("app_Id")).delete()
             return JsonResponse({
                 "Note" : "Your APP has been deleted {}".format(data)
@@ -315,7 +315,7 @@ def deleteUser(request):
 
 @csrf_exempt
 @login_required(login_url='/login/')
-def deleteApp(request):
+def deleteUser(request):
     '''
     Method to delete a User out of a POST request
     '''
