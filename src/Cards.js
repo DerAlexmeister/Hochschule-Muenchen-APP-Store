@@ -69,10 +69,6 @@ class SimpleCard extends React.Component{
                   </Typography>
                   </div>
                   </div>
-                  <Typography component="p">
-                  <br></br>
-                  
-                  </Typography>
                 </CardContent> 
                 <CardActions style={{backgroundColor:'rgba(23, 26, 33, 1)', border:'2px solid #df0c0c', borderTop:'0px solid #fff'}}>
                   <span style={{color:'#fff'}}>Beliebtheit: {item.downloads}</span> <b style={{color:'#fff'}}>|</b> 
