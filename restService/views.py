@@ -12,6 +12,7 @@ from django.contrib.auth import authenticate
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import get_user_model
 
 # REST-API Import 
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
@@ -174,11 +175,16 @@ def createUser(request):
     '''
     if request.method == 'POST':
         data = JSONParser().parse(request)
-        serializer = serializers.UserSerializer(data=data)
-        if serializer.is_valid():
-            serializer.save()
-            return JsonResponse(serializer.data, status=201)
-        return JsonResponse(serializer.errors, status=400)
+        username = data.get('email')
+        password = data.get('password')
+        print(username)
+        print(password)
+        User = get_user_model()
+        user = User.objects.create_user(email=username, password=password)
+        print(username)
+        print(password)
+        return JsonResponse({}, status=201)
+        return JsonResponse({}, status=400)
     else:
         return redirect('Basic_user_url')
 

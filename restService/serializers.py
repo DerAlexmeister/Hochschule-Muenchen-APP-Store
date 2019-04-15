@@ -49,6 +49,12 @@ class AppSerializer(serializers.ModelSerializer):
             'Fakultaet'
         )
 
+'''class UserNesSerializer(serializers.ModelSerializer):
+    password = serializers.CharField(write_only=True)
+    class Meta:
+        model = User
+        fields = ('first_name', 'last_name', 'email', 'mobile', 'password')'''
+
 class CommentSerializer(serializers.ModelSerializer):
     '''
     Serializer Class for the Comment Model.

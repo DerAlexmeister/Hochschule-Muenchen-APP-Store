@@ -9,8 +9,7 @@ class RegisterPage extends React.Component {
     state = {
         email: '',
         Password: '',
-
-      }
+    }
     
     handleChange = event => {
         this.setState({ email: event.target.value, Password: event.target.value});
@@ -21,7 +20,7 @@ class RegisterPage extends React.Component {
     
     axios.post(`http://localhost:8000/api/users/new`, {
         email: this.state.email,
-        Password : this.state.Password,
+        password : this.state.Password,
     }).then(res => {
             console.log(res);
             console.log(res.data);
