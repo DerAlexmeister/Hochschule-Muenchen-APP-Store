@@ -4,7 +4,8 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import { withStyles } from '@material-ui/core/styles';
 import logo from './assets/logo_with_name.png';
-import { FiUser, FiPlusSquare } from "react-icons/fi"; 
+import { FiUser} from "react-icons/fi"; 
+import { FaPen } from "react-icons/fa"; 
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { Link } from 'react-router-dom'
 
@@ -88,7 +89,8 @@ class  Bar extends React.Component{
             <Toolbar style={{position:'fixed',width:'100%', backgroundColor: '#171a21', color:'#fff',  zIndex:2000}}>
             <span style={{position:'absolute', left:100, top: 8, fontSize:30, color:'#fff'}}>|</span>
             {this.canCreate(this.isLoggedIn)}
-            <FiUser style={{position:'absolute', left:120, fontSize:20, top: 24, color:'#fff'}}/>
+            <span style={{position:'absolute', left:100, top: 8, fontSize:30, color:'#fff'}}>|</span>
+            {this.canWorkOn(this.isLoggedIn)}
             <img style={{position:'absolute', right:10, width:180, height:60, zIndex:10}} src={logo} alt="Logo" />
             </Toolbar>
           </AppBar>
@@ -96,11 +98,20 @@ class  Bar extends React.Component{
       );
     }
 
+    
     canCreate(stateOfLoggedIn) {
       if (stateOfLoggedIn) {
-        return <Link to="/createapp/"><IoIosAddCircleOutline style={{position:'absolute', left:160, top: 24, fontSize:24, color:'#fff'}} /></Link>
+        return <Link to="/createapp/"><IoIosAddCircleOutline style={{position:'absolute', left:120, top: 20, fontSize:24, color:'#fff'}} /></Link>
       } else {
-        return <Link to="/signin"><IoIosAddCircleOutline style={{position:'absolute', left:160, top: 24, fontSize:24, color:'#666'}} /></Link>
+        return <Link to="/signin"><IoIosAddCircleOutline style={{position:'absolute', left:120, top: 20, fontSize:24, color:'#666'}} /></Link>
+      }
+    }
+
+    canWorkOn(stateOfLoggedIn){
+      if (stateOfLoggedIn) {
+        return <Link to="/myapps/"><FaPen style={{position:'absolute', left:160, top: 20, fontSize:20, color:'#fff'}} /></Link>
+      } else {
+        return <Link to="/signin"><FaPen style={{position:'absolute', left:160, top: 20, fontSize:20, color:'#666'}} /></Link>
       }
     }
 }
