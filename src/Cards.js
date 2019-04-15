@@ -77,7 +77,7 @@ class SimpleCard extends React.Component{
                 <CardActions style={{backgroundColor:'rgba(23, 26, 33, 1)', border:'2px solid #df0c0c', borderTop:'0px solid #fff'}}>
                   <span style={{color:'#fff'}}>Beliebtheit: {item.downloads}</span> <b style={{color:'#fff'}}>|</b> 
                     <span style={{color:'#fff'}}><IoIosSchool style={{color:'#f10b51'}} /> {item.Fakultaet}</span>  <b style={{color:'#fff'}}>|</b>
-                    <span style={{color:'#fff'}}><FiUser style={{color:'#f10b51'}} /> {item.Fakultaet}</span>  <b style={{color:'#fff'}}>|</b>   
+                    <span style={{color:'#fff'}}> {this.getype(item.typOfAccount)}</span>  <b style={{color:'#fff'}}>|</b>   
                     <Link to={`/app/${item.appID}`} style={{color:'#df0c0c'}}>mehr Anzeigen <FaArrowCircleRight/></Link>             
                 </CardActions>
             </Card>
@@ -91,6 +91,23 @@ class SimpleCard extends React.Component{
       return <h1 style={{color:'#fff'}}>undefined</h1>
     }
   }
+
+  getype(it) {
+    if (it === 'ST') {
+        return  <div>Student\in <FiUser style={{color:'#f10b51'}} /></div>
+    }
+    else if (it === 'SA') {
+        return  <div>Mitarbeiter\in <FiUser style={{color:'#f10b51'}} /></div>
+    }
+    else if (it === 'Fr') {
+        return  <div>Externer(e) Student\in <FiUser style={{color:'#f10b51'}} /></div>
+    }
+    else if (it === 'All') {
+      return  <div>Jeden <FiUser style={{color:'#f10b51'}} /></div>
+  } else {
+        return  <div>Professor\in <FiUser style={{color:'#f10b51'}} /></div>
+    }
+}
 }
 
 //Link to={{ pathname:`/apps/${item.appID} `}}
