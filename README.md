@@ -122,14 +122,6 @@ Natürlich! Jeder der Hochschule München ist willkommen!
         3. /testJson enthält testprogramme für die REST-API
 ```
 
-# Ziele und Verbesserungen für die Zukunft
-``` Informationen
-    1. Eine Verbindung der Accounts mit offiziellen Primusaccounts
-    2. Zugriff für anderen Universitäten und Hochschulen
-    3. Höhere Vielfalt an Apps und Software
-    4. Mobile Appstore
-```
-
 # REST-API-URL
 
 ``` Rest
@@ -153,4 +145,12 @@ Natürlich! Jeder der Hochschule München ist willkommen!
     2. /users/ ... (Gibt ein Set mit allen usern zurück)
         1. /new (Erzeugt einen neuen User)
         2. /login (Logged einen User ein)
+```
+
+# Ziele und Verbesserungen für die Zukunft
+``` Informationen
+    1. Eine Verbindung der Accounts mit offiziellen Primusaccounts
+    2. Zugriff für anderen Universitäten und Hochschulen
+    3. Höhere Vielfalt an Apps und Software
+    4. Mobile Appstore
 ```
