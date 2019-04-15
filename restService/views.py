@@ -239,11 +239,13 @@ def login(request):
     '''
     Managing login for the rest-api will respone a TOKEN to login without user/pass combination
     '''
-    username = request.data.get("username")
+    username = request.data.get("email")
     password = request.data.get("password")
+    print(username)
+    print(password)
     if username is None or password is None:
         return Response({'error': 'Username or Password is missing'}, status=HTTP_400_BAD_REQUEST)
-    user = authenticate(username=username, password=password)
+    user = authenticate(email=username, password=password)
     if not user:
         return Response({'error': 'Invalid Credentials'}, status=HTTP_404_NOT_FOUND)
     token, _ = Token.objects.get_or_create(user=user)

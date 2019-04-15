@@ -43,11 +43,7 @@ class SideNavPage extends React.Component {
             </div>
             <hr style={{backgroundColor:'#fff'}}></hr>
             <div style={{color:'#fff'}}>
-            <InputBase style={{color:'#fff', paddingLeft: 22.5}}placeholder="Search…" /> <SearchIcon />
-            </div>
-            <hr style={{backgroundColor:'#fff'}}></hr>
-            <div style={{color:'#fff'}}>
-              <Link to="/signin/">Login</Link>
+              <Link to="/signin/">Login</Link><br></br>
               <Link to="/signup/">Reg</Link>
             </div>
             <hr style={{backgroundColor:'#fff'}}></hr>

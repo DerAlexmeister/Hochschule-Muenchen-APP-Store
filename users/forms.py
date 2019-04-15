@@ -13,15 +13,6 @@ class CustomUserCreationForm(UserCreationForm):
                 'email',
                 'typOfAccount',
                 'Fakultaet',
-                'nickname',
-                'fb', 
-                'twitter',
-                'xing',
-                'linkedin', 
-                'youtube',
-                'github',
-                'insta', 
-                'website' 
         )
 
 class CustomUserChangeForm(UserChangeForm):
