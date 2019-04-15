@@ -175,14 +175,25 @@ def createUser(request):
     '''
     if request.method == 'POST':
         data = JSONParser().parse(request)
-        username = data.get('email')
-        password = data.get('password')
-        print(username)
-        print(password)
+        print(data)
+        
         User = get_user_model()
-        user = User.objects.create_user(email=username, password=password)
-        print(username)
-        print(password)
+        user = User.objects.create_user(
+            email = data.get('email'),
+            password = data.get('password'),
+            nickname =data.get('nickname'),
+            typOfAccount = data.get('typOfAccount'),
+            Fakultaet = data.get('Fakultaet'),
+            linkImg = data.get('linkImg'),
+            fb = data.get('fb'),
+            twitter = data.get('twitter'),
+            xing = data.get('xing'),
+            linkedin = data.get('linkedin'),
+            youtube =  data.get('youtube'),
+            github = data.get('github'),
+            insta = data.get('insta'),
+            website = data.get('website'),
+        )
         return JsonResponse({}, status=201)
         return JsonResponse({}, status=400)
     else:
