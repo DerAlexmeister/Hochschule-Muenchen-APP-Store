@@ -58,8 +58,9 @@ class CreatorsApp extends React.Component{
                     <div style={{paddingTop:158, paddingLeft:20, maxHeight:300, maxWidth:300 }}>
                     { this.isVerified(item.verified) }
                     </div>
+                    <br></br>
                   </div>
-                  <hr style={{backgroundColor:'#fff'}}></hr>
+                  <hr style={{backgroundColor:'#fff', width:'100%', height:1}}></hr>
                   <p style={{color:'#fff'}}><h5><b>Kontakt</b></h5><br></br>
                     <ul style={{paddingLeft:0, display:'flex', listStyle:'none'}}>
                       <li style={{paddingLeft:0}}><b>Email</b><br></br><a style={{color:'#f10b51', fontSize:26, paddingLeft: 6}} href={"mailto:" + item.email}><FaRegEnvelope/></a></li>
