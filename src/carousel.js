@@ -45,7 +45,7 @@ import Carousel  from 'nuka-carousel';
 }
 export default SimpleSlider;
 
-
+/*
 <div style={{ fontFamily: 'Montserrat',}}> 
 {items.map(item => (
   <div style={{paddingLeft:30 }}>
@@ -61,4 +61,4 @@ export default SimpleSlider;
       </Link>        
     </div>
   ))}   
-</div>
+</div> */
