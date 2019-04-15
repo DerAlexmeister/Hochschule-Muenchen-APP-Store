@@ -175,14 +175,25 @@ def createUser(request):
     '''
     if request.method == 'POST':
         data = JSONParser().parse(request)
-        username = data.get('email')
-        password = data.get('password')
-        print(username)
-        print(password)
+        print(data)
+        
         User = get_user_model()
-        user = User.objects.create_user(email=username, password=password)
-        print(username)
-        print(password)
+        user = User.objects.create_user(
+            email = data.get('email'),
+            password = data.get('password'),
+            nickname =data.get('nickname'),
+            typOfAccount = data.get('typOfAccount'),
+            Fakultaet = data.get('Fakultaet'),
+            linkImg = data.get('linkImg'),
+            fb = data.get('fb'),
+            twitter = data.get('twitter'),
+            xing = data.get('xing'),
+            linkedin = data.get('linkedin'),
+            youtube =  data.get('youtube'),
+            github = data.get('github'),
+            insta = data.get('insta'),
+            website = data.get('website'),
+        )
         return JsonResponse({}, status=201)
         return JsonResponse({}, status=400)
     else:
@@ -228,15 +239,18 @@ def login(request):
     '''
     Managing login for the rest-api will respone a TOKEN to login without user/pass combination
     '''
-    username = request.data.get("username")
+    username = request.data.get("email")
     password = request.data.get("password")
+    print(username)
+    print(password)
     if username is None or password is None:
         return Response({'error': 'Username or Password is missing'}, status=HTTP_400_BAD_REQUEST)
-    user = authenticate(username=username, password=password)
+    user = authenticate(email=username, password=password)
     if not user:
         return Response({'error': 'Invalid Credentials'}, status=HTTP_404_NOT_FOUND)
     token, _ = Token.objects.get_or_create(user=user)
-    return Response({'token': token.key}, status=HTTP_200_OK)
+    print(token.key)
+    return JsonResponse({'token': token.key}, status=HTTP_200_OK)
 
 @csrf_exempt
 def app_list(request):

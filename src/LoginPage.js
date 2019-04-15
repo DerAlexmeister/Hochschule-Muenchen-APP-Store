@@ -1,44 +1,71 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import RegisterPage from './registration.js'
+//import { Link } from 'react-router-dom';
+import Bar from "./MenueBar.js";
+import SideNavPage from "./SideNavigation"
+import axios from 'axios';
 
-export default class LoginPage extends React.Component {
+class LoginPage extends React.Component {
 
     state = {
-        username: 'test', 
-        password: 'test', 
-        submitted: true, 
-        loggingIn: true
+        email: '',
+        Password: '',
+    }
+    
+    handleChange = event => {
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
+
+        this.setState({ 
+            [name]: value, 
+            [name]: value,
+        });
+    }
+    
+    handleSubmit = event => {
+        console.log(this.state.email)
+        console.log(this.state.Password)
+        event.preventDefault();
+    
+    axios.post(`http://localhost:8000/api/users/login`, {
+        email: this.state.email,
+        password : this.state.Password,
+    }).then(response => {
+            console.log(response);
+            console.log(response.data);
+        });
     }
 
     render() {
-        //const { loggingIn } = this.props;
-        const { username, password, submitted, loggingIn } = this.state;
         return (
-            <div className="col-md-6 col-md-offset-3">
-                <h2>Login</h2>
-                <form name="form" onSubmit={this.handleSubmit}>
-                    <div className={'form-group' + (submitted && !username ? ' has-error' : '')}>
-                        <label htmlFor="username">Username</label>
-                        <input type="text" className="form-control" name="username" value={username} onChange={this.handleChange} />
-                        {submitted && !username &&
-                            <div className="help-block">Username is required</div>
-                        }
-                    </div>
-                    <div className={'form-group' + (submitted && !password ? ' has-error' : '')}>
-                        <label htmlFor="password">Password</label>
-                        <input type="password" className="form-control" name="password" value={password} onChange={this.handleChange} />
-                        {submitted && !password &&
-                            <div className="help-block">Password is required</div>
-                        }
-                    </div>
-                    <div className="form-group">
-                        <button className="btn btn-primary">Login</button>
-                        {loggingIn && <img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />}
-                        <Link to="/register" className="btn btn-link">Register</Link>
-                    </div>
-                </form>
+            <div>
+                <Bar/>
+                <SideNavPage/>
+                <div style={{position:'absolute', top:100, left:100, color:'#fff', width:'60%', left:'20%'}}>
+                    <h1 style={{textAlign:'center', fontFamily: 'Montserrat'}}> Anmelden</h1>
+                    <br></br>
+                    <form onSubmit={this.handleSubmit}>
+                        <label style={{textAlign:'center', fontWeight:'bold',fontFamily: 'Montserrat'}}>Email</label>
+                        <input 
+                            style={{position:'absolute', width:'70%', left:'15%', borderRadius: 10, border: '2px solid #f10b51',color:'#fff', backgroundColor:'rgba(23, 26, 33, 1)'}} 
+                            type="text" name="email" onChange={this.handleChange} required />
+                        <br></br><br></br>
+                        <label 
+                            style={{textAlign:'center', fontWeight:'bold',fontFamily: 'Montserrat'}}>
+                            Password
+                        </label>
+                        <input 
+                            style={{position:'absolute', width:'70%', left:'15%', borderRadius: 10, border: '2px solid #f10b51',color:'#fff', backgroundColor:'rgba(23, 26, 33, 1)'}} 
+                            type="text" name="Password" onChange={this.handleChange} required />
+                        <br></br><br></br>
+                        <button style={{position:'absolute', width:'10%', left:'45%', borderRadius: 10, border: '2px solid #f10b51',color:'#fff', backgroundColor:'rgba(23, 26, 33, 1)', fontWeight:'bold'}} 
+                            type='submit'>Anmelden</button>
+                        <br></br><br></br>
+                    </form>
+                </div>
             </div>
         );
     }
 }
+
+export default LoginPage 
