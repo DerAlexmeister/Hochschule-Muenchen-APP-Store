@@ -1,5 +1,4 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
@@ -66,7 +65,7 @@ class DeleteChangeApp extends React.Component{
                     </div>
                     <div style={{paddingLeft: 100}}>
                     <Typography>
-                    <img style={{borderRadius:20, width: 150, height: 150}} src={item.smallPic}  alt="This app has no Picture yet" />
+                    <img style={{borderRadius:20, width: 150, height: 150}} src={item.smallPic} alt="" />
                     </Typography>
                     </div>
                     </div>

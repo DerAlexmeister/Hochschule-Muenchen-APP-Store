@@ -129,3 +129,28 @@ Natürlich! Jeder der Hochschule München ist willkommen!
     3. Höhere Vielfalt an Apps und Software
     4. Mobile Appstore
 ```
+
+# REST-API-URL
+
+``` Rest
+    Basisadresse: www.hostname.de/api/...
+
+    1. /apps/... (Gibt ein set mit allen Apps zurück)
+        1. /new (erzeigt eine neue App in der Datenbank)
+        2. /newest (liefert ein Set mit allen Apps sortiert nach Neuheit)
+        3. /oldest (umgekehrt zu /newest)
+        4. /mostdownloads (Set sortiert mit den erfolgreichstens Apps absteigend)
+        5. /lessdownloads (umgekehrt zu /mostdownloads)
+        6. /<int:pk> (gib detailierte Informationen über die App aus)
+        7. //creator/c/<int:creator> (Gibt Informationen über den Creator aus)
+
+        # not in use so dont use them
+
+        8. /creator/<int:creator> / (Gibt alle Apps eines Creators)
+        9. /newcomments (Erzeugt einen neuen Kommentar)
+        10. /changecomment (ermöglicht das ändern eines Kommentars)
+
+    2. /users/ ... (Gibt ein Set mit allen usern zurück)
+        1. /new (Erzeugt einen neuen User)
+        2. /login (Logged einen User ein)
+```

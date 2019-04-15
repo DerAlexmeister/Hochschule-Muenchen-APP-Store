@@ -1,9 +1,7 @@
 import React from 'react';
-//import { Link } from 'react-router-dom';
 import Bar from "./MenueBar.js";
 import SideNavPage from "./SideNavigation"
 import axios from 'axios';
-import { Redirect } from 'react-router-dom'
 
 class LoginPage extends React.Component {
 
@@ -33,7 +31,7 @@ class LoginPage extends React.Component {
         email: this.state.email,
         password : this.state.Password,
     }).then(response => {
-            if (response.status == 200) {
+            if (response.status === 200) {
                 sessionStorage.setItem('token', String(response.data.token))
                 sessionStorage.setItem('isLoggedIn', true)
                 sessionStorage.setItem('user_id', response.data.user_id )
@@ -53,7 +51,7 @@ class LoginPage extends React.Component {
             <div>
                 <Bar/>
                 <SideNavPage/>
-                <div style={{position:'absolute', top:100, left:100, color:'#fff', width:'60%', left:'20%'}}>
+                <div style={{position:'absolute', top:100, color:'#fff', width:'60%', left:'20%'}}>
                     <h1 style={{textAlign:'center', fontFamily: 'Montserrat'}}> Anmelden</h1>
                     <br></br>
                     <form onSubmit={this.handleSubmit}>

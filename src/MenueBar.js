@@ -4,7 +4,6 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import { withStyles } from '@material-ui/core/styles';
 import logo from './assets/logo_with_name.png';
-import { FiUser} from "react-icons/fi"; 
 import { FaPen } from "react-icons/fa"; 
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { Link } from 'react-router-dom'

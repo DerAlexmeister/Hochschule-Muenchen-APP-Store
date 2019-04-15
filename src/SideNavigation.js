@@ -4,11 +4,8 @@ import { withStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import logo from './assets/logo_with_name.png';
-import InputBase from '@material-ui/core/InputBase';
-import SearchIcon from '@material-ui/icons/Search';
 import { FaFacebookF, FaTwitter, FaYoutube, FaLinkedinIn, FaXing, FaRegCopyright } from 'react-icons/fa';
 import { MdClose } from "react-icons/md";
-import { Link } from 'react-router-dom'
 
 class SideNavPage extends React.Component {
   constructor(props) {
