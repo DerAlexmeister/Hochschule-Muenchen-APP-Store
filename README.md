@@ -35,7 +35,9 @@ Einfach auf der Seite registieren und einloggen!
 ```
 ## Ich bin nicht von der FK07 kann ich Appmon trotzdem nutzen ❔
 ``` Informationen
-Natürlich! Jeder der Hochschule München ist willkommen! Hierbei ist es egal ob du von der Hochschule München kommst oder von einer anderen Fakultät bist. Registiere dich einfach und dann kannst du deine Software oder dein Service mit anderen Teilen. 
+Natürlich! Jeder der Hochschule München ist willkommen! Hierbei ist es egal ob du von 
+der Hochschule München kommst oder von einer anderen Fakultät bist. Registiere dich
+einfach und dann kannst du deine Software oder dein Service mit anderen Teilen. 
 ```
 # Umsetzung 👨🏼‍💻
 
