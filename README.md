@@ -6,12 +6,24 @@
 # FAQ ❓ ❔ ❓ ❔ ❓ 
 ## Was ist Appmon ❓
 ``` Informationen 
-Appmon ist ein Appstore für die Hochschule München. Er bietet die Möglichkeit sich anzumelden bzw. sich zu registieren und Software anzulegen und herunterzuladen. Hierbei ist er nicht auf nur für eine Fakultät vorgesehen und auch nicht nur für Professoren sondern Studenten jeder Fakultät können ihre Projekte veröffentlichen. Studenten die nicht der Hochschule München angehören haben die Option sich als Externer Student anzumelden und so Software herunterzuladen oder zu veröffentlichen. Da natürlich ein gewisser Qualitätsstandart gewahrt werden  möchte kann ein Creator (Appersteller) durch ein Administrator zu einem verifizierten Nutzer erhoben werden (zu erkennen an einem grünen Haken neben dem Namen des Creators auf dessen Profilseite) und somit als verlässliche Quelle betrachtet werden. 
+Appmon ist ein Appstore für die Hochschule München. Er bietet die Möglichkeit sich 
+anzumelden bzw. sich zu registieren und Software anzulegen und herunterzuladen. Hierbei 
+ist er nicht auf nur für eine Fakultät vorgesehen und auch nicht nur für Professoren 
+sondern Studenten jeder Fakultät können ihre Projekte veröffentlichen. Studenten die 
+nicht der Hochschule München angehören haben die Option sich als Externer Student 
+anzumelden und so Software herunterzuladen oder zu veröffentlichen. Da natürlich ein 
+gewisser Qualitätsstandart gewahrt werden  möchte kann ein Creator (Appersteller) durch 
+ein Administrator zu einem verifizierten Nutzer erhoben werden (zu erkennen an einem 
+grünen Haken neben dem Namen des Creators auf dessen Profilseite) und somit als 
+verlässliche Quelle betrachtet werden. 
+
 ```
 
 ## Für wen ist Appmon ❔
 ``` Informationen
-Für Studenten, Professoren, wissenschaftliche Mitarbeiter und externe Kooperationspartner (Studenten und Professoren sowie Mitarbeiter anderer Hochschulen).
+Für Studenten, Professoren, wissenschaftliche Mitarbeiter und externe 
+Kooperationspartner (Studenten und Professoren sowie Mitarbeiter anderer Hochschulen).
+
 ```
 ## 👨🏼‍🎓  👩🏼‍🎓  👩🏼‍🏫 👨🏼‍🏫  👩🏼‍🔧 👨🏼‍🔧 👩🏼‍🔬 👨🏼‍🔬
 
