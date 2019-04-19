@@ -3,6 +3,14 @@
 # 🤘🏼 🤘🏼  Appmon 🤘🏼 🤘🏼 
 
 ![](https://github.com/DerAlexx/HM-APP-Store/blob/master/src/assets/banner1.jpg)
+
+# Umsetzung 👨🏼‍💻
+
+``` Creator
+    > Alexander M. Westphal 😎 
+    > Paul Schröder 🤓
+```
+
 # FAQ ❓ ❔ ❓ ❔ ❓ 
 ## Was ist Appmon ❓
 ``` Informationen 
@@ -39,12 +47,43 @@ Natürlich! Jeder der Hochschule München ist willkommen! Hierbei ist es egal ob
 der Hochschule München kommst oder von einer anderen Fakultät bist. Registiere dich
 einfach und dann kannst du deine Software oder dein Service mit anderen Teilen. 
 ```
-# Umsetzung 👨🏼‍💻
 
-``` Creator
-    > Alexander M. Westphal 😎 
-    > Paul Schröder 🤓
-```
+# Screenshots/Mockups unseres Stores
+
+## Startbildschirm
+
+![](https://github.com/DerAlexx/HM-APP-Store/blob/master/mockups/home_screen.png)
+
+## Startbildschim mir offenem Menu
+
+![](https://github.com/DerAlexx/HM-APP-Store/blob/master/mockups/home_screen_with_open_menu.png)
+
+## Ansicht eines Creatorprofiles
+
+![](https://github.com/DerAlexx/HM-APP-Store/blob/master/mockups/detail_profil.png)
+
+## Liste aller Apps - Ansicht
+
+![](https://github.com/DerAlexx/HM-APP-Store/blob/master/mockups/alle_apps_zeigen.PNG)
+
+![](https://github.com/DerAlexx/HM-APP-Store/blob/master/mockups/list_aller_apps.PNG)
+
+## Erstellen/Anlegen einer neuen App -Ansicht
+
+![](https://github.com/DerAlexx/HM-APP-Store/blob/master/mockups/create_app.PNG)
+
+## Registrieren - Ansicht
+
+![](https://github.com/DerAlexx/HM-APP-Store/blob/master/mockups/registration.PNG)
+
+## Login - Ansicht
+
+![](https://github.com/DerAlexx/HM-APP-Store/blob/master/mockups/login_screen.PNG)
+
+## Detailansicht einer App 
+
+![](https://github.com/DerAlexx/HM-APP-Store/blob/master/mockups/detail_view_app.png)
+
 
 # Technische Aspekte (für Nerds 👾 🤓)
 ``` Verwendete Versionen
