@@ -200,6 +200,22 @@ einfach und dann kannst du deine Software oder dein Service mit anderen Teilen.
         1. /new (Erzeugt einen neuen User)
         2. /login (Logged einen User ein)
 ```
+# Installation des Projekts 
+``` Informationen 
+    Notwendig für die Installtion im Entwicklungsmodus siehe oben Technische Informationen 
+    1. Anlegen eines Ordners (Name egal)
+    2. Einrichten eines Virtual Environment 
+        2.1 python3 -m venv (name des env)
+        2.2 Aktivieren des Env
+            2.2.1 Unter Windows --> (name des env)\Scripts\activate.bat
+            2.2.2 Unter MAC und Linux -->  source (name des env)/bin/activate
+    3. pip install -r requierments.txt --> (Installation der Python packages)
+    4. npm install -->  (um alle Nodemoduels zu installieren)
+    5. npm run-script build --> (damit die Seiten gebuildet werden nur nodwendig für Produktionslauf)
+    6. npm start --> (für den Developmentserver von npm)
+    6. python manage.py runserver (sollten sich python2 und 3 auf dem PC befinden dann python3 manage.py runserver)
+```
+
  
 # Ziele und Verbesserungen für die Zukunft 📈 🔮 
 ``` Informationen 
