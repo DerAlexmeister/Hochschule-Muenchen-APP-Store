@@ -33,7 +33,10 @@ class SideNavPage extends React.Component {
     }
 
     logout() {
+      sessionStorage.setItem('token', 0)
       sessionStorage.setItem('isLoggedIn', false)
+      sessionStorage.setItem('user_id', 0)
+      window.location.reload()
     }
 
     isLoggedIN(isLogged) {
@@ -41,7 +44,7 @@ class SideNavPage extends React.Component {
         return (
         <ul style={{listStyleType: "none", color:'#ccc', textAlign: 'center', paddingLeft: 0}}>
             <li><h1 style={{color:'#fff', fontSize:20, textAlign:'center'}}>Du bist eingelogged</h1></li>
-            <li><a style={{listStyleType: "none", color:'#ccc', textDecoration: "none"}} onclick="logout()" href="/signup/">oder log dich hier aus</a></li>
+            <li><a style={{listStyleType: "none", color:'#ccc', textDecoration: "none"}} onClick="this.logout()" href="#">Logout</a></li>
         </ul>
         )
       } else {
