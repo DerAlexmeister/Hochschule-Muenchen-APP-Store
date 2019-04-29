@@ -15,6 +15,7 @@ urlpatterns = [
     path('apps/lessdownloads', views.tinyDownloadsListView.as_view(), name="lessDownloads"),
     path('apps/newcomments', views.newComments, name="newComment"),
     path('apps/changecomment', views.changecomment, name="changecomment"),
+    path('apps/search/', views.searchApp, name='appsuche'),
 
     # Dynamic App URLs
     path('apps/<int:pk>', views.app_details),

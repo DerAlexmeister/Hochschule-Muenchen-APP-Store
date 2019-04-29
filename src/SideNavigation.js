@@ -7,6 +7,7 @@ import logo from './assets/logo_with_name.png';
 import { FaFacebookF, FaTwitter, FaYoutube, FaLinkedinIn, FaXing, FaRegCopyright } from 'react-icons/fa';
 import { MdClose } from "react-icons/md";
 import { Link } from 'react-router-dom'
+
 class SideNavPage extends React.Component {
   constructor(props) {
     super(props);
@@ -25,6 +26,7 @@ class SideNavPage extends React.Component {
     isLoggedIn = false
     token = null
     user_id = 0
+    isLogout = false;
 
     componentWillMount() {
         this.isLoggedIn = sessionStorage.getItem("isLoggedIn")
@@ -33,10 +35,24 @@ class SideNavPage extends React.Component {
     }
 
     logout() {
-      sessionStorage.setItem('token', 0)
-      sessionStorage.setItem('isLoggedIn', false)
-      sessionStorage.setItem('user_id', 0)
-      window.location.reload()
+      try {
+        sessionStorage.setItem('token', 0)
+        sessionStorage.setItem('isLoggedIn', false)
+        sessionStorage.setItem('user_id', 0)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+    handleClick(){
+      this.isLogout = true; 
+      this.isLoggedIn = false;
+      this.logout()
+      this.isLoggedIn = sessionStorage.getItem('isLoggedIn')
+      console.log(">>>>>>>>>>>>>>>>>>>>>>>" + this.isLoggedIn)
+      if (this.isLogout) {
+        window.location.reload()
+      }
     }
 
     isLoggedIN(isLogged) {
@@ -44,7 +60,9 @@ class SideNavPage extends React.Component {
         return (
         <ul style={{listStyleType: "none", color:'#ccc', textAlign: 'center', paddingLeft: 0}}>
             <li><h1 style={{color:'#fff', fontSize:20, textAlign:'center'}}>Du bist eingelogged</h1></li>
-            <li><a style={{listStyleType: "none", color:'#ccc', textDecoration: "none"}} onClick="this.logout()" href="#">Logout</a></li>
+            <li><a style={{listStyleType: "none", color:'#ccc', textDecoration: "none"}} href="/">
+              Um sich auszulogen einfach das fenster zumachen
+            </a></li>
         </ul>
         )
       } else {

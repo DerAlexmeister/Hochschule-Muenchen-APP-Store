@@ -3,6 +3,7 @@ from app_product.models import APP as appModel
 from app_product.models import appKomments as commentModel
 from users.models import CustomUser as userModel
 from . import serializers
+import json
 
 # Django-Import
 from django.http import HttpResponse, JsonResponse
@@ -13,6 +14,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user_model
+from django.db.models import Q
 
 # REST-API Import 
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
@@ -94,6 +96,27 @@ class tinyDownloadsListView(generics.ListCreateAPIView):
 #
 # Function-Based Views 
 #
+
+
+@csrf_exempt
+@permission_classes((AllowAny, ))
+def searchApp(request):
+    '''
+    Method to get all apps created by a creator
+    '''
+    if request.method == 'POST':
+        try:
+            data = JSONParser().parse(request)
+            query = data.get('term')
+            data = appModel.objects.filter(Q(appname__icontains=query) | Q(appID__icontains=query) | Q(body__icontains=query) | Q(typOfAccount__icontains=query) | Q(Fakultaet__icontains=query) )
+            print(data)
+        except:
+            return JsonResponse({ "error" : "Unknown Searchterm"}, status=400)
+        if data is None: return JsonResponse({ "missing": "nichts gefunden" }, status=200)
+        serializer = serializers.AppSerializer(data, many=True)
+        return JsonResponse(serializer.data, safe=False, status=200)
+    else:
+        return JsonResponse({ "error": "Only GET - Requests are allowed" }, status=400)
 
 @csrf_exempt
 @api_view(['GET'])
