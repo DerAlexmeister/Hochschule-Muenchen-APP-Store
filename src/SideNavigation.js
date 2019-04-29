@@ -66,7 +66,6 @@ class SideNavPage extends React.Component {
             <hr style={{backgroundColor:'#fff'}}></hr>
             <div style={{width:'100%', paddingLeft:0,}}>
             <br></br>
-              
               <ul style={{listStyleType: "none", color:'#ccc', textAlign: 'center', paddingLeft: 0}}>
                 <Link  style={{listStyleType: "none", color:'#ccc', textDecoration: "none"}} to="/">Home</Link><br></br>
                 <Link  style={{listStyleType: "none", color:'#ccc', textDecoration: "none"}} to="/apps">Apps</Link>
