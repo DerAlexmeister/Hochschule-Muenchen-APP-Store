@@ -1,11 +1,11 @@
 import SearchAppBar from "./MenueBar.js";
 import SideNavPage from "./SideNavigation"
-import SimpleCardPopular from "./Cards_popular"
+import SimpleCardSearch from "./Cards_search"
 import logo from "./assets/apps_banner.jpg"
 import ButtonDrop from "./ButtonDropdown"
 import React from "react";
 
-export default class AppShowPopular extends React.Component{
+export default class AppShowSearch extends React.Component{
   render(){
     return (
     <div> 
@@ -17,7 +17,7 @@ export default class AppShowPopular extends React.Component{
         <ButtonDrop/>  
         <hr style={{backgroundColor:'#fff'}}></hr>
         <br></br><br></br>
-        <SimpleCardPopular/> 
+        <SimpleCardSearch/> 
       </div> 
     </div>
     )

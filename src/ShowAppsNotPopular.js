@@ -5,7 +5,7 @@ import logo from "./assets/apps_banner.jpg"
 import ButtonDrop from "./ButtonDropdown"
 import React from "react";
 
-export default class AppShow extends React.Component{
+export default class AppShowNotPopular extends React.Component{
   render(){
     return (
     <div> 

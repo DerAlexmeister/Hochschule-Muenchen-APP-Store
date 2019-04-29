@@ -9,6 +9,8 @@ import AppShow from './ShowApps.js'
 import AppShowOldest from './ShowAppsOldest.js'
 import AppShowPopular from './ShowAppsPopular.js'
 import AppShowNotPopular from './ShowAppsNotPopular.js'
+import AppShowSearch from './ShowAppsSearch.js'
+import AppSearch from './SearchPage.js'
 import App_total_details from './entire_details_app.js'
 import creatorsView from './creatorsview.js'
 import myProfil from './myProfil.js'
@@ -26,6 +28,8 @@ const routing = (
         <Route path="/appspopular" component={AppShowPopular} />
         <Route path="/appsnotpopular" component={AppShowNotPopular} />
         <Route path="/app/:appID" component={App_total_details} /> 
+        <Route path='/appssearchresult/' component={AppShowSearch} />
+        <Route path='/appssearch/' component={AppSearch} />
         <Route path="/creator/:creatorID" component={creatorsView} />
         <Route path="/profil/:profilID" component={myProfil} />
         <Route path="/signin/" component={LoginPage} />
