@@ -32,7 +32,7 @@ export default class App extends React.Component{
                 <br></br>
                   <ul style={{listStyle:'none'}}>
                   <li><br></br><h1 style={{textAlign:'center', color:'#fff'}}>Du bist noch kein <span style={{color:'#f10b51'}}>Mitglied</span></h1></li>
-                  <li><h3 style={{textAlign:'center', color:'#fff'}}>Registiere dich jetzt und lade dir die passende App für deine Alltag herunter</h3><br></br><br></br></li>
+                  <li><h3 style={{textAlign:'center', color:'#fff'}}>Registiere dich jetzt und lade dir die passende App für deinen Alltag herunter</h3><br></br><br></br></li>
                   <li style={{paddingLeft:'45%'}}><a href='/signup' style={{paddingLeft:'45%',color:'#df0c0c', border:'2px solid #f10b51', borderRadius:4, width:'100%', height:'100%', textAlign:'center', margin:'auto', padding:15 }}>Jetzt Registieren</a></li>
                   </ul>
                   <br></br>

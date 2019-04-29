@@ -51,7 +51,7 @@ class SideNavPage extends React.Component {
         return (
           <ul style={{listStyleType: "none", color:'#ccc', textAlign: 'center', paddingLeft: 0}}>
                 <li><a style={{listStyleType: "none", color:'#ccc', textDecoration: "none"}} href="/signin">Login</a></li>
-                <li><a style={{listStyleType: "none", color:'#ccc', textDecoration: "none"}} href="/signup/">Registration</a></li>
+                <li><a style={{listStyleType: "none", color:'#ccc', textDecoration: "none"}} href="/signup/">Registrieren</a></li>
           </ul>
         )
       }

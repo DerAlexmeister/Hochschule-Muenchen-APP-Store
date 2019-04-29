@@ -6,6 +6,9 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Route, BrowserRouter as Router } from 'react-router-dom'
 import AppShow from './ShowApps.js'
+import AppShowOldest from './ShowAppsOldest.js'
+import AppShowPopular from './ShowAppsPopular.js'
+import AppShowNotPopular from './ShowAppsNotPopular.js'
 import App_total_details from './entire_details_app.js'
 import creatorsView from './creatorsview.js'
 import myProfil from './myProfil.js'
@@ -19,6 +22,9 @@ const routing = (
       <div>
         <Route exact path="/" component={App} />
         <Route path="/apps" component={AppShow} />
+        <Route path="/appsold" component={AppShowOldest} />
+        <Route path="/appspopular" component={AppShowPopular} />
+        <Route path="/appsnotpopular" component={AppShowNotPopular} />
         <Route path="/app/:appID" component={App_total_details} /> 
         <Route path="/creator/:creatorID" component={creatorsView} />
         <Route path="/profil/:profilID" component={myProfil} />
