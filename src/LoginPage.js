@@ -2,7 +2,6 @@ import React from 'react';
 import Bar from "./MenueBar.js";
 import SideNavPage from "./SideNavigation"
 import axios from 'axios';
-import { DiWindows } from 'react-icons/di';
 
 class LoginPage extends React.Component {
 
