@@ -10,8 +10,11 @@ class LoginPage extends React.Component {
         email: '',
         Password: '',
         test: '',
+       
     }
     
+    trytoLogin = false;
+
     handleChange = event => {
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -22,7 +25,16 @@ class LoginPage extends React.Component {
             [name]: value,
         });
     }
-    
+
+    componentDidMount() {
+        this.interval = setInterval(() => {
+            if(this.trytoLogin) {
+                this.trytoLogin = false
+                window.location.reload()
+            }
+        }, 1000);
+      }
+
     handleSubmit = event => {
         console.log(this.state.email)
         console.log(this.state.Password)
@@ -36,7 +48,7 @@ class LoginPage extends React.Component {
                 sessionStorage.setItem('token', String(response.data.token))
                 sessionStorage.setItem('isLoggedIn', true)
                 sessionStorage.setItem('user_id', response.data.user_id )
-                
+                this.trytoLogin = true
             } else {
                 console.log(response);
                 console.log(response.data.token);
@@ -45,7 +57,6 @@ class LoginPage extends React.Component {
                 test: sessionStorage.getItem('isLoggedIn')
             })
         });
-        window.location.reload()
     }
 
     render() {

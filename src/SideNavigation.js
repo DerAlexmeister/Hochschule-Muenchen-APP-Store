@@ -6,7 +6,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import logo from './assets/logo_with_name.png';
 import { FaFacebookF, FaTwitter, FaYoutube, FaLinkedinIn, FaXing, FaRegCopyright } from 'react-icons/fa';
 import { MdClose } from "react-icons/md";
-
+import { Link } from 'react-router-dom'
 class SideNavPage extends React.Component {
   constructor(props) {
     super(props);
@@ -66,9 +66,10 @@ class SideNavPage extends React.Component {
             <hr style={{backgroundColor:'#fff'}}></hr>
             <div style={{width:'100%', paddingLeft:0,}}>
             <br></br>
+              
               <ul style={{listStyleType: "none", color:'#ccc', textAlign: 'center', paddingLeft: 0}}>
-                <li><a style={{listStyleType: "none", color:'#ccc', textDecoration: "none"}} href="/">Home</a></li>
-                <li><a style={{listStyleType: "none", color:'#ccc', textDecoration: "none"}} href="/apps">Apps</a></li>
+                <Link  style={{listStyleType: "none", color:'#ccc', textDecoration: "none"}} to="/">Home</Link><br></br>
+                <Link  style={{listStyleType: "none", color:'#ccc', textDecoration: "none"}} to="/apps">Apps</Link>
                 <li><a style={{listStyleType: "none", color:'#ccc', textDecoration: "none"}} target='blank' href="https://www.hm.edu/sekundaer_navigation/impressum/index.de.html">Impressum</a></li>
                 <li><a style={{listStyleType: "none", color:'#ccc', textDecoration: "none"}} target='blank'href="https://www.hm.edu/sekundaer_navigation/impressum/datenschutz/index.de.html">Datenschutz</a></li>
                 <li><a style={{listStyleType: "none", color:'#ccc', textDecoration: "none"}} target='blank' href="https://www.hm.edu/allgemein/kontakt/index.de.html">Kontakt</a></li>
