@@ -3,7 +3,6 @@ import Header from "./Banner.js"
 import Bemobile from "./bemobile.js"
 import SideNavPage from "./SideNavigation"
 import Footerown from "./footer.js"
-import SimpleSlider from "./carousel.js"
 import React from "react";
 
 
