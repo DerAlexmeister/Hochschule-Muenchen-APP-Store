@@ -35,26 +35,24 @@ class LoginPage extends React.Component {
       }
 
     handleSubmit = event => {
-        console.log(this.state.email)
-        console.log(this.state.Password)
         event.preventDefault();
     
-    axios.post(`http://localhost:8000/api/users/login`, {
-        email: this.state.email,
-        password : this.state.Password,
-    }).then(response => {
-            if (response.status === 200) {
-                sessionStorage.setItem('token', String(response.data.token))
-                sessionStorage.setItem('isLoggedIn', true)
-                sessionStorage.setItem('user_id', response.data.user_id )
-                this.trytoLogin = true
-            } else {
-                console.log(response);
-                console.log(response.data.token);
-            }
-            this.setState({
-                test: sessionStorage.getItem('isLoggedIn')
-            })
+        axios.post(`http://localhost:8000/api/users/login`, {
+            email: this.state.email,
+            password : this.state.Password,
+        }).then(response => {
+                if (response.status === 200) {
+                    sessionStorage.setItem('token', String(response.data.token))
+                    sessionStorage.setItem('isLoggedIn', true)
+                    sessionStorage.setItem('user_id', response.data.user_id )
+                    this.trytoLogin = true
+                } else {
+                    console.log(response);
+                    console.log(response.data.token);
+                }
+                this.setState({
+                    test: sessionStorage.getItem('isLoggedIn')
+                })
         });
     }
 
