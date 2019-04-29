@@ -23,10 +23,8 @@ export default class App extends React.Component{
                 <br></br>
                 <h1 style={{textAlign: 'center', fontFamily: 'Montserrat', paddingTop: 30, color: '#fff', paddingLeft:30}}>Finde die richtige App für <span style={{color:'#f10b51'}}>dich</span></h1>
                 <ul style={{listStyle:'none', display:'flex', paddingTop: 50, justifyContent:'center'}}>
-                  <li style={{paddingLeft:0, paddingTop:0}}><a href="#" style={{paddingLeft:'45%',color:'#df0c0c', border:'2px solid #f10b51', borderRadius:4, width:'100%', height:'100%', textAlign:'center', margin:'auto', padding:15 }}> newest Apps </a></li>
-                  <li style={{paddingLeft:10, paddingTop:0}}><a href="#" style={{paddingLeft:'45%',color:'#df0c0c', border:'2px solid #f10b51', borderRadius:4, width:'100%', height:'100%', textAlign:'center', margin:'auto', padding:15 }}> older Apps </a></li>
-                  <li style={{paddingLeft:10, paddingTop:0}}><a href="#" style={{paddingLeft:'45%',color:'#df0c0c', border:'2px solid #f10b51', borderRadius:4, width:'100%', height:'100%', textAlign:'center', margin:'auto', padding:15 }}> most downloaded  </a></li>
-                  <li style={{paddingLeft:10, paddingTop:0}}><a href="#" style={{paddingLeft:'45%',color:'#df0c0c', border:'2px solid #f10b51', borderRadius:4, width:'100%', height:'100%', textAlign:'center', margin:'auto', padding:15 }}> less downloaded </a></li>
+                  <li style={{paddingLeft:0, paddingTop:0}}>
+                  <a href="/apps/" style={{paddingLeft:'40%',color:'#df0c0c', border:'2px solid #f10b51', borderRadius:4, width:'100%', height:'100%', textAlign:'center', margin:'auto', padding:15 }}> eine App herunterladen</a></li>
                 </ul>
                 <br></br>
                 </div>

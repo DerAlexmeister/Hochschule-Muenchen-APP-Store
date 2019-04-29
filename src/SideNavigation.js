@@ -22,6 +22,37 @@ class SideNavPage extends React.Component {
  
   //<h2 style={{width:'100%', textAlign: 'center', color:'#ccc'}}><u>Menu</u></h2>
 
+    isLoggedIn = false
+    token = null
+    user_id = 0
+
+    componentWillMount() {
+        this.isLoggedIn = sessionStorage.getItem("isLoggedIn")
+        this.token = sessionStorage.getItem("token")
+        this.user_id = Number(sessionStorage.getItem("user_id"))
+    }
+
+    logout() {
+      sessionStorage.setItem('isLoggedIn', false)
+    }
+
+    isLoggedIN(isLogged) {
+      if(isLogged) {
+        return (
+        <ul style={{listStyleType: "none", color:'#ccc', textAlign: 'center', paddingLeft: 0}}>
+            <li><h1 style={{color:'#fff', fontSize:20, textAlign:'center'}}>Du bist eingelogged</h1></li>
+            <li><a style={{listStyleType: "none", color:'#ccc', textDecoration: "none"}} onclick="logout()" href="/signup/">oder log dich hier aus</a></li>
+        </ul>
+        )
+      } else {
+        return (
+          <ul style={{listStyleType: "none", color:'#ccc', textAlign: 'center', paddingLeft: 0}}>
+                <li><a style={{listStyleType: "none", color:'#ccc', textDecoration: "none"}} href="/signin/">Login</a></li>
+                <li><a style={{listStyleType: "none", color:'#ccc', textDecoration: "none"}} href="/signup/">Registration</a></li>
+          </ul>
+        )
+      }
+    }
 
   render() {
     return (
@@ -38,7 +69,6 @@ class SideNavPage extends React.Component {
               <ul style={{listStyleType: "none", color:'#ccc', textAlign: 'center', paddingLeft: 0}}>
                 <li><a style={{listStyleType: "none", color:'#ccc', textDecoration: "none"}} href="/">Home</a></li>
                 <li><a style={{listStyleType: "none", color:'#ccc', textDecoration: "none"}} href="/apps">Apps</a></li>
-                <li><a style={{listStyleType: "none", color:'#ccc', textDecoration: "none"}} href="/">Profil</a></li>
                 <li><a style={{listStyleType: "none", color:'#ccc', textDecoration: "none"}} target='blank' href="https://www.hm.edu/sekundaer_navigation/impressum/index.de.html">Impressum</a></li>
                 <li><a style={{listStyleType: "none", color:'#ccc', textDecoration: "none"}} target='blank'href="https://www.hm.edu/sekundaer_navigation/impressum/datenschutz/index.de.html">Datenschutz</a></li>
                 <li><a style={{listStyleType: "none", color:'#ccc', textDecoration: "none"}} target='blank' href="https://www.hm.edu/allgemein/kontakt/index.de.html">Kontakt</a></li>
@@ -46,10 +76,7 @@ class SideNavPage extends React.Component {
               <br></br>
             </div>
             <hr style={{backgroundColor:'#fff'}}></hr>
-            <ul style={{listStyleType: "none", color:'#ccc', textAlign: 'center', paddingLeft: 0}}>
-                <li><a style={{listStyleType: "none", color:'#ccc', textDecoration: "none"}} href="/signin/">Login</a></li>
-                <li><a style={{listStyleType: "none", color:'#ccc', textDecoration: "none"}} href="/signup/">Registration</a></li>
-            </ul>
+              {this.isLoggedIN(this.isLoggedIn)}
             <hr style={{backgroundColor:'#fff'}}></hr>
             <div>
                 <ul>
