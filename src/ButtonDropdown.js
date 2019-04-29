@@ -1,5 +1,6 @@
 import React from 'react';
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { Link } from 'react-router-dom'
 
 export default class ButtonDrop extends React.Component {
   constructor(props) {
@@ -25,10 +26,10 @@ export default class ButtonDrop extends React.Component {
           Sortieren
         </DropdownToggle>
         <DropdownMenu>
-          <DropdownItem>Neueste ↑</DropdownItem>
-          <DropdownItem>Neueste ↓</DropdownItem>
-          <DropdownItem>Beliebteste ↑</DropdownItem>
-          <DropdownItem>Beliebteste ↓</DropdownItem>
+        <Link to="/apps"> <DropdownItem>Neueste ↑</DropdownItem>  </Link>
+        <Link to="/appsold"> <DropdownItem>Neueste ↓</DropdownItem>  </Link>
+        <Link to="/appspopular"> <DropdownItem>Beliebteste ↑</DropdownItem>  </Link>
+        <Link to="/appsnotpopular"> <DropdownItem>Beliebteste ↓</DropdownItem>  </Link>
         </DropdownMenu>
       </ButtonDropdown>
     </div>
