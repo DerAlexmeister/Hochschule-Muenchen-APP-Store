@@ -5,7 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import { withStyles } from '@material-ui/core/styles';
 import logo from './assets/logo_with_name.png';
 import { FaPen } from "react-icons/fa"; 
-import { IoIosAddCircleOutline } from "react-icons/io";
+import { IoIosAddCircleOutline, IoMdSearch } from "react-icons/io";
 import { Link } from 'react-router-dom'
 
 const styles = theme => ({
@@ -90,6 +90,7 @@ class  Bar extends React.Component{
             {this.canCreate(this.isLoggedIn)}
             <span style={{position:'absolute', left:100, top: 8, fontSize:30, color:'#fff'}}>|</span>
             {this.canWorkOn(this.isLoggedIn)}
+            <Link to="/appssearch/"><IoMdSearch style={{position:'absolute', left:200, top: 20, fontSize:24, color:'#fff'}} /></Link>
             <img style={{position:'absolute', right:10, width:180, height:60, zIndex:10}} src={logo} alt="Logo" />
             </Toolbar>
           </AppBar>
