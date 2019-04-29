@@ -8,8 +8,8 @@ class SearchPage extends React.Component {
 
     state = {
         items: [],
-        term: ""
-  };
+        term: '',
+    };
 
   handleChange = event => {
     const target = event.target;
@@ -18,17 +18,19 @@ class SearchPage extends React.Component {
 
     this.setState({ 
         [name]: value, 
+        [name]: value, 
     });
   }
 
   handleSubmit = event => {
-    event.preventDefault();
-    axios.post('http://localhost:8000/api/apps/search/',{
-    term: this.state.term}
-    ).then(res => {
-  const datem = res.data;
-  this.setState({items: datem})
-    })}
+        event.preventDefault();
+        axios.post('http://localhost:8000/api/apps/search/', {
+            term: this.state.term
+        }).then(res => console.log(">>>>>>>>>>>>>>>" + res)).then(res => {
+        const datem = res.data;
+        this.setState({items: datem})
+        })
+    }
 
 
     render() {
@@ -46,9 +48,8 @@ class SearchPage extends React.Component {
                             style={{position:'absolute', width:'70%', left:'15%', borderRadius: 10, border: '2px solid #f10b51',color:'#fff', backgroundColor:'rgba(23, 26, 33, 1)'}} 
                             type="text" name="term" onChange={this.handleChange} required />
                         <br></br><br></br>
-                        <Link to="#" items_={this.items}>
-                        <button style={{position:'absolute', width:'10%', left:'45%', borderRadius: 10, border: '2px solid #f10b51',color:'#fff', backgroundColor:'rgba(23, 26, 33, 1)', fontWeight:'bold'}} 
-                            >Suche</button>
+                        <Link to="/appssearchresult/" items_={this.state.items}>
+                            <button type='submit' style={{position:'absolute', width:'10%', left:'45%', borderRadius: 10, border: '2px solid #f10b51',color:'#fff', backgroundColor:'rgba(23, 26, 33, 1)', fontWeight:'bold'}} >Suche</button>
                         </Link>
                         <br></br><br></br>
                     </form>

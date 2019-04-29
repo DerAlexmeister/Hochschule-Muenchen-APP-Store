@@ -99,11 +99,13 @@ class tinyDownloadsListView(generics.ListCreateAPIView):
 
 
 @csrf_exempt
+@api_view(['GET', 'POST'])
 @permission_classes((AllowAny, ))
 def searchApp(request):
     '''
     Method to get all apps created by a creator
     '''
+    print('sdfnsofnbvo')
     if request.method == 'POST':
         try:
             data = JSONParser().parse(request)
@@ -116,7 +118,7 @@ def searchApp(request):
         serializer = serializers.AppSerializer(data, many=True)
         return JsonResponse(serializer.data, safe=False, status=200)
     else:
-        return JsonResponse({ "error": "Only GET - Requests are allowed" }, status=400)
+        return JsonResponse({ "error": "Only POST - Requests are allowed" }, status=400)
 
 @csrf_exempt
 @api_view(['GET'])
