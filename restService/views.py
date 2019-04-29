@@ -108,7 +108,7 @@ def searchApp(request):
         try:
             data = JSONParser().parse(request)
             query = data.get('term')
-            data = appModel.objects.filter(Q(appname__icontains=query) | Q(appID__icontains=query) | Q(body__icontains=query) | Q(typOfAccount__icontains=query) | Q(Fakultaet__icontains=query) )
+            data = appModel.objects.filter(Q(appname__icontains=query) | Q(appID__icontains=query) | Q(body__icontains=query) | Q(typOfAccount__icontains=query) | Q(Fakultaet__icontains=query)).order_by('-downloads')
             print(data)
         except:
             return JsonResponse({ "error" : "Unknown Searchterm"}, status=400)
