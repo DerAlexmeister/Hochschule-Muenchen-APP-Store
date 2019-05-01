@@ -16,6 +16,7 @@ urlpatterns = [
     path('apps/newcomments', views.newComments, name="newComment"),
     path('apps/changecomment', views.changecomment, name="changecomment"),
     path('apps/search/', views.searchApp, name='appsuche'),
+    path('apps/delete', views.deleteApp, name="deleteApp"),
 
     # Dynamic App URLs
     path('apps/<int:pk>', views.app_details),

@@ -4,7 +4,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import axios from 'axios';
-import { FaArrowCircleRight, FaTrash, FaFileSignature} from 'react-icons/fa';
+import { FaArrowCircleRight, FaTrash, FaFileSignature, FaGrinTongueWink} from 'react-icons/fa';
 import { Link } from 'react-router-dom'
 
 
@@ -28,6 +28,7 @@ class DeleteChangeApp extends React.Component{
           items: [],
     };
   
+    reload = false
     isLoggedIn = false
     token = null
     user_id = 0
@@ -44,7 +45,20 @@ class DeleteChangeApp extends React.Component{
         this.setState({items: datem})
       })
     }
-  
+
+    deleteApp(app_id, token_) {
+      this.reload = true;
+      axios.post('http://localhost:8000/api/apps/delete', {
+        creator : this.user_id,
+        app_Id: app_id,   
+        token: token_,
+      }).then(res => {
+            console.log(res);
+            console.log(res.data);
+            if(this.reload){this.reload = false; window.location.reload();}
+      });
+    }
+
     render() {
         const { items } = this.state
         return (
@@ -72,7 +86,7 @@ class DeleteChangeApp extends React.Component{
                   </CardContent> 
                   <CardActions style={{backgroundColor:'rgba(23, 26, 33, 1)', border:'2px solid #df0c0c', borderTop:'0px solid #fff'}}>
                     <span style={{color:'#fff'}}>Beliebtheit: {item.downloads}</span> <b style={{color:'#fff'}}>|</b> 
-                      <span ><Link to='#' style={{color:'#fff'}}><FaTrash style={{color:'#f10b51'}} /> Delete</Link></span>  <b style={{color:'#fff'}}>|</b>
+                      <span ><Link to='#' style={{color:'#fff'}} onClick={() => this.deleteApp(item.appID, this.token)}><FaTrash style={{color:'#f10b51'}} /> Delete</Link></span>  <b style={{color:'#fff'}}>|</b>
                       <span ><Link to='#' style={{color:'#fff'}}><FaFileSignature style={{color:'#f10b51'}} /> Change</Link></span>  <b style={{color:'#fff'}}>|</b>   
                       <Link to={`/app/${item.appID}`} style={{color:'#df0c0c'}}>meine App zeigen <FaArrowCircleRight/></Link>             
                   </CardActions>

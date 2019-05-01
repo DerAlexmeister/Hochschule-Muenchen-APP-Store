@@ -18,6 +18,7 @@ from django.db.models import Q
 
 # REST-API Import 
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -153,6 +154,7 @@ def appsFromCreator(request, creator):
     if request.method == 'GET':
         try:
             data = appModel.objects.all().filter(creator=creator)
+            print(data)
         except:
             return JsonResponse({
                 "error" : "Unknown Creator"
@@ -297,6 +299,7 @@ def createApp(request):
 
 # Delete something
 
+@api_view()
 @csrf_exempt
 @login_required(login_url='/login/')
 def deleteComment(request):
@@ -318,19 +321,27 @@ def deleteComment(request):
         return redirect('Basic_user_url')
 
 @csrf_exempt
-#@login_required(login_url='/login/')
 def deleteApp(request):
     '''
     Method to delete a App out of a POST request
     '''
     if request.method == 'POST':
         try:
-            current_user = request.user_id
-            data = appModel.objects.all().filter(creator=current_user.id).filter(appID=request.data.get("app_Id")).delete()
+            data = JSONParser().parse(request)
+            print(data)
+            current_user  = data.get('creator')
+            print(current_user)
+            whichapp  = data.get('app_Id')
+            data = appModel.objects.all().filter(creator=current_user)
+            print(data)
+            data.filter(appID=whichapp)
+            print(data)
+            data.delete()
             return JsonResponse({
                 "Note" : "Your APP has been deleted {}".format(data)
             }, status=201)
-        except:
+        except Exception as error:
+            print(error)
             return JsonResponse({
             "error" : "Please check your credentials"
         }, status=400)
