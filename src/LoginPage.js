@@ -2,7 +2,7 @@ import React from 'react';
 import Bar from "./MenueBar.js";
 import SideNavPage from "./SideNavigation"
 import axios from 'axios';
-
+import { Redirect } from 'react-router-dom'
 class LoginPage extends React.Component {
 
     state = {
@@ -54,28 +54,21 @@ class LoginPage extends React.Component {
                     console.log(response);
                     console.log(response.data.token);
                     sessionStorage.setItem('wrongcred', true )
-                    if(this.reload){this.reload = false; window.location.reload();}
+                    //if(this.reload){this.reload = false; window.location.reload();}
                 }
                 this.setState({
                     test: sessionStorage.getItem('isLoggedIn')
                 })
+                return <Redirect to='/'/>
         }).catch(response => {
-            if (response.status === 200) {
-                sessionStorage.setItem('token', String(response.data.token))
-                sessionStorage.setItem('isLoggedIn', true)
-                sessionStorage.setItem('user_id', response.data.user_id )
-                this.trytoLogin = true
-            } else {
-                console.log(response);
-                console.log(response.data.token);
-                sessionStorage.setItem('wrongcred', true )
-                if(this.reload){this.reload = false; window.location.reload();}
-            }}
+            this.setState({wrongCred: true})
+            if(this.reload){this.reload = false; window.location.reload();}
+            }
         );
     }
 
     wrongCredant(wrongCred) {
-       return wrongCred ? <h1>Username oder Password stimmen nicht</h1> : null
+       return wrongCred ? <h1 style={{textAlign:'center', fontSize:16, color:' #f10b51'}}> -- Username oder Password stimmen nicht --  </h1> : null
     }
 
     render() {
