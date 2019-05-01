@@ -32,6 +32,7 @@ class DeleteChangeApp extends React.Component{
     isLoggedIn = false
     token = null
     user_id = 0
+    token_s = ""
 
     componentWillMount() {
         this.isLoggedIn = sessionStorage.getItem("isLoggedIn")
@@ -52,8 +53,9 @@ class DeleteChangeApp extends React.Component{
 
     deleteApp(app_id, token_) {
       this.reload = true;
+      this.token_s = "Token ".concat(token_)
       axios.post('http://localhost:8000/api/apps/delete', {
-        headers: { "Authorization": token_.toString() },
+        headers: { "Authorization": this.token_s },
         creator : this.user_id,
         app_Id: app_id,   
         token: token_,

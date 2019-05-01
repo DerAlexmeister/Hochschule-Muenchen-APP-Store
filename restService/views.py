@@ -18,14 +18,14 @@ from django.db.models import Q
 
 # REST-API Import 
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
-from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication, TokenAuthentication
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 from rest_framework.authtoken.models import Token
-from rest_framework.decorators import api_view, permission_classes
+from rest_framework.decorators import api_view, permission_classes, authentication_classes
 from rest_framework.permissions import AllowAny
 from rest_framework import generics
 from rest_framework.status import (
@@ -321,8 +321,8 @@ def deleteComment(request):
         return redirect('Basic_user_url')
 
 @csrf_exempt
-#@authentication_classes((SessionAuthentication, BasicAuthentication))
-@permission_classes((IsAuthenticated,))
+#@api_view(['GET','POST'])
+@authentication_classes((TokenAuthentication,))
 def deleteApp(request):
     '''
     Method to delete a App out of a POST request
@@ -333,7 +333,6 @@ def deleteApp(request):
             print(data)
             current_user  = data.get('creator')
             print(current_user)
-            #token = Token.objects.
             whichapp  = data.get('app_Id')
             data = appModel.objects.all().filter(creator=current_user).filter(appID=whichapp).delete()
             print(data)
