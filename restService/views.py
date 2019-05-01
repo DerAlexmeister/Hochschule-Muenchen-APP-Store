@@ -17,7 +17,6 @@ from django.contrib.auth import get_user_model
 from django.db.models import Q
 
 # REST-API Import 
-from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication, TokenAuthentication
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -26,7 +25,7 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 from rest_framework.authtoken.models import Token
 from rest_framework.decorators import api_view, permission_classes, authentication_classes
-from rest_framework.permissions import AllowAny,BasePermission
+from rest_framework.permissions import AllowAny, BasePermission, IsAuthenticated, IsAdminUser
 from rest_framework import generics
 from rest_framework.status import (
     HTTP_400_BAD_REQUEST,
@@ -111,7 +110,6 @@ def searchApp(request):
     '''
     Method to get all apps created by a creator
     '''
-    print('sdfnsofnbvo')
     if request.method == 'POST':
         try:
             data = JSONParser().parse(request)
@@ -227,7 +225,6 @@ def createUser(request):
             website = data.get('website'),
         )
         return JsonResponse({}, status=201)
-        return JsonResponse({}, status=400)
     else:
         return redirect('Basic_user_url')
 
@@ -388,7 +385,7 @@ def updateApp(request):
     if request.method == 'POST':
         try:
             current_user = request.user
-            mod = appModel.objects.all().filter(creator=current_user.id).filter(appID=request.data.get("app_Id"))
+            mod = appModel.objects.filter(creator=current_user.id).filter(appID=request.data.get("app_Id"))
             setattr(mod, str(request.data.get("field_to_change"), request.data.get('field_value')))
             mod.save([str(request.data.get("field_to_change"))])
             return JsonResponse({
