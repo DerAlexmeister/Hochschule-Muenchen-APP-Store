@@ -59,7 +59,19 @@ class LoginPage extends React.Component {
                 this.setState({
                     test: sessionStorage.getItem('isLoggedIn')
                 })
-        });
+        }).catch(response => {
+            if (response.status === 200) {
+                sessionStorage.setItem('token', String(response.data.token))
+                sessionStorage.setItem('isLoggedIn', true)
+                sessionStorage.setItem('user_id', response.data.user_id )
+                this.trytoLogin = true
+            } else {
+                console.log(response);
+                console.log(response.data.token);
+                sessionStorage.setItem('wrongcred', true )
+                if(this.reload){this.reload = false; window.location.reload();}
+            }}
+        );
     }
 
     wrongCredant(wrongCred) {
@@ -67,6 +79,7 @@ class LoginPage extends React.Component {
     }
 
     render() {
+        console.log(this.state.wrongCred)
         return (
             <div>
                 <Bar/>

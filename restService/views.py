@@ -26,7 +26,7 @@ from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 from rest_framework.authtoken.models import Token
 from rest_framework.decorators import api_view, permission_classes, authentication_classes
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny,BasePermission
 from rest_framework import generics
 from rest_framework.status import (
     HTTP_400_BAD_REQUEST,
@@ -40,6 +40,7 @@ class appListView(generics.ListCreateAPIView):
     '''
     Simple Class-Based-View to show all APPS in the Database
     '''
+    permission_classes = (AllowAny,)
     http_method_names = ['get']
     queryset = appModel.objects.all()
     serializer_class = serializers.AppSmallSerializer
@@ -60,6 +61,7 @@ class newestAppsListView(generics.ListCreateAPIView):
     Simple Class-Based-View to show all APPS in the Database 
     sorted by their creationtime newest to oldest
     '''
+    permission_classes = (AllowAny,)
     http_method_names = ['get']
     queryset = appModel.objects.all().order_by('-createdAt')
     serializer_class = serializers.AppSmallSerializer
@@ -70,6 +72,7 @@ class oldestAppsListView(generics.ListCreateAPIView):
     Simple Class-Based-View to show all APPS in the Database 
     sorted by their creationtime oldest to newest
     '''
+    permission_classes = (AllowAny,)
     http_method_names = ['get']
     queryset = appModel.objects.all().order_by('createdAt')
     serializer_class = serializers.AppSmallSerializer
@@ -80,6 +83,7 @@ class mostDownloadsListView(generics.ListCreateAPIView):
     Simple Class-Based-View to show all APPS in the Database 
     sorted by their downloadrates best to worst
     '''
+    permission_classes = (AllowAny,)
     http_method_names = ['get']
     queryset = appModel.objects.all().order_by('-downloads')
     serializer_class = serializers.AppSmallSerializer
@@ -90,6 +94,7 @@ class tinyDownloadsListView(generics.ListCreateAPIView):
     Simple Class-Based-View to show all APPS in the Database 
     sorted by their downloadrates worst to best
     '''
+    permission_classes = (AllowAny,)
     http_method_names = ['get']
     queryset = appModel.objects.all().order_by('downloads')
     serializer_class = serializers.AppSmallSerializer
@@ -274,7 +279,7 @@ def login(request):
         return Response({'error': 'Username or Password is missing'}, status=HTTP_400_BAD_REQUEST)
     user = authenticate(email=username, password=password)
     if not user:
-        return Response({'error': 'Invalid Credentials'}, status=HTTP_404_NOT_FOUND)
+        return Response({'error': 'Invalid Credentials'}, status=HTTP_400_BAD_REQUEST)
     token, _ = Token.objects.get_or_create(user=user)
     return JsonResponse({'token': token.key, 'user_id': user.id}, status=HTTP_200_OK)
 
