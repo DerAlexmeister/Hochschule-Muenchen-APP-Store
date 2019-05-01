@@ -92,7 +92,7 @@ class DeleteChangeApp extends React.Component{
                   <CardActions style={{backgroundColor:'rgba(23, 26, 33, 1)', border:'2px solid #df0c0c', borderTop:'0px solid #fff'}}>
                     <span style={{color:'#fff'}}>Beliebtheit: {item.downloads}</span> <b style={{color:'#fff'}}>|</b> 
                       <span ><Link to='#' style={{color:'#fff'}} onClick={() => this.deleteApp(item.appID, this.token)}><FaTrash style={{color:'#f10b51'}} /> Delete</Link></span>  <b style={{color:'#fff'}}>|</b>
-                      <span ><Link to='#' style={{color:'#fff'}}><FaFileSignature style={{color:'#f10b51'}} /> Change</Link></span>  <b style={{color:'#fff'}}>|</b>   
+                      <span ><Link to={`/myapp/change/${item.appID}`} style={{color:'#fff'}}><FaFileSignature style={{color:'#f10b51'}} /> Change</Link></span>  <b style={{color:'#fff'}}>|</b>   
                       <Link to={`/app/${item.appID}`} style={{color:'#df0c0c'}}>meine App zeigen <FaArrowCircleRight/></Link>             
                   </CardActions>
               </Card>
