@@ -9,6 +9,7 @@ class LoginPage extends React.Component {
         email: '',
         Password: '',
         test: '',
+        wrongCred: false
        
     }
     
@@ -32,11 +33,14 @@ class LoginPage extends React.Component {
                 window.location.reload()
             }
         }, 1000);
+        this.setState({
+            wrongCred: sessionStorage.getItem('wrongcred')
+        })
       }
 
     handleSubmit = event => {
         event.preventDefault();
-    
+        
         axios.post(`http://localhost:8000/api/users/login`, {
             email: this.state.email,
             password : this.state.Password,
@@ -49,11 +53,17 @@ class LoginPage extends React.Component {
                 } else {
                     console.log(response);
                     console.log(response.data.token);
+                    sessionStorage.setItem('wrongcred', true )
+                    if(this.reload){this.reload = false; window.location.reload();}
                 }
                 this.setState({
                     test: sessionStorage.getItem('isLoggedIn')
                 })
         });
+    }
+
+    wrongCredant(wrongCred) {
+       return wrongCred ? <h1>Username oder Password stimmen nicht</h1> : null
     }
 
     render() {
@@ -63,6 +73,7 @@ class LoginPage extends React.Component {
                 <SideNavPage/>
                 <div style={{position:'absolute', top:100, color:'#fff', width:'60%', left:'20%'}}>
                     <h1 style={{textAlign:'center', fontFamily: 'Montserrat'}}> Anmelden</h1>
+                    {this.wrongCredant(this.state.wrongCred)}
                     <br></br>
                     <form onSubmit={this.handleSubmit}>
                         <label style={{textAlign:'center', fontWeight:'bold',fontFamily: 'Montserrat'}}>Email</label>

@@ -279,7 +279,8 @@ def login(request):
     return JsonResponse({'token': token.key, 'user_id': user.id}, status=HTTP_200_OK)
 
 @csrf_exempt
-
+@api_view(['GET','POST'])
+@authentication_classes((TokenAuthentication,))
 def createApp(request):
     '''
     Method to recieve data via POST-Method and Store it in the Database
@@ -299,9 +300,9 @@ def createApp(request):
 
 # Delete something
 
-@api_view()
 @csrf_exempt
-@login_required(login_url='/login/')
+@api_view(['GET','POST'])
+@authentication_classes((TokenAuthentication,))
 def deleteComment(request):
     '''
     Method to delete a Comment out of a POST request
@@ -321,7 +322,7 @@ def deleteComment(request):
         return redirect('Basic_user_url')
 
 @csrf_exempt
-#@api_view(['GET','POST'])
+@api_view(['GET','POST'])
 @authentication_classes((TokenAuthentication,))
 def deleteApp(request):
     '''
@@ -349,7 +350,8 @@ def deleteApp(request):
 
 
 @csrf_exempt
-@login_required(login_url='/login/')
+@api_view(['GET','POST'])
+@authentication_classes((TokenAuthentication,))
 def deleteUser(request):
     '''
     Method to delete a User out of a POST request
@@ -372,7 +374,8 @@ def deleteUser(request):
 # Update Function
 
 @csrf_exempt
-@login_required(login_url='/login/')
+@api_view(['GET','POST'])
+@authentication_classes((TokenAuthentication,))
 def updateApp(request):
     '''
     Method to update a App out of a POST request
@@ -394,7 +397,8 @@ def updateApp(request):
         return redirect('Basic_user_url')
 
 @csrf_exempt
-@login_required(login_url='/login/')
+@api_view(['GET','POST'])
+@authentication_classes((TokenAuthentication,))
 def updateComment(request):
     '''
     Method to update a App out of a POST request
@@ -416,7 +420,8 @@ def updateComment(request):
         return redirect('Basic_user_url')
 
 @csrf_exempt
-@login_required(login_url='/login/')
+@api_view(['GET','POST'])
+@authentication_classes((TokenAuthentication,))
 def updateUser(request):
     '''
     Method to update a App out of a POST request
