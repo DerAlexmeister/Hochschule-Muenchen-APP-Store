@@ -4,7 +4,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import axios from 'axios';
-import { FaArrowCircleRight, FaTrash, FaFileSignature, FaGrinTongueWink} from 'react-icons/fa';
+import { FaArrowCircleRight, FaTrash, FaFileSignature} from 'react-icons/fa';
 import { Link } from 'react-router-dom'
 
 

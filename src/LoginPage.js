@@ -2,7 +2,6 @@ import React from 'react';
 import Bar from "./MenueBar.js";
 import SideNavPage from "./SideNavigation"
 import axios from 'axios';
-import { Redirect } from 'react-router-dom'
 class LoginPage extends React.Component {
 
     state = {

@@ -56,6 +56,7 @@ export default class CreateApp extends React.Component{
     }).then(res => {
             console.log(res);
             console.log(res.data);
+            window.location.reload()
         });
     }
 
