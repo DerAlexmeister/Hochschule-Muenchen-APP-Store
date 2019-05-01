@@ -45,10 +45,15 @@ class DeleteChangeApp extends React.Component{
         this.setState({items: datem})
       })
     }
+    
+    getString(token_) {
+      return "Authorization: Token" + token_.toString();
+    }
 
     deleteApp(app_id, token_) {
       this.reload = true;
       axios.post('http://localhost:8000/api/apps/delete', {
+        headers: { "Authorization": token_.toString() },
         creator : this.user_id,
         app_Id: app_id,   
         token: token_,

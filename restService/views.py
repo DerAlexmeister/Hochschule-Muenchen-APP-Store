@@ -321,6 +321,8 @@ def deleteComment(request):
         return redirect('Basic_user_url')
 
 @csrf_exempt
+#@authentication_classes((SessionAuthentication, BasicAuthentication))
+@permission_classes((IsAuthenticated,))
 def deleteApp(request):
     '''
     Method to delete a App out of a POST request
@@ -331,12 +333,10 @@ def deleteApp(request):
             print(data)
             current_user  = data.get('creator')
             print(current_user)
+            #token = Token.objects.
             whichapp  = data.get('app_Id')
-            data = appModel.objects.all().filter(creator=current_user)
+            data = appModel.objects.all().filter(creator=current_user).filter(appID=whichapp).delete()
             print(data)
-            data.filter(appID=whichapp)
-            print(data)
-            data.delete()
             return JsonResponse({
                 "Note" : "Your APP has been deleted {}".format(data)
             }, status=201)
