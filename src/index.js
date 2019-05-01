@@ -18,6 +18,7 @@ import LoginPage from './LoginPage.js'
 import RegisterPage from './registration.js'
 import Createapp from './createApp.js'
 import Workon from './workon.js'
+import ChangeApp from './ChangeApp'
 
 const routing = (
     <Router>
@@ -36,6 +37,7 @@ const routing = (
         <Route path='/signup/' component={RegisterPage} />
         <Route path='/createapp/' component={Createapp} />
         <Route path='/myapps/' component={Workon} />
+        <Route path='/myapp/change/:appID' component={ChangeApp} />
       </div>
     </Router>
   )
