@@ -54,12 +54,12 @@ class LoginPage extends React.Component {
                     console.log(response);
                     console.log(response.data.token);
                     sessionStorage.setItem('wrongcred', true )
-                    //if(this.reload){this.reload = false; window.location.reload();}
+                    if(this.reload){this.reload = false; window.location.reload();}
                 }
                 this.setState({
                     test: sessionStorage.getItem('isLoggedIn')
                 })
-                return <Redirect to='/'/>
+                this.props.history.push("/");
         }).catch(response => {
             this.setState({wrongCred: true})
             if(this.reload){this.reload = false; window.location.reload();}
