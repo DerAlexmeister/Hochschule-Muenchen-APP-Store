@@ -2,13 +2,14 @@ import React from 'react';
 import Bar from "./MenueBar.js";
 import SideNavPage from "./SideNavigation"
 import axios from 'axios';
-
+import { Redirect } from 'react-router-dom'
 class LoginPage extends React.Component {
 
     state = {
         email: '',
         Password: '',
         test: '',
+        wrongCred: false
        
     }
     
@@ -32,11 +33,14 @@ class LoginPage extends React.Component {
                 window.location.reload()
             }
         }, 1000);
+        this.setState({
+            wrongCred: sessionStorage.getItem('wrongcred')
+        })
       }
 
     handleSubmit = event => {
         event.preventDefault();
-    
+        
         axios.post(`http://localhost:8000/api/users/login`, {
             email: this.state.email,
             password : this.state.Password,
@@ -49,20 +53,33 @@ class LoginPage extends React.Component {
                 } else {
                     console.log(response);
                     console.log(response.data.token);
+                    sessionStorage.setItem('wrongcred', true )
+                    if(this.reload){this.reload = false; window.location.reload();}
                 }
                 this.setState({
                     test: sessionStorage.getItem('isLoggedIn')
                 })
-        });
+                this.props.history.push("/");
+        }).catch(response => {
+            this.setState({wrongCred: true})
+            if(this.reload){this.reload = false; window.location.reload();}
+            }
+        );
+    }
+
+    wrongCredant(wrongCred) {
+       return wrongCred ? <h1 style={{textAlign:'center', fontSize:16, color:' #f10b51'}}> -- Username oder Password stimmen nicht --  </h1> : null
     }
 
     render() {
+        console.log(this.state.wrongCred)
         return (
             <div>
                 <Bar/>
                 <SideNavPage/>
                 <div style={{position:'absolute', top:100, color:'#fff', width:'60%', left:'20%'}}>
                     <h1 style={{textAlign:'center', fontFamily: 'Montserrat'}}> Anmelden</h1>
+                    {this.wrongCredant(this.state.wrongCred)}
                     <br></br>
                     <form onSubmit={this.handleSubmit}>
                         <label style={{textAlign:'center', fontWeight:'bold',fontFamily: 'Montserrat'}}>Email</label>

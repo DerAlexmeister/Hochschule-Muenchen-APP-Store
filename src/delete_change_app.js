@@ -54,14 +54,12 @@ class DeleteChangeApp extends React.Component{
     deleteApp(app_id, token_) {
       this.reload = true;
       this.token_s = "Token ".concat(token_)
+      axios.defaults.headers.common['Authorization'] = `Token ${token_}`
       axios.post('http://localhost:8000/api/apps/delete', {
-        headers: { "Authorization": this.token_s },
         creator : this.user_id,
         app_Id: app_id,   
         token: token_,
       }).then(res => {
-            console.log(res);
-            console.log(res.data);
             if(this.reload){this.reload = false; window.location.reload();}
       });
     }

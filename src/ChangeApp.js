@@ -91,7 +91,7 @@ class ChangeApp extends React.Component{
                         <br></br>
                         <form onSubmit={this.handleSubmit}>
                             <label style={{textAlign:'center', fontWeight:'bold', fontFamily: 'Montserrat'}}>Name der App</label>
-                            <input style={{position:'absolute', width:'70%', left:'15%', borderRadius: 10, border: '2px solid #f10b51',color:'#fff', backgroundColor:'rgba(23, 26, 33, 1)'}} type="text" name="appname" onChange={this.handleChange} required />{item.appname}<br></br><br></br>
+                            <input style={{position:'absolute', width:'70%', left:'15%', borderRadius: 10, border: '2px solid #f10b51',color:'#fff', backgroundColor:'rgba(23, 26, 33, 1)'}} type="text" name="appname" onChange={this.handleChange} value={"" + item.appname} required /><br></br><br></br>
                             <label style={{textAlign:'center', fontWeight:'bold',fontFamily: 'Montserrat'}}>Beschreibung</label>
                             <input style={{position:'absolute', width:'70%', left:'15%', borderRadius: 10, border: '2px solid #f10b51',color:'#fff', backgroundColor:'rgba(23, 26, 33, 1)'}} type="text" name="body" onChange={this.handleChange} required /><br></br><br></br>
                             <label style={{textAlign:'center', fontWeight:'bold',fontFamily: 'Montserrat'}}>Deine Website</label>
