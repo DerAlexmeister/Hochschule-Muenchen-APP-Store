@@ -41,6 +41,14 @@ export default class CreateApp extends React.Component{
         this.user_id = Number(sessionStorage.getItem("user_id"))
     }
 
+    makeWebsite(param){
+        if(param.includes('http') || param.includes('https')){
+            return param
+        } else {
+            return "http://".concat(param)
+        }
+    }
+
     handleSubmit = event => {
         event.preventDefault();
         axios.defaults.headers.common['Authorization'] = `Token ${this.token}`
@@ -49,8 +57,8 @@ export default class CreateApp extends React.Component{
         appname: this.state.appname,   
         body: this.state.body,
         contectEmail: this.state.contectEmail,
-        //website: this.state.website,
-        //linkImg: this.state.linkImg,
+        website: this.makeWebsite(this.state.website),
+        linkImg: this.makeWebsite(this.state.linkImg),
         typOfAccount: this.state.typOfAccount,
         Fakultaet: this.state.Fakultaet,
     }).then(res => {
