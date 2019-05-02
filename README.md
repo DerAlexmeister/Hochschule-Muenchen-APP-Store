@@ -181,18 +181,21 @@ einfach und dann kannst du deine Software oder dein Service mit anderen Teilen.
 
     1. /apps/... (Gibt ein set mit allen Apps zurück) ✔️
         1. /new (erzeigt eine neue App in der Datenbank)
-        2. /newest (liefert ein Set mit allen Apps sortiert nach Neuheit)
-        3. /oldest (umgekehrt zu /newest)
+        2. /newest (Set sortiert mit den neuesten Apps absteigend)
+        3. /oldest (Set sortiert mit den ältesten Apps absteigend)
         4. /mostdownloads (Set sortiert mit den erfolgreichstens Apps absteigend)
-        5. /lessdownloads (umgekehrt zu /mostdownloads)
-        6. /<int:pk> (gib detailierte Informationen über die App aus)
+        5. /lessdownloads (Set sortiert mit den erfolgreichstens Apps aufsteigend)
+        6. /<int:pk> (gibt detailierte Informationen über die App aus)
         7. /creator/c/<int:creator> (Gibt Informationen über den Creator aus)
+        8. /search (Ermöglicht die Sucher einer App über deren Namen)
+        9. /delete (löscht eine App)
+        10. /changeapp (ändert Attribute einer App, wie Appname, Beschreibung etc.=
 
         # not in use so dont use them ❌
 
-        8. /creator/<int:creator> / (Gibt alle Apps eines Creators)
-        9. /newcomments (Erzeugt einen neuen Kommentar)
-        10. /changecomment (ermöglicht das ändern eines Kommentars)
+        11. /creator/<int:creator> / (Gibt alle Apps eines Creators)
+        12. /newcomments (Erzeugt einen neuen Kommentar)
+        13. /changecomment (ermöglicht das ändern eines Kommentars)
 
     2. /users/ ... (Gibt ein Set mit allen usern zurück) ✔️
         1. /new (Erzeugt einen neuen User)
