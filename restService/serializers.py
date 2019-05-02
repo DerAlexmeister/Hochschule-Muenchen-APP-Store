@@ -46,7 +46,8 @@ class AppSerializer(serializers.ModelSerializer):
             'smallPic',
             'bigimg',
             'typOfAccount',
-            'Fakultaet'
+            'Fakultaet',
+            'linkImg'
         )
 
 '''class UserNesSerializer(serializers.ModelSerializer):

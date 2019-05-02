@@ -80,6 +80,18 @@ class SearchPage extends React.Component {
         }
     }
 
+    getImage(param1, param2) {
+        console.log(param1, param2)
+        if(param1) {
+            console.log('param1')
+            return "" + param1
+        } else if (typeof param2 !== 'undefined' && param2 !== null) {
+            return "" + param2
+        } else {
+            return "http://localhost:8000/media/ersatzbild.jpg"
+        }
+    }
+
     returnSearch() {
         if (typeof this.state.items !== 'undefined' && this.state.items.length > 0) {
             const { items } = this.state
@@ -98,9 +110,9 @@ class SearchPage extends React.Component {
                                 <div style={{color: '#fff', fontFamily: 'Montserrat'}}>{item.body}</div>
                             </Typography>
                             </div>
-                            <div style={{paddingLeft: 100}}>
+                            <div style={{paddingLeft: 10}}>
                             <Typography>
-                            <img style={{borderRadius:20, width: 150, height: 150}} src={item.smallPic}  alt="This app has no Picture yet" />
+                            <img style={{borderRadius:40, width: 150, height: 150}}  src={this.getImage(item.smallPic, item.linkImg)} alt="This app has no Pic yet" />
                             </Typography>
                             </div>
                             </div>
@@ -121,9 +133,10 @@ class SearchPage extends React.Component {
                         <h1>Entschuldige wir haben leider nichts gefunden!</h1> 
                         <h3>auch wenn wir überall gesucht haben</h3>
                         <br></br>
-                        <img style={{borderRadius:25}} alt="nothing found" src="https://media.giphy.com/media/Vw3HuN902Kqd2/giphy.gif" ></img>
+                        <img style={{borderRadius:25}} alt="nothing found" src="https://media.giphy.com/media/8vQSQ3cNXuDGo/giphy.gif" ></img>
                         <br></br><br></br>
                         <span style={{color:'#fff'}}>Copyright &copy; by Giphy</span>
+                        <br></br><br></br>
                 </div>
         } 
         else {
