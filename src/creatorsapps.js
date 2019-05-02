@@ -43,7 +43,18 @@ class CreatorsApp extends React.Component{
           }).catch(err => {
               console.error(err)
           })
-      }
+    }
+
+    getImage(param1, param2) {
+        console.log(param1, param2)
+        if(param1) {
+            return "http://localhost:8000" + param1
+        } else if (typeof param2 !== 'undefined' && param2 !== null) {
+            return "" + param2
+        } else {
+            return "http://localhost:8000/media/ersatzbild.jpg"
+        }
+    }
   
     render() {
       const { items } = this.state;
@@ -53,7 +64,7 @@ class CreatorsApp extends React.Component{
               { items.map(item => (
                 <div>
                   <div style={{display:'flex'}}>
-                    <img style={{borderRadius:50, width:200, height:200}} src={"http://localhost:8000" + item.smallPic}  alt="hshshsdh!" />
+                    <img style={{borderRadius:50, width:200, height:200}} src={this.getImage(item.smallPic, item.linkImg)}  alt="hshshsdh!" />
                     <h1 style={{color:'#fff', paddingLeft:40, paddingTop:150}}> {item.nickname}</h1>
                     <div style={{paddingTop:158, paddingLeft:20, maxHeight:300, maxWidth:300 }}>
                     { this.isVerified(item.verified) }
