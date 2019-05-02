@@ -12,6 +12,7 @@ class ChangeApp extends React.Component{
 
     state = {
         items: ["0"],
+        appid: 0,
         appname: '',
         body: '',
         website: '',
@@ -46,13 +47,13 @@ class ChangeApp extends React.Component{
         event.preventDefault();
         axios.defaults.headers.common['Authorization'] = `Token ${this.token}`
     axios.post(`http://localhost:8000/api/apps/changeapp/`, {
+        app_ID : this.state.appid,
         creator : this.user_id,
         appname: this.state.appname,   
         body: this.state.body,
         contectEmail: this.state.contectEmail,
         website: this.makeWebsite(this.state.website),
         linkImg: this.makeWebsite(this.state.linkImg),
-        token: this.token
     }).then(res => {
             console.log(res);
             console.log(res.data);
@@ -77,6 +78,7 @@ class ChangeApp extends React.Component{
             const datem = res.data;
             this.setState({items: [datem] })
             this.state.items.map(item => this.setState({
+                appid: item.appID,
                 appname: item.appname,
                 body: item.body,
                 website: item.website,

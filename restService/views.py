@@ -379,23 +379,25 @@ def updateApp(request):
     '''
     Method to update a App out of a POST request
     '''
-    print(JSONParser().parse(request))
     if request.method == 'POST':
         try:
             data = JSONParser().parse(request)
 
             current_user  = data.get('creator')
-            whichapp  = data.get('app_Id')
+            whichapp  = data.get('app_ID')
 
-            mod = appModel.objects.filter(creator=current_user).filter(appID=whichapp)
+            mod = appModel.objects.filter(appID=whichapp)
+            print()
+            print(mod)
+            print()
+            print(data)
+            print()
+            print(current_user)
 
 
 
-
-
-
-            setattr(mod, str(request.data.get("field_to_change"), request.data.get('field_value')))
-            mod.save([str(request.data.get("field_to_change"))])
+            #setattr(mod, str(request.data.get("field_to_change"), request.data.get('field_value')))
+            #mod.save([str(request.data.get("field_to_change"))])
             return JsonResponse({
                 "Note" : "Your APP has been updated"
             }, status=201)
