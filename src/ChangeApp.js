@@ -44,7 +44,7 @@ class ChangeApp extends React.Component{
 
     handleSubmit = event => {
         event.preventDefault();
-    
+        axios.defaults.headers.common['Authorization'] = `Token ${this.token}`
     axios.post(`http://localhost:8000/api/apps/changeapp/`, {
         creator : this.user_id,
         appname: this.state.appname,   
@@ -52,6 +52,7 @@ class ChangeApp extends React.Component{
         contectEmail: this.state.contectEmail,
         website: this.makeWebsite(this.state.website),
         linkImg: this.makeWebsite(this.state.linkImg),
+        token: this.token
     }).then(res => {
             console.log(res);
             console.log(res.data);
@@ -75,6 +76,15 @@ class ChangeApp extends React.Component{
         axios.get('http://localhost:8000/api/apps/' + (this.appID_)).then(res => {
             const datem = res.data;
             this.setState({items: [datem] })
+            this.state.items.map(item => this.setState({
+                appname: item.appname,
+                body: item.body,
+                website: item.website,
+                contectEmail: item.contectEmail,
+                linkImg: item.linkImg,
+                typOfAccount: item.typOfAccount,
+                Fakultaet: item.Fakultaet,
+            }))
             this.defaultItemValue(this.state.items)
         }).catch(err => {
             console.error(err)

@@ -380,7 +380,6 @@ def updateApp(request):
     Method to update a App out of a POST request
     '''
     print(JSONParser().parse(request))
-    print(JSONParser().parse(request.headers))
     if request.method == 'POST':
         try:
             data = JSONParser().parse(request)
@@ -400,12 +399,11 @@ def updateApp(request):
             return JsonResponse({
                 "Note" : "Your APP has been updated"
             }, status=201)
-        except:
+        except Exception as error:
+            print("error:" + str(error))
             return JsonResponse({
             "error" : "Please check your credentials"
         }, status=400)
-    elif request.method == 'OPTIONS':
-        print(JSONParser().parse(request))
     else:
         return JsonResponse({
             "error" : "Please check your credentials"
