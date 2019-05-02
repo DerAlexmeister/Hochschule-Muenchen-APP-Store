@@ -373,13 +373,14 @@ def deleteUser(request):
 # Update Function
 
 @csrf_exempt
-@api_view(['GET','POST'])
+#@api_view(['GET','POST'])
 @authentication_classes((TokenAuthentication,))
 def updateApp(request):
     '''
     Method to update a App out of a POST request
     '''
     print(JSONParser().parse(request))
+    print(JSONParser().parse(request.headers))
     if request.method == 'POST':
         try:
             data = JSONParser().parse(request)
