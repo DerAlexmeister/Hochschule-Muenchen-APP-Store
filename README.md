@@ -66,7 +66,7 @@ einfach und dann kannst du deine Software oder dein Service mit anderen Teilen.
 
 ![](https://github.com/DerAlexx/HM-APP-Store/blob/master/mockups/alle_apps_zeigen.PNG)
 
-## Erstellen/Anlegen einer neuen App -Ansicht
+## Erstellen/Anlegen einer neuen App - Ansicht
 
 ![](https://github.com/DerAlexx/HM-APP-Store/blob/master/mockups/create_app.PNG)
 
