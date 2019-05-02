@@ -14,7 +14,7 @@ import Carousel  from 'nuka-carousel';
   };
 
   componentDidMount() {
-    axios.get('http://localhost:8000/api/apps/mostdownloads').then(res => {
+    axios.get(localStorage.getItem("address") + '/api/apps/mostdownloads').then(res => {
     const datem = res.data;
     this.setState({items: datem})
     })

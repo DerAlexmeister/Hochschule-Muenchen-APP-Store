@@ -31,7 +31,7 @@ class SimpleCardOld extends React.Component{
   };
 
   componentDidMount() {
-    axios.get('http://localhost:8000/api/apps/oldest').then(res => {
+    axios.get(localStorage.getItem("address") + '/api/apps/oldest').then(res => {
       const datem = res.data;
       this.setState({items: datem})
     })
@@ -43,7 +43,7 @@ class SimpleCardOld extends React.Component{
     } else if (typeof param2 !== 'undefined' && param2 !== null) {
         return "" + param2
     } else {
-        return "http://localhost:8000/media/ersatzbild.jpg"
+        return localStorage.getItem("address") + "/media/ersatzbild.jpg"
     }
 }
 

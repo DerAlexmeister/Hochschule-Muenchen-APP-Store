@@ -36,7 +36,7 @@ class CreatorsApp extends React.Component{
     
     componentDidMount() {
           console.log("This is the APPID we got: "+ this.appID_)
-          axios.get('http://localhost:8000/api/apps/creator/c/' + (this.appID_)).then(res => {
+          axios.get(localStorage.getItem("address") + '/api/apps/creator/c/' + (this.appID_)).then(res => {
               const datem = res.data;
               console.log(datem)
               this.setState({items: datem })
@@ -48,11 +48,11 @@ class CreatorsApp extends React.Component{
     getImage(param1, param2) {
         console.log(param1, param2)
         if(param1) {
-            return "http://localhost:8000" + param1
+            return localStorage.getItem("address") + param1
         } else if (param2) {
             return "" + param2
         } else {
-            return "http://localhost:8000/media/ersatzbild.jpg"
+            return localStorage.getItem("address") + "/media/ersatzbild.jpg"
         }
     }
   

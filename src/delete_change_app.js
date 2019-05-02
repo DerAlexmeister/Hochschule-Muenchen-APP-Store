@@ -41,7 +41,7 @@ class DeleteChangeApp extends React.Component{
     }
 
     componentDidMount() {
-      axios.get('http://localhost:8000/api/apps/creator/' + this.user_id).then(res => {
+      axios.get(localStorage.getItem("address") + '/api/apps/creator/' + this.user_id).then(res => {
         const datem = res.data;
         this.setState({items: datem})
       })
@@ -55,7 +55,7 @@ class DeleteChangeApp extends React.Component{
       this.reload = true;
       this.token_s = "Token ".concat(token_)
       axios.defaults.headers.common['Authorization'] = `Token ${token_}`
-      axios.post('http://localhost:8000/api/apps/delete', {
+      axios.post(localStorage.getItem("address") + '/api/apps/delete', {
         creator : this.user_id,
         app_Id: app_id,   
         token: token_,
@@ -67,11 +67,11 @@ class DeleteChangeApp extends React.Component{
     getImage(param1, param2) {
       console.log(param1, param2)
       if(param1) {
-          return "http://localhost:8000" + param1
+          return localStorage.getItem("address") + param1
       } else if (typeof param2 !== 'undefined' && param2 !== null) {
           return "" + param2
       } else {
-          return "http://localhost:8000/media/ersatzbild.jpg"
+          return localStorage.getItem("address") + "/media/ersatzbild.jpg"
       }
   }
 

@@ -48,7 +48,7 @@ class SearchPage extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    axios.post('http://localhost:8000/api/apps/search/',{
+    axios.post(localStorage.getItem("address") + '/api/apps/search/',{
         term: this.state.term}
     ).then(res => {
         this.message = true
@@ -86,7 +86,7 @@ class SearchPage extends React.Component {
         } else if (typeof param2 !== 'undefined' && param2 !== null) {
             return "" + param2
         } else {
-            return "http://localhost:8000/media/ersatzbild.jpg"
+            return localStorage.getItem("address") + "/media/ersatzbild.jpg"
         }
     }
 
