@@ -44,6 +44,8 @@ export default class CreateApp extends React.Component{
     makeWebsite(param){
         if(param.includes('http') || param.includes('https')){
             return param
+        } else if (!param) {
+            return null
         } else {
             return "http://".concat(param)
         }
