@@ -66,15 +66,13 @@ einfach und dann kannst du deine Software oder dein Service mit anderen Teilen.
 
 ![](https://github.com/DerAlexx/HM-APP-Store/blob/master/mockups/alle_apps_zeigen.PNG)
 
-![](https://github.com/DerAlexx/HM-APP-Store/blob/master/mockups/list_aller_apps.PNG)
-
 ## Erstellen/Anlegen einer neuen App -Ansicht
 
 ![](https://github.com/DerAlexx/HM-APP-Store/blob/master/mockups/create_app.PNG)
 
 ## Registrieren - Ansicht
 
-![](https://github.com/DerAlexx/HM-APP-Store/blob/master/mockups/registration.PNG)
+![](https://github.com/DerAlexx/Hochschule-Muenchen-APP-Store/blob/master/mockups/registrieren.PNG)
 
 ## Login - Ansicht
 
@@ -143,7 +141,7 @@ einfach und dann kannst du deine Software oder dein Service mit anderen Teilen.
     six==1.12.0
     txaio==18.8.1
     typed-ast==1.3.1
-    urllib3==1.24.1
+    urllib3==1.24.2
     whitenoise==4.1.2
     wrapt==1.11.1
     zope.interface==4.6.0
@@ -188,7 +186,7 @@ einfach und dann kannst du deine Software oder dein Service mit anderen Teilen.
         4. /mostdownloads (Set sortiert mit den erfolgreichstens Apps absteigend)
         5. /lessdownloads (umgekehrt zu /mostdownloads)
         6. /<int:pk> (gib detailierte Informationen über die App aus)
-        7. //creator/c/<int:creator> (Gibt Informationen über den Creator aus)
+        7. /creator/c/<int:creator> (Gibt Informationen über den Creator aus)
 
         # not in use so dont use them ❌
 
