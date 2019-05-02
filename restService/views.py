@@ -118,7 +118,7 @@ def searchApp(request):
             print(data)
         except:
             return JsonResponse({ "error" : "Unknown Searchterm"}, status=400)
-        if data is None: return JsonResponse({ "missing": "nichts gefunden" }, status=200)
+        if data is None: return JsonResponse({ "missing": "nichts gefunden" }, status=207)
         serializer = serializers.AppSerializer(data, many=True)
         return JsonResponse(serializer.data, safe=False, status=200)
     else:
@@ -156,7 +156,7 @@ def appsFromCreator(request, creator):
     '''
     if request.method == 'GET':
         try:
-            data = appModel.objects.all().filter(creator=creator)
+            data = appModel.objects.all().filter(creator=creator).order_by('-createdAt')
             print(data)
         except:
             return JsonResponse({

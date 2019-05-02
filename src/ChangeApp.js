@@ -72,10 +72,16 @@ class ChangeApp extends React.Component{
             console.error(err)
         })
     }
+
+    defaultItemValue(items) {
+        //items.map(item => (
+            document.getElementById('test1').defaultValue = items
+            //document.getElementById('test').defaultValue = item.body)
+        //)
+    }
     
     render() {
-        const {items } = this.state;
-        console.log(items)
+        const { items } = this.state;
         if (this.isLoggedIn) {
             return (
                 <div>
@@ -88,15 +94,15 @@ class ChangeApp extends React.Component{
                         <br></br>
                         <form onSubmit={this.handleSubmit}>
                             <label style={{textAlign:'center', fontWeight:'bold', fontFamily: 'Montserrat'}}>Name der App</label>
-                            <input style={{position:'absolute', width:'70%', left:'15%', borderRadius: 10, border: '2px solid #f10b51',color:'#fff', backgroundColor:'rgba(23, 26, 33, 1)'}} type="text" name="appname" onChange={this.handleChange} value={"" + item.appname} required /><br></br><br></br>
+                            <input id="test1" style={{position:'absolute', width:'70%', left:'15%', borderRadius: 10, border: '2px solid #f10b51',color:'#fff', backgroundColor:'rgba(23, 26, 33, 1)'}} type="text" name="appname" onChange={this.handleChange} required /><br></br><br></br>
                             <label style={{textAlign:'center', fontWeight:'bold',fontFamily: 'Montserrat'}}>Beschreibung</label>
-                            <input style={{position:'absolute', width:'70%', left:'15%', borderRadius: 10, border: '2px solid #f10b51',color:'#fff', backgroundColor:'rgba(23, 26, 33, 1)'}} type="text" name="body" onChange={this.handleChange} value={"" + item.body}  required /><br></br><br></br>
+                            <input id="test" style={{position:'absolute', width:'70%', left:'15%', borderRadius: 10, border: '2px solid #f10b51',color:'#fff', backgroundColor:'rgba(23, 26, 33, 1)'}} type="text" name="body" onChange={this.handleChange}  required /><br></br><br></br>
                             <label style={{textAlign:'center', fontWeight:'bold',fontFamily: 'Montserrat'}}>Deine Website</label>
-                            <input style={{position:'absolute', width:'70%', left:'15%', borderRadius: 10, border: '2px solid #f10b51',color:'#fff', backgroundColor:'rgba(23, 26, 33, 1)'}} type="text" default="null" name="website" onChange={this.handleChange} value={"" + item.website}  /><br></br><br></br>
+                            <input style={{position:'absolute', width:'70%', left:'15%', borderRadius: 10, border: '2px solid #f10b51',color:'#fff', backgroundColor:'rgba(23, 26, 33, 1)'}} type="text" default="null" name="website" onChange={this.handleChange} /><br></br><br></br>
                             <label style={{textAlign:'center', fontWeight:'bold',fontFamily: 'Montserrat'}}>Kontaktemail</label>
-                            <input style={{position:'absolute', width:'70%', left:'15%', borderRadius: 10, border: '2px solid #f10b51',color:'#fff', backgroundColor:'rgba(23, 26, 33, 1)'}} type="text" name="contectEmail" onChange={this.handleChange} value={"" + item.contectEmail}  requierd /><br></br><br></br>
+                            <input style={{position:'absolute', width:'70%', left:'15%', borderRadius: 10, border: '2px solid #f10b51',color:'#fff', backgroundColor:'rgba(23, 26, 33, 1)'}} type="email" name="contectEmail" onChange={this.handleChange}  requierd /><br></br><br></br>
                             <label style={{textAlign:'center', fontWeight:'bold',fontFamily: 'Montserrat'}}>App-Icon</label>
-                            <input style={{position:'absolute', width:'70%', left:'15%', borderRadius: 10, border: '2px solid #f10b51',color:'#fff', backgroundColor:'rgba(23, 26, 33, 1)'}} type="text" name="linkImg" onChange={this.handleChange} value={"" + item.linkImg} /><br></br><br></br>                        <label style={{textAlign:'center', fontWeight:'bold',fontFamily: 'Montserrat'}}>
+                            <input style={{position:'absolute', width:'70%', left:'15%', borderRadius: 10, border: '2px solid #f10b51',color:'#fff', backgroundColor:'rgba(23, 26, 33, 1)'}} type="text" name="linkImg" onChange={this.handleChange}  /><br></br><br></br>                        <label style={{textAlign:'center', fontWeight:'bold',fontFamily: 'Montserrat'}}>
                                 Für wenn:
                                 </label>
                                 <select value={this.state.typOfAccount} onChange={(e) => this.setState({typOfAccount: e.target.value})} 
