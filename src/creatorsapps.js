@@ -49,7 +49,7 @@ class CreatorsApp extends React.Component{
         console.log(param1, param2)
         if(param1) {
             return "http://localhost:8000" + param1
-        } else if (typeof param2 !== 'undefined' && param2 !== null) {
+        } else if (param2) {
             return "" + param2
         } else {
             return "http://localhost:8000/media/ersatzbild.jpg"

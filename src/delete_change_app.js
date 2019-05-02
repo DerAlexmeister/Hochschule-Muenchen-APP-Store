@@ -64,6 +64,18 @@ class DeleteChangeApp extends React.Component{
       });
     }
 
+    getImage(param1, param2) {
+      console.log(param1, param2)
+      if(param1) {
+          return "http://localhost:8000" + param1
+      } else if (typeof param2 !== 'undefined' && param2 !== null) {
+          return "" + param2
+      } else {
+          return "http://localhost:8000/media/ersatzbild.jpg"
+      }
+  }
+
+
     render() {
         const { items } = this.state
         return (
@@ -84,7 +96,7 @@ class DeleteChangeApp extends React.Component{
                     </div>
                     <div style={{paddingLeft: 100}}>
                     <Typography>
-                    <img style={{borderRadius:20, width: 150, height: 150}} src={item.smallPic} alt="" />
+                    <img style={{borderRadius:20, width: 150, height: 150}} src={this.getImage(item.smallPic, item.linkImg)} alt="" />
                     </Typography>
                     </div>
                     </div>
