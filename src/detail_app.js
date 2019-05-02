@@ -32,7 +32,6 @@ class Appdetails extends React.Component{
 
   
   componentDidMount() {
-        console.log("This is the APPID we got: "+ this.appID_)
         axios.get('http://localhost:8000/api/apps/' + (this.appID_)).then(res => {
             const datem = res.data;
             console.log(datem)
@@ -43,7 +42,6 @@ class Appdetails extends React.Component{
     }
     
   getImage(param1, param2) {
-      console.log(param1, param2)
       if(param1) {
           return "http://localhost:8000" + param1
       } else if (typeof param2 !== 'undefined' && param2 !== null) {
@@ -61,20 +59,20 @@ class Appdetails extends React.Component{
         return <a target="_blank" rel="noopener noreferrer" style={{color:'#df0c0c', border:'2px solid #f10b51', borderRadius:4, width:'100%', height:'100%', textAlign:'center', margin:'auto', padding:15 }} href={`${param2}`}>Download</a>
 
     } else {
-        return  <a style={{color:'#ccc', border:'2px solid #ccc', borderRadius:4, width:'100%', height:'100%', textAlign:'center', margin:'auto', padding:15 }} href="#">Download</a>
+        return  <span style={{color:'#ccc', border:'2px solid #ccc', borderRadius:4, width:'100%', height:'100%', textAlign:'center', margin:'auto', padding:15 }}>Download</span>
 
     }
 }
 
 
   render() {
-    const {items } = this.state;
+    const { items } = this.state;
       return (
           <ul style={{marginRight:20, paddingLeft:20, paddindRight:20, listStyleType: "none",  justifyContent: 'center',  alignItems: 'center', fontFamily: 'Montserrat'}}> 
             {items.map(item => (
               <div>
                 <div style={{display:'flex'}}>
-                  <img style={{borderRadius:50, width:200, height:200}} src={this.getImage(item.smallPic, item.linkImg)}  alt="hshshsdh!" />
+                  <img style={{borderRadius:50, width:200, height:200}} src={this.getImage(item.smallPic, item.linkImg)}  alt="pic" />
                   <h1 style={{color:'#fff', paddingLeft:40, paddingTop:150}}> {item.appname}</h1>
                 </div>
                 <hr style={{backgroundColor:'#fff', width:'100%', height:1}}></hr>

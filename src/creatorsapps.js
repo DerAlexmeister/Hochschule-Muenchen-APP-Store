@@ -1,7 +1,7 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import axios from 'axios';
-import {FaRegEnvelope, FaRegCompass, FaStreetView, FaRegCopyright, FaCheckCircle,
+import {FaRegEnvelope, FaRegCompass, FaRegCopyright, FaCheckCircle,
     FaFacebookF, FaTwitter, FaInstagram, FaXing, FaLinkedinIn, FaGithub, FaYoutube
         } from "react-icons/fa"
 import { IoIosSchool } from "react-icons/io";
@@ -109,7 +109,7 @@ class CreatorsApp extends React.Component{
         if(it) {
             return <li style={{paddingLeft:20}}><b>Web</b><br></br><a style={{color:'#f10b51', fontSize:26, paddingLeft:6}} href={"" + it}><FaRegCompass/></a></li>
         } else {
-            return <li style={{paddingLeft:20}}><b>Web</b><br></br><a style={{color:'#ccc', fontSize:26, paddingLeft:6}} href='#'><FaRegCompass/></a></li>
+            return <li style={{paddingLeft:20}}><b>Web</b><br></br><span style={{color:'#ccc', fontSize:26, paddingLeft:6}}><FaRegCompass/></span></li>
         }
     }
 
@@ -139,7 +139,7 @@ class CreatorsApp extends React.Component{
         if (boo) {
             return <li style={{paddingLeft:0}}><b>Facebook</b><br></br><a style={{color:'#f10b51', fontSize:26, paddingLeft: 6}} href={"" + item.fb}><FaFacebookF style={{paddingLeft: 15, fontSize:35}}/></a></li>
         } else {
-            return <li style={{paddingLeft:0}}><b>Facebook</b><br></br><a style={{color:'#ccc', fontSize:26, paddingLeft: 6}} href="#"><FaFacebookF style={{paddingLeft: 15, fontSize:35}}/></a></li>
+            return <li style={{paddingLeft:0}}><b>Facebook</b><br></br><span style={{color:'#ccc', fontSize:26, paddingLeft: 6}}><FaFacebookF style={{paddingLeft: 15, fontSize:35}}/></span></li>
         }
     }
 
@@ -147,7 +147,7 @@ class CreatorsApp extends React.Component{
         if (boo) {
             return <li style={{paddingLeft:30}}><b>Twitter</b><br></br><a style={{color:'#f10b51', fontSize:26, paddingLeft:6}} href={"" + item.twitter}><FaTwitter style={{paddingLeft: 8, fontSize:40}} /></a></li>
         } else {
-            return <li style={{paddingLeft:30}}><b>Twitter</b><br></br><a style={{color:'#ccc', fontSize:26, paddingLeft:6}} href='#'><FaTwitter style={{paddingLeft: 8, fontSize:40}}/></a></li>
+            return <li style={{paddingLeft:30}}><b>Twitter</b><br></br><span style={{color:'#ccc', fontSize:26, paddingLeft:6}}><FaTwitter style={{paddingLeft: 8, fontSize:40}}/></span></li>
         }
     }
 
@@ -155,7 +155,7 @@ class CreatorsApp extends React.Component{
         if (boo) {
             return <li style={{paddingLeft:30}}><b>Xing</b><br></br><a style={{color:'#f10b51', fontSize:26, paddingLeft: 6}} href={"" + item.xing}><FaXing/></a></li>
         } else {
-            return <li style={{paddingLeft:30}}><b>Xing</b><br></br><a style={{color:'#ccc', fontSize:26, paddingLeft: 6}} href='#'><FaXing/></a></li>
+            return <li style={{paddingLeft:30}}><b>Xing</b><br></br><span style={{color:'#ccc', fontSize:26, paddingLeft: 6}}><FaXing/></span></li>
         }
     }
 
@@ -163,7 +163,7 @@ class CreatorsApp extends React.Component{
         if (boo) {
             return <li style={{paddingLeft:30}}><b>LinkedIn</b><br></br><a style={{color:'#f10b51', fontSize:26, paddingLeft:6}} href={"" + item.linkedin}><FaLinkedinIn style={{paddingLeft: 10, fontSize:40}}/></a></li>
         } else {
-            return <li style={{paddingLeft:30}}><b>LinkedIn</b><br></br><a style={{color:'#ccc', fontSize:26, paddingLeft: 6}} href='#'><FaLinkedinIn style={{paddingLeft: 10, fontSize:40}} /></a></li>
+            return <li style={{paddingLeft:30}}><b>LinkedIn</b><br></br><span style={{color:'#ccc', fontSize:26, paddingLeft: 6}}><FaLinkedinIn style={{paddingLeft: 10, fontSize:40}} /></span></li>
         }
     }
 
@@ -171,7 +171,7 @@ class CreatorsApp extends React.Component{
         if (boo) {
             return <li style={{paddingLeft:30}}><b>YouTube</b><br></br><a style={{color:'#f10b51', fontSize:26, paddingLeft:6}} href={"" + item.youtube}><FaYoutube style={{paddingLeft: 10, fontSize:40}}/></a></li>
         } else {
-            return <li style={{paddingLeft:30}}><b>YouTube</b><br></br><a style={{color:'#ccc', fontSize:26, paddingLeft: 6}} href='#'><FaYoutube style={{paddingLeft: 10, fontSize:40}} /></a></li>
+            return <li style={{paddingLeft:30}}><b>YouTube</b><br></br><span style={{color:'#ccc', fontSize:26, paddingLeft: 6}}><FaYoutube style={{paddingLeft: 10, fontSize:40}} /></span></li>
         }
     }
 
@@ -179,7 +179,7 @@ class CreatorsApp extends React.Component{
         if (boo) {
             return <li style={{paddingLeft:30}}><b>GitHub</b><br></br><a style={{color:'#f10b51', fontSize:26, paddingLeft:6}} href={"" + item.github}><FaGithub style={{paddingLeft: 10, fontSize:40}} /></a></li>
         } else {
-            return <li style={{paddingLeft:30}}><b>GitHub</b><br></br><a style={{color:'#ccc', fontSize:26, paddingLeft: 6}} href='#'><FaGithub style={{paddingLeft: 10, fontSize:40}} /></a></li>
+            return <li style={{paddingLeft:30}}><b>GitHub</b><br></br><span style={{color:'#ccc', fontSize:26, paddingLeft: 6}}><FaGithub style={{paddingLeft: 10, fontSize:40}} /></span></li>
         }
     }
 
@@ -187,7 +187,7 @@ class CreatorsApp extends React.Component{
         if (boo) {
             return <li style={{paddingLeft:30}}><b>Instagram</b><br></br><a style={{color:'#f10b51', fontSize:26, paddingLeft:6}} href={"" + item.insta}><FaInstagram style={{paddingLeft: 10, fontSize:40}} /></a></li>
         } else {
-            return <li style={{paddingLeft:30}}><b>Instagram</b><br></br><a style={{color:'#ccc', fontSize:26, paddingLeft: 6}} href='#'><FaInstagram style={{paddingLeft: 10, fontSize:40}} /></a></li>
+            return <li style={{paddingLeft:30}}><b>Instagram</b><br></br><span style={{color:'#ccc', fontSize:26, paddingLeft: 6}}><FaInstagram style={{paddingLeft: 10, fontSize:40}} /></span></li>
         }
     }
 }

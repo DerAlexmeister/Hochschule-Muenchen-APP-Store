@@ -4,7 +4,6 @@ import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import axios from 'axios';
 import { FaArrowCircleRight} from 'react-icons/fa';
 import { IoIosSchool } from "react-icons/io";
 import { Link } from 'react-router-dom'
@@ -75,7 +74,7 @@ class SimpleCardSearch extends React.Component{
                   </div>
                   <div style={{paddingLeft: 100}}>
                   <Typography>
-                  <img style={{borderRadius:20, width: 150, height: 150}} src={this.getImage(item.smallPic, item.linkImg)}  alt="This app has no Picture yet" />
+                  <img style={{borderRadius:20, width: 150, height: 150}} src={this.getImage(item.smallPic, item.linkImg)}  alt="This app has no graphic yet" />
                   </Typography>
                   </div>
                   </div>

@@ -138,7 +138,7 @@ class SearchPage extends React.Component {
                 </div>
         } 
         else {
-            return <h1 style={{textAlign:'center', fontSize:20, color:'#f10b51', fontWeight:'bold'}}> 😻 Hier kannst du etwas suchen! 😻</h1>
+            return <h1 style={{textAlign:'center', fontSize:20, color:'#f10b51', fontWeight:'bold'}}>Hier kannst du etwas suchen!</h1>
         }
     }
 

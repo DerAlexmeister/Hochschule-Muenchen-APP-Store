@@ -333,12 +333,9 @@ def deleteApp(request):
     if request.method == 'POST':
         try:
             data = JSONParser().parse(request)
-            print(data)
             current_user  = data.get('creator')
-            print(current_user)
             whichapp  = data.get('app_Id')
             data = appModel.objects.all().filter(creator=current_user).filter(appID=whichapp).delete()
-            print(data)
             return JsonResponse({
                 "Note" : "Your APP has been deleted {}".format(data)
             }, status=201)
@@ -376,16 +373,28 @@ def deleteUser(request):
 # Update Function
 
 @csrf_exempt
-@api_view(['GET','POST'])
+#@api_view(['GET','POST'])
 @authentication_classes((TokenAuthentication,))
 def updateApp(request):
     '''
     Method to update a App out of a POST request
     '''
+    print(JSONParser().parse(request))
+    print(JSONParser().parse(request.headers))
     if request.method == 'POST':
         try:
-            current_user = request.user
-            mod = appModel.objects.filter(creator=current_user.id).filter(appID=request.data.get("app_Id"))
+            data = JSONParser().parse(request)
+
+            current_user  = data.get('creator')
+            whichapp  = data.get('app_Id')
+
+            mod = appModel.objects.filter(creator=current_user).filter(appID=whichapp)
+
+
+
+
+
+
             setattr(mod, str(request.data.get("field_to_change"), request.data.get('field_value')))
             mod.save([str(request.data.get("field_to_change"))])
             return JsonResponse({
@@ -395,8 +404,12 @@ def updateApp(request):
             return JsonResponse({
             "error" : "Please check your credentials"
         }, status=400)
+    elif request.method == 'OPTIONS':
+        print(JSONParser().parse(request))
     else:
-        return redirect('Basic_user_url')
+        return JsonResponse({
+            "error" : "Please check your credentials"
+        }, status=400)
 
 @csrf_exempt
 @api_view(['GET','POST'])
