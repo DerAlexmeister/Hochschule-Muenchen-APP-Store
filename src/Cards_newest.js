@@ -49,9 +49,6 @@ class SimpleCard extends React.Component{
 
   render() {
     const {items, error, isLoaded}  = this.state;
-    console.log("items: " + this.state.items)
-      console.log("isLoaded: " + this.state.isLoaded)
-      console.log("error: " + this.state.error)
     if (error) {
       return <h1>Error</h1>
     } else if (isLoaded) {
@@ -75,7 +72,7 @@ class SimpleCard extends React.Component{
                   </div>
                   <div style={{paddingLeft: 100}}>
                   <Typography>
-                  <img style={{borderRadius:20, width: 150, height: 150}} src={this.getImage(item.smallPic, item.linkImg)}  alt="This app has no Picture yet" />
+                  <img style={{borderRadius:20, width: 150, height: 150}} src={this.getImage(item.smallPic, item.linkImg)}  alt="This app has no graphic yet" />
                   </Typography>
                   </div>
                   </div>

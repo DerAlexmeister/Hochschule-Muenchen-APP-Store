@@ -1,9 +1,5 @@
 import React from "react";
-import { FaFacebookF, FaTwitter, FaYoutube, FaLinkedinIn, FaXing, FaRegCopyright } from 'react-icons/fa';
-import { DiDjango, DiPython, DiReact, DiHeroku  } from "react-icons/di";
-import { IoIosHeartEmpty } from "react-icons/io";
-import {FaMoneyBillAlt, FaAmazonPay, FaApplePay, FaCcPaypal, FaCcMastercard, FaCcAmex, FaCcDiscover, FaCcVisa, FaBitcoin, FaArrowRight, FaSocks, FaRegSmileWink} from 'react-icons/fa';
-
+import { FaFacebookF, FaTwitter, FaYoutube, FaLinkedinIn, FaXing} from 'react-icons/fa';
 export default class Footerown extends React.Component{
   render(){
     return ( 
