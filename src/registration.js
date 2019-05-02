@@ -49,7 +49,7 @@ class RegisterPage extends React.Component {
     handleSubmit = event => {
         event.preventDefault();
     
-    axios.post(`http://localhost:8000/api/users/new`, {
+    axios.post(localStorage.getItem("address") + `/api/users/new`, {
         email: this.state.email,
         password : this.state.Password,
         nickname: this.state.nickname,

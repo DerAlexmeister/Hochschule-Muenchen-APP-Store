@@ -54,7 +54,7 @@ export default class CreateApp extends React.Component{
     handleSubmit = event => {
         event.preventDefault();
         axios.defaults.headers.common['Authorization'] = `Token ${this.token}`
-    axios.post(`http://localhost:8000/api/apps/new`, {
+    axios.post(localStorage.getItem("address") + `/api/apps/new`, {
         creator : this.user_id,
         appname: this.state.appname,   
         body: this.state.body,

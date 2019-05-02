@@ -32,7 +32,7 @@ class Appdetails extends React.Component{
 
   
   componentDidMount() {
-        axios.get('http://localhost:8000/api/apps/' + (this.appID_)).then(res => {
+        axios.get(localStorage.getItem("address") + '/api/apps/' + (this.appID_)).then(res => {
             const datem = res.data;
             console.log(datem)
             this.setState({items: [datem] })
@@ -43,11 +43,11 @@ class Appdetails extends React.Component{
     
   getImage(param1, param2) {
       if(param1) {
-          return "http://localhost:8000" + param1
+          return localStorage.getItem("address") + param1
       } else if (typeof param2 !== 'undefined' && param2 !== null) {
           return "" + param2
       } else {
-          return "http://localhost:8000/media/ersatzbild.jpg"
+          return localStorage.getItem("address") + "/media/ersatzbild.jpg"
       }
   }
 

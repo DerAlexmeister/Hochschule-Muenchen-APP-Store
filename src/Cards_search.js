@@ -41,7 +41,7 @@ class SimpleCardSearch extends React.Component{
     } else if (typeof param2 !== 'undefined' && param2 !== null) {
         return "" + param2
     } else {
-        return "http://localhost:8000/media/ersatzbild.jpg"
+        return localStorage.getItem("address") + "/media/ersatzbild.jpg"
     }
 }
 
