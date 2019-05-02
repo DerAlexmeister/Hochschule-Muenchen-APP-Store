@@ -16,11 +16,11 @@
 ``` Informationen 
 Appmon ist ein Appstore für die Hochschule München. Er bietet die Möglichkeit sich 
 anzumelden bzw. sich zu registieren und Software anzulegen und herunterzuladen. Hierbei 
-ist er nicht auf nur für eine Fakultät vorgesehen und auch nicht nur für Professoren 
-sondern Studenten jeder Fakultät können ihre Projekte veröffentlichen. Studenten die 
-nicht der Hochschule München angehören haben die Option sich als Externer Student 
+ist er nicht nur für eine Fakultät vorgesehen und auch nicht nur für Professoren 
+sondern auch für Studenten jeder Fakultät. Studenten die 
+nicht der Hochschule München angehören haben die Option sich als externer Student 
 anzumelden und so Software herunterzuladen oder zu veröffentlichen. Da natürlich ein 
-gewisser Qualitätsstandart gewahrt werden  möchte kann ein Creator (Appersteller) durch 
+gewisser Qualitätsstandart gewahrt werden soll, kann ein Creator (Appersteller) durch 
 ein Administrator zu einem verifizierten Nutzer erhoben werden (zu erkennen an einem 
 grünen Haken neben dem Namen des Creators auf dessen Profilseite) und somit als 
 verlässliche Quelle betrachtet werden. 
@@ -45,7 +45,7 @@ Einfach auf der Seite registieren und einloggen!
 ``` Informationen
 Natürlich! Jeder der Hochschule München ist willkommen! Hierbei ist es egal ob du von 
 der Hochschule München kommst oder von einer anderen Fakultät bist. Registiere dich
-einfach und dann kannst du deine Software oder dein Service mit anderen Teilen. 
+einfach und teile deine Software oder deinen Service mit anderen. 
 ```
 
 # Screenshots/Mockups unseres Stores
