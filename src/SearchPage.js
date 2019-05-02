@@ -121,13 +121,13 @@ class SearchPage extends React.Component {
                         <h1>Entschuldige wir haben leider nichts gefunden!</h1> 
                         <h3>auch wenn wir überall gesucht haben</h3>
                         <br></br>
-                        <img alt="nothing found" src="https://media.giphy.com/media/Vw3HuN902Kqd2/giphy.gif" ></img>
+                        <img style={{borderRadius:25}} alt="nothing found" src="https://media.giphy.com/media/Vw3HuN902Kqd2/giphy.gif" ></img>
                         <br></br><br></br>
                         <span style={{color:'#fff'}}>Copyright &copy; by Giphy</span>
                 </div>
         } 
         else {
-            return <h1 style={{textAlign:'center', fontSize:20, color:'#f10b51', fontWeight:'bold'}}>Hier kannst du etwas suchen!</h1>
+            return <h1 style={{textAlign:'center', fontSize:20, color:'#f10b51', fontWeight:'bold'}}> 😻 Hier kannst du etwas suchen! 😻</h1>
         }
     }
 
