@@ -37,6 +37,16 @@ class SimpleCardOld extends React.Component{
     })
   }
 
+  getImage(param1, param2) {
+    if(param1) {
+        return "" + param1
+    } else if (typeof param2 !== 'undefined' && param2 !== null) {
+        return "" + param2
+    } else {
+        return "http://localhost:8000/media/ersatzbild.jpg"
+    }
+}
+
   render() {
     const {items, error, isLoaded}  = this.state;
     console.log("items: " + this.state.items)
@@ -65,7 +75,7 @@ class SimpleCardOld extends React.Component{
                   </div>
                   <div style={{paddingLeft: 100}}>
                   <Typography>
-                  <img style={{borderRadius:20, width: 150, height: 150}} src={item.smallPic}  alt="This app has no Picture yet" />
+                  <img style={{borderRadius:20, width: 150, height: 150}} src={this.getImage(item.smallPic, item.linkImg)}  alt="This app has no Picture yet" />
                   </Typography>
                   </div>
                   </div>

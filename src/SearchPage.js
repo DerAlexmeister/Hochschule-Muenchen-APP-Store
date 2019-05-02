@@ -81,9 +81,7 @@ class SearchPage extends React.Component {
     }
 
     getImage(param1, param2) {
-        console.log(param1, param2)
         if(param1) {
-            console.log('param1')
             return "" + param1
         } else if (typeof param2 !== 'undefined' && param2 !== null) {
             return "" + param2
