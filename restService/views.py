@@ -385,12 +385,29 @@ def updateApp(request):
 
             current_user  = data.get('creator')
             whichapp  = data.get('app_ID')
+            creatorsapp = appModel.objects.filter(creator=current_user).filter(appID=whichapp)
+            if(not creatorsapp):
+                return JsonResponse({ "Note" : "dont know man"}, status=400)
+            newValues = [('appname', data.get('appname')), 
+                        ('body', data.get('body')),
+                        ('contectEmail', data.get('contectEmail')),
+                        ('website', data.get('website')),
+                        ('linkImg', data.get('linkImg'))]
+            try:
+                for value in newValues:
+                    setattr(creatorsapp, value[0], value[1])
 
-            mod = appModel.objects.filter(appID=whichapp)
-            print()
-            print(mod)
+                attributes = []
+                for val in newValues:
+                    attributes.extend(val[0])
+                creatorsapp.save()
+            except Exception as error:
+                print(error)
+
             print()
             print(data)
+            print()
+            print(creatorsapp)
             print()
             print(current_user)
 
