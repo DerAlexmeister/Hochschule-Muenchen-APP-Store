@@ -9,6 +9,7 @@ import { FaArrowCircleRight} from 'react-icons/fa';
 import { IoIosSchool } from "react-icons/io";
 import { Link } from 'react-router-dom'
 import { FiUser } from "react-icons/fi";
+import getBaseURL from "./const.js"
 
 const styles = {
   card: {
@@ -31,7 +32,7 @@ class SimpleCardLeastPopular extends React.Component{
   };
 
   componentDidMount() {
-    axios.get('http://localhost:8000/api/apps/lessdownloads').then(res => {
+    axios.get(getBaseURL() + '/api/apps/lessdownloads').then(res => {
       const datem = res.data;
       this.setState({items: datem})
     })
@@ -43,7 +44,7 @@ class SimpleCardLeastPopular extends React.Component{
     } else if (typeof param2 !== 'undefined' && param2 !== null) {
         return "" + param2
     } else {
-        return "http://localhost:8000/media/ersatzbild.jpg"
+        return getBaseURL() + "/media/ersatzbild.jpg"
     }
 }
 

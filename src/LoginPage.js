@@ -2,6 +2,8 @@ import React from 'react';
 import Bar from "./MenueBar.js";
 import SideNavPage from "./SideNavigation"
 import axios from 'axios';
+import getBaseURL from "./const.js"
+
 class LoginPage extends React.Component {
 
     state = {
@@ -40,7 +42,7 @@ class LoginPage extends React.Component {
     handleSubmit = event => {
         event.preventDefault();
         
-        axios.post(localStorage.getItem("address") + `/api/users/login`, {
+        axios.post(getBaseURL() + `/api/users/login`, {
             email: this.state.email,
             password : this.state.Password,
         }).then(response => {

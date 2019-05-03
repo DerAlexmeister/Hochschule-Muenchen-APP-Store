@@ -3,6 +3,7 @@ import SearchAppBar from "./MenueBar.js";
 import SideNavPage from "./SideNavigation"
 import { Redirect } from 'react-router-dom'
 import axios from 'axios';
+import getBaseURL from "./const.js"
 
 class ChangeApp extends React.Component{
 
@@ -46,7 +47,7 @@ class ChangeApp extends React.Component{
     handleSubmit = event => {
         event.preventDefault();
         axios.defaults.headers.common['Authorization'] = `Token ${this.token}`
-    axios.post(`http://localhost:8000/api/apps/changeapp/`, {
+    axios.post(getBaseURL()+ `/api/apps/changeapp/`, {
         app_ID : this.state.appid,
         creator : this.user_id,
         appname: this.state.appname,   
@@ -74,7 +75,7 @@ class ChangeApp extends React.Component{
   appID_ = this.props.match.params.appID
   
   componentDidMount() {
-        axios.get('http://localhost:8000/api/apps/' + (this.appID_)).then(res => {
+        axios.get(getBaseURL() + '/api/apps/' + (this.appID_)).then(res => {
             const datem = res.data;
             this.setState({items: [datem] })
             this.state.items.map(item => this.setState({

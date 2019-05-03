@@ -10,6 +10,8 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import { FiUser } from "react-icons/fi";
+import getBaseURL from "./const.js"
+
 class SearchPage extends React.Component {
 
     styles = {
@@ -48,7 +50,7 @@ class SearchPage extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    axios.post(localStorage.getItem("address") + '/api/apps/search/',{
+    axios.post(getBaseURL() + '/api/apps/search/',{
         term: this.state.term}
     ).then(res => {
         this.message = true
@@ -86,7 +88,7 @@ class SearchPage extends React.Component {
         } else if (typeof param2 !== 'undefined' && param2 !== null) {
             return "" + param2
         } else {
-            return localStorage.getItem("address") + "/media/ersatzbild.jpg"
+            return getBaseURL() + "/media/ersatzbild.jpg"
         }
     }
 

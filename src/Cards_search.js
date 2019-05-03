@@ -8,6 +8,7 @@ import { FaArrowCircleRight} from 'react-icons/fa';
 import { IoIosSchool } from "react-icons/io";
 import { Link } from 'react-router-dom'
 import { FiUser } from "react-icons/fi";
+import getBaseURL from "./const.js"
 
 const styles = {
   card: {
@@ -41,7 +42,7 @@ class SimpleCardSearch extends React.Component{
     } else if (typeof param2 !== 'undefined' && param2 !== null) {
         return "" + param2
     } else {
-        return localStorage.getItem("address") + "/media/ersatzbild.jpg"
+        return getBaseURL() + "/media/ersatzbild.jpg"
     }
 }
 

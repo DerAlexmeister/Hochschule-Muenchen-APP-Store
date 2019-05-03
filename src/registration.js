@@ -3,6 +3,7 @@ import React from 'react';
 import Bar from "./MenueBar.js";
 import SideNavPage from "./SideNavigation"
 import axios from 'axios';
+import getBaseURL from "./const.js"
 
 class RegisterPage extends React.Component {
 
@@ -49,7 +50,7 @@ class RegisterPage extends React.Component {
     handleSubmit = event => {
         event.preventDefault();
     
-    axios.post(localStorage.getItem("address") + `/api/users/new`, {
+    axios.post(getBaseURL() + `/api/users/new`, {
         email: this.state.email,
         password : this.state.Password,
         nickname: this.state.nickname,

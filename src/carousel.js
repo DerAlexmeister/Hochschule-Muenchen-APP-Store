@@ -5,6 +5,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom'
 import React from "react";
 import Carousel  from 'nuka-carousel';
+import getBaseURL from "./const.js"
 
  class SimpleSlider extends React.Component {
   
@@ -14,7 +15,7 @@ import Carousel  from 'nuka-carousel';
   };
 
   componentDidMount() {
-    axios.get(localStorage.getItem("address") + '/api/apps/mostdownloads').then(res => {
+    axios.get(getBaseURL() + '/api/apps/mostdownloads').then(res => {
     const datem = res.data;
     this.setState({items: datem})
     })

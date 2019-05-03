@@ -3,6 +3,7 @@ import SearchAppBar from "./MenueBar.js";
 import SideNavPage from "./SideNavigation"
 import { Redirect } from 'react-router-dom'
 import axios from 'axios';
+import getBaseURL from "./const.js"
 
 export default class CreateApp extends React.Component{
 
@@ -54,7 +55,7 @@ export default class CreateApp extends React.Component{
     handleSubmit = event => {
         event.preventDefault();
         axios.defaults.headers.common['Authorization'] = `Token ${this.token}`
-    axios.post(localStorage.getItem("address") + `/api/apps/new`, {
+    axios.post(getBaseURL() + `/api/apps/new`, {
         creator : this.user_id,
         appname: this.state.appname,   
         body: this.state.body,

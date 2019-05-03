@@ -4,6 +4,7 @@ import axios from 'axios';
 import {FaRegEnvelope, FaRegCompass, FaStreetView, FaRegCopyright} from "react-icons/fa"
 import { IoMdDownload, IoMdTime, IoIosPerson, IoIosSchool } from "react-icons/io";
 import { Link } from 'react-router-dom'
+import getBaseURL from "./const.js"
 
 const styles = {
   card: {
@@ -32,7 +33,7 @@ class Appdetails extends React.Component{
 
   
   componentDidMount() {
-        axios.get(localStorage.getItem("address") + '/api/apps/' + (this.appID_)).then(res => {
+        axios.get(getBaseURL() + '/api/apps/' + (this.appID_)).then(res => {
             const datem = res.data;
             console.log(datem)
             this.setState({items: [datem] })
@@ -43,11 +44,11 @@ class Appdetails extends React.Component{
     
   getImage(param1, param2) {
       if(param1) {
-          return localStorage.getItem("address") + param1
+          return getBaseURL() + param1
       } else if (typeof param2 !== 'undefined' && param2 !== null) {
           return "" + param2
       } else {
-          return localStorage.getItem("address") + "/media/ersatzbild.jpg"
+          return getBaseURL() + "/media/ersatzbild.jpg"
       }
   }
 
