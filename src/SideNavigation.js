@@ -54,10 +54,10 @@ class SideNavPage extends React.Component {
       if(isLogged) {
         return (
         <ul style={{listStyleType: "none", color:'#ccc', textAlign: 'center', paddingLeft: 0}}>
-            <li><h1 style={{color:'#fff', fontSize:20, textAlign:'center'}}>Du bist eingelogged</h1></li>
-            <li><Link style={{listStyleType: "none", color:'#ccc', textDecoration: "none"}} href="/">
+            <li><h1 style={{color:'#fff', fontSize:20, textAlign:'center'}}>Du bist eingelogged</h1></li><br></br>
+            <Link  to="/" style={{listStyleType: "none", color:'#ccc', textDecoration: "none"}} >
               Um sich auszulogen einfach das fenster zumachen
-            </Link></li>
+            </Link>
         </ul>
         )
       } else {
