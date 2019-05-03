@@ -1,8 +1,12 @@
-//localhost:8000
-const base_URL =  'http://localhost:8000'
+islocal = true;
+const local_URL =  'http://localhost:8000'
+const heroku_URL =  'http://hmappstore.herokuapp.com'
 
 function getBaseURL() {
-    return base_URL;
+    if (islocal) {
+        return local_URL;
+    }
+    return heroku_URL
 }
 
 export default getBaseURL
