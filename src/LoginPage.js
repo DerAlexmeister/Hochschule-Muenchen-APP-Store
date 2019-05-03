@@ -60,7 +60,7 @@ class LoginPage extends React.Component {
                 this.setState({
                     test: sessionStorage.getItem('isLoggedIn')
                 })
-                this.props.history.push("/");
+                this.props.history.push(getBaseURL()+"/");
         }).catch(response => {
             this.setState({wrongCred: true})
             if(this.reload){this.reload = false; window.location.reload();}
