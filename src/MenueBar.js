@@ -75,13 +75,9 @@ class  Bar extends React.Component{
     componentWillMount() {
       this.isLoggedIn = sessionStorage.getItem("isLoggedIn")
       this.token = sessionStorage.getItem("token")
-      console.log(this.token)
-      console.log(this.isLoggedIn)
-      console.log(sessionStorage.getItem("token"))
     }
 
     render(){
-      console.log(this.isLoggedIn)
       return (
         <div className={styles.root}>
           <AppBar style={{position:'static'}}>

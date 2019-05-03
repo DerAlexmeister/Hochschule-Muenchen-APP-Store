@@ -382,39 +382,15 @@ def updateApp(request):
     if request.method == 'POST':
         try:
             data = JSONParser().parse(request)
-
             current_user  = data.get('creator')
             whichapp  = data.get('app_ID')
             creatorsapp = appModel.objects.filter(creator=current_user).filter(appID=whichapp)
             if(not creatorsapp):
                 return JsonResponse({ "Note" : "dont know man"}, status=400)
-            newValues = [('appname', data.get('appname')), 
-                        ('body', data.get('body')),
-                        ('contectEmail', data.get('contectEmail')),
-                        ('website', data.get('website')),
-                        ('linkImg', data.get('linkImg'))]
             try:
-                for value in newValues:
-                    setattr(creatorsapp, value[0], value[1])
-
-                attributes = []
-                for val in newValues:
-                    attributes.extend(val[0])
-                creatorsapp.save()
+                creatorsapp.update(appname = data.get('appname'), body=data.get('body'), contectEmail=data.get('contectEmail'),website=data.get('website'), linkImg=data.get('linkImg'))
             except Exception as error:
                 print(error)
-
-            print()
-            print(data)
-            print()
-            print(creatorsapp)
-            print()
-            print(current_user)
-
-
-
-            #setattr(mod, str(request.data.get("field_to_change"), request.data.get('field_value')))
-            #mod.save([str(request.data.get("field_to_change"))])
             return JsonResponse({
                 "Note" : "Your APP has been updated"
             }, status=201)
