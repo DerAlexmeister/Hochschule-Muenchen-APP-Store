@@ -73,7 +73,6 @@ class LoginPage extends React.Component {
     }
 
     render() {
-        console.log(localStorage.getItem("address"))
         return (
             <div>
                 <Bar/>
