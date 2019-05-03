@@ -54,19 +54,35 @@ class ChangeApp extends React.Component{
         body: this.state.body,
         contectEmail: this.state.contectEmail,
         website: this.makeWebsite(this.state.website),
-        linkImg: this.makeWebsite(this.state.linkImg),
+        linkImg: this.makeImgLink(this.state.linkImg),
     }).then(res => {
-            console.log(res);
-            console.log(res.data);
+            if(res.status === 201) {
+                sessionStorage.setItem('message', "Änderungen wurden gespeichert")
+                window.location.reload()
+            } else if(res.status === 400) {
+                sessionStorage.setItem('message', "Deine Eingabe konnte nicht gespeichtert werden überprüfe bitte ihre Gültigkeit")
+                window.location.reload()
+            } else {
+                sessionStorage.setItem('message', "Ein Problem ist aufgetretten")
+            }
         });
     }
-
 
     makeWebsite(param){
         if(param.includes('http') || param.includes('https')){
             return param
-        } else if (!param) {
-            return null
+        } else if (param === null || typeof param === "undefined"  || param.includes("null")  || param.toString().includes(" ") || param.toString().includes("") || param.toString().includes("null")) {
+            return "http://www.hm.edu"
+        } else {
+            return "http://".concat(param)
+        }
+    }
+
+    makeImgLink(param){
+        if(param.includes('http') || param.includes('https')){
+            return param
+        } else if (param === null || typeof param === "undefined"  || param.includes("null")  || param.toString().includes(" ") || param.toString().includes("") || param.toString().includes("null")) {
+            return getBaseURL() + "/media/ersatzbild.jpg"
         } else {
             return "http://".concat(param)
         }
@@ -103,6 +119,12 @@ class ChangeApp extends React.Component{
             document.getElementById('linkImg').defaultValue = item.linkImg
         ))
     }
+
+    getMessage() {
+        const message = sessionStorage.getItem('message')
+        return  message ? message : ""
+    }
+
     
     render() {
         const { items } = this.state;
@@ -115,6 +137,8 @@ class ChangeApp extends React.Component{
                     <SideNavPage/>
                     <div style={{position:'absolute', top:100, left:'15%', right:'15%', color:'#fff'}}>
                     <h1 style={{textAlign:'center', fontFamily: 'Montserrat'}}> App bearbeiten </h1>
+                        <br></br>
+                        <h3 style={{color:'#ACFA58', textAlign:'center'}}>{ this.getMessage() }</h3>
                         <br></br>
                         <form onSubmit={this.handleSubmit}>
                             <label style={{textAlign:'center', fontWeight:'bold', fontFamily: 'Montserrat'}}>Name der App</label>
