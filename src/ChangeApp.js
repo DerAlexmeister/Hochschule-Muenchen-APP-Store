@@ -56,8 +56,7 @@ class ChangeApp extends React.Component{
         website: this.makeWebsite(this.state.website),
         linkImg: this.makeWebsite(this.state.linkImg),
     }).then(res => {
-            console.log(res);
-            console.log(res.data);
+            window.location.reload()
         });
     }
 

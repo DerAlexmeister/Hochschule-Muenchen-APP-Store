@@ -57,7 +57,6 @@ class LoginPage extends React.Component {
                     sessionStorage.setItem('wrongcred', true )
                     if(this.reload){this.reload = false; window.location.reload();}
                 }
-                this.context.history.push('/')
         }).catch(response => {
             this.setState({wrongCred: true})
             if(this.reload){this.reload = false; window.location.reload();}
