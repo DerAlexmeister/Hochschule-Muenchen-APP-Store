@@ -1,1 +1,3 @@
-localStorage.setItem("address", "http://localhost:8000");
+function setAddress(){
+    localStorage.setItem("address", "http://localhost:8000/");
+}
