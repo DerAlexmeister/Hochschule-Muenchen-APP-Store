@@ -20,8 +20,6 @@ class SideNavPage extends React.Component {
   onSetSidebarOpen(open) {
     this.setState({ sidebarOpen: open });
   }
- 
-  //<h2 style={{width:'100%', textAlign: 'center', color:'#ccc'}}><u>Menu</u></h2>
 
     isLoggedIn = false
     token = null
@@ -49,10 +47,7 @@ class SideNavPage extends React.Component {
       this.isLoggedIn = false;
       this.logout()
       this.isLoggedIn = sessionStorage.getItem('isLoggedIn')
-      console.log(">>>>>>>>>>>>>>>>>>>>>>>" + this.isLoggedIn)
-      if (this.isLogout) {
-        window.location.reload()
-      }
+      if (this.isLogout) { window.location.reload() }
     }
 
     isLoggedIN(isLogged) {
@@ -68,8 +63,8 @@ class SideNavPage extends React.Component {
       } else {
         return (
           <ul style={{listStyleType: "none", color:'#ccc', textAlign: 'center', paddingLeft: 0}}>
-                <li><Link style={{listStyleType: "none", color:'#ccc', textDecoration: "none"}} to="/signin">Login</Link></li>
-                <li><Link style={{listStyleType: "none", color:'#ccc', textDecoration: "none"}} to="/signup">Registrieren</Link></li>
+                <Link style={{listStyleType: "none", color:'#ccc', textDecoration: "none"}} to="/signin">Login</Link>
+                <Link style={{listStyleType: "none", color:'#ccc', textDecoration: "none"}} to="/signup">Registrieren</Link>
           </ul>
         )
       }
