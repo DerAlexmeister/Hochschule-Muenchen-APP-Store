@@ -45,12 +45,23 @@ export default class CreateApp extends React.Component{
     makeWebsite(param){
         if(param.includes('http') || param.includes('https')){
             return param
-        } else if (!param) {
-            return null
+        } else if (param === null || typeof param === "undefined"  || param.includes("null")  || param.toString().includes(" ") || param.toString().includes("") || param.toString().includes("null")) {
+            return "http://www.hm.edu"
         } else {
             return "http://".concat(param)
         }
     }
+
+    makeImgLink(param){
+        if(param.includes('http') || param.includes('https')){
+            return param
+        } else if (param === null || typeof param === "undefined"  || param.includes("null")  || param.toString().includes(" ") || param.toString().includes("") || param.toString().includes("null")) {
+            return getBaseURL() + "/media/ersatzbild.jpg"
+        } else {
+            return "http://".concat(param)
+        }
+    }
+    
 
     handleSubmit = event => {
         event.preventDefault();
@@ -61,7 +72,7 @@ export default class CreateApp extends React.Component{
         body: this.state.body,
         contectEmail: this.state.contectEmail,
         website: this.makeWebsite(this.state.website),
-        linkImg: this.makeWebsite(this.state.linkImg),
+        linkImg: this.makeImgLink(this.state.linkImg),
         typOfAccount: this.state.typOfAccount,
         Fakultaet: this.state.Fakultaet,
     }).then(res => {

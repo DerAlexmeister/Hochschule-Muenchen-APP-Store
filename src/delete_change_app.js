@@ -39,6 +39,7 @@ class DeleteChangeApp extends React.Component{
         this.isLoggedIn = sessionStorage.getItem("isLoggedIn")
         this.token = sessionStorage.getItem("token")
         this.user_id = Number(sessionStorage.getItem("user_id"))
+        sessionStorage.setItem('message', "")
     }
 
     componentDidMount() {
