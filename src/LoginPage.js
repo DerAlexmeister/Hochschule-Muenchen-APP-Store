@@ -53,9 +53,6 @@ class LoginPage extends React.Component {
                     this.trytoLogin = true
                     this.props.history.push("/");
                 } else {
-                    console.log(response);
-                    console.log(response.data.token);
-                    sessionStorage.setItem('wrongcred', true )
                     if(this.reload){this.reload = false; window.location.reload();}
                 }
         }).catch(response => {
@@ -101,7 +98,7 @@ class LoginPage extends React.Component {
                     </div>
                 );
             } else {
-                this.props.history.push("/");
+                return <Redirect to='/' />
             }
     }
 }
