@@ -51,6 +51,7 @@ class LoginPage extends React.Component {
                     sessionStorage.setItem('isLoggedIn', true)
                     sessionStorage.setItem('user_id', response.data.user_id )
                     this.trytoLogin = true
+                    this.props.history.push("/");
                 } else {
                     console.log(response);
                     console.log(response.data.token);
@@ -69,7 +70,6 @@ class LoginPage extends React.Component {
     }
 
     render() {
-            if(!sessionStorage.getItem('isLoggedIn')) {
                 return (
                     <div>
                         <Bar/>
@@ -99,9 +99,6 @@ class LoginPage extends React.Component {
                         </div>
                     </div>
                 );
-            } else {
-                return <Redirect to='/'  />
-            }
     }
 }
 
