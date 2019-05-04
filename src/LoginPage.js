@@ -46,6 +46,7 @@ class LoginPage extends React.Component {
             email: this.state.email,
             password : this.state.Password,
         }).then(response => {
+                console.log(response)
                 if (response.status === 200) {
                     sessionStorage.setItem('token', String(response.data.token))
                     sessionStorage.setItem('isLoggedIn', true)
@@ -53,11 +54,12 @@ class LoginPage extends React.Component {
                     this.trytoLogin = true
                     this.props.history.push("/");
                 } else {
-                    if(this.reload){this.reload = false; window.location.reload();}
+                    this.props.history.push("/signin")
                 }
         }).catch(response => {
+            console.log(response)
             this.setState({wrongCred: true})
-            if(this.reload){this.reload = false; window.location.reload();}
+                this.props.history.push("/signin")
             }
         );
     }
