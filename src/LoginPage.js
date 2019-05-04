@@ -70,6 +70,7 @@ class LoginPage extends React.Component {
     }
 
     render() {
+            if(!sessionStorage.getItem('isLoggedIn')) {
                 return (
                     <div>
                         <Bar/>
@@ -99,6 +100,9 @@ class LoginPage extends React.Component {
                         </div>
                     </div>
                 );
+            } else {
+                this.props.history.push("/");
+            }
     }
 }
 
