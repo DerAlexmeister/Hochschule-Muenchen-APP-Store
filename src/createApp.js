@@ -139,7 +139,7 @@ export default class CreateApp extends React.Component{
                 </div>
             );
         } else {
-            this.props.history.push("/myapps")
+            return <Redirect to='/signin'  />
         }
     }
 }

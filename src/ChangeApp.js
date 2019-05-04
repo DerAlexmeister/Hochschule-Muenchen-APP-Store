@@ -58,10 +58,10 @@ class ChangeApp extends React.Component{
     }).then(res => {
             if(res.status === 201) {
                 sessionStorage.setItem('message', "Änderungen wurden gespeichert")
-                window.location.reload()
+                this.props.history.push(`/myapp/change/${this.state.app_ID}`)
             } else if(res.status === 400) {
                 sessionStorage.setItem('message', "Deine Eingabe konnte nicht gespeichtert werden überprüfe bitte ihre Gültigkeit")
-                window.location.reload()
+                this.props.history.push(`/myapp/change/${this.state.app_ID}`)
             } else {
                 sessionStorage.setItem('message', "Ein Problem ist aufgetretten")
             }
