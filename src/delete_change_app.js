@@ -62,7 +62,8 @@ class DeleteChangeApp extends React.Component{
         app_Id: app_id,   
         token: token_,
       }).then(
-          this.props.history.push("/myapps")
+          this.setState({reload:true})
+          //this.props.history.push("/myapps")
       );
     }
 
