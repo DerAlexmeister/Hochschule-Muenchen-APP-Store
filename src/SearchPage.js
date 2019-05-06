@@ -11,6 +11,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import { FiUser } from "react-icons/fi";
 import getBaseURL from "./const.js"
+import alt from './assets/ersatzbild.jpg';
 
 class SearchPage extends React.Component {
 
@@ -88,7 +89,7 @@ class SearchPage extends React.Component {
         } else if (typeof param2 !== 'undefined' && param2 !== null) {
             return "" + param2
         } else {
-            return getBaseURL() + "/media/ersatzbild.jpg"
+            return getBaseURL() + alt
         }
     }
 

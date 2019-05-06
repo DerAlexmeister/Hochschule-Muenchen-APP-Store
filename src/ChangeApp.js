@@ -4,6 +4,7 @@ import SideNavPage from "./SideNavigation"
 import { Redirect } from 'react-router-dom'
 import axios from 'axios';
 import getBaseURL from "./const.js"
+import alt from './assets/ersatzbild.jpg';
 
 class ChangeApp extends React.Component{
 
@@ -82,7 +83,7 @@ class ChangeApp extends React.Component{
         if(param.includes('http') || param.includes('https')){
             return param
         } else if (param === null || typeof param === "undefined"  || param.includes("null")  || param.toString().includes(" ") || param.toString().includes("") || param.toString().includes("null")) {
-            return getBaseURL() + "/media/ersatzbild.jpg"
+            return getBaseURL() + alt
         } else {
             return "http://".concat(param)
         }

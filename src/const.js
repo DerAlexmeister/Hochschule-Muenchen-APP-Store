@@ -1,4 +1,4 @@
-const islocal = false;
+const islocal = true;
 const local_URL =  'http://localhost:8000'
 const heroku_URL =  'http://hmappstore.herokuapp.com'
 

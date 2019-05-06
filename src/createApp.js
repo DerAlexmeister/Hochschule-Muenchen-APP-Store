@@ -4,6 +4,7 @@ import SideNavPage from "./SideNavigation"
 import { Redirect } from 'react-router-dom'
 import axios from 'axios';
 import getBaseURL from "./const.js"
+import alt from './assets/ersatzbild.jpg';
 
 export default class CreateApp extends React.Component{
 
@@ -56,7 +57,7 @@ export default class CreateApp extends React.Component{
         if(param.includes('http') || param.includes('https')){
             return param
         } else if (param === null || typeof param === "undefined"  || param.includes("null")  || param.toString().includes(" ") || param.toString().includes("") || param.toString().includes("null")) {
-            return getBaseURL() + "/media/ersatzbild.jpg"
+            return getBaseURL() + alt
         } else {
             return "http://".concat(param)
         }
@@ -99,7 +100,7 @@ export default class CreateApp extends React.Component{
                             <label style={{textAlign:'center', fontWeight:'bold',fontFamily: 'Montserrat'}}>Deine Website</label>
                             <input style={{position:'absolute', width:'70%', left:'15%', borderRadius: 10, border: '2px solid #f10b51',color:'#fff', backgroundColor:'rgba(23, 26, 33, 1)'}} type="text" default="null" name="website" onChange={this.handleChange} /><br></br><br></br>
                             <label style={{textAlign:'center', fontWeight:'bold',fontFamily: 'Montserrat'}}>Kontaktemail</label>
-                            <input style={{position:'absolute', width:'70%', left:'15%', borderRadius: 10, border: '2px solid #f10b51',color:'#fff', backgroundColor:'rgba(23, 26, 33, 1)'}} type="text" name="contectEmail" onChange={this.handleChange} requierd /><br></br><br></br>
+                            <input style={{position:'absolute', width:'70%', left:'15%', borderRadius: 10, border: '2px solid #f10b51',color:'#fff', backgroundColor:'rgba(23, 26, 33, 1)'}} type="text" name="contectEmail" onChange={this.handleChange} required /><br></br><br></br>
                             <label style={{textAlign:'center', fontWeight:'bold',fontFamily: 'Montserrat'}}>App-Icon</label>
                             <input style={{position:'absolute', width:'70%', left:'15%', borderRadius: 10, border: '2px solid #f10b51',color:'#fff', backgroundColor:'rgba(23, 26, 33, 1)'}} type="text" name="linkImg" onChange={this.handleChange} /><br></br><br></br>                        <label style={{textAlign:'center', fontWeight:'bold',fontFamily: 'Montserrat'}}>
                                 Für wenn:

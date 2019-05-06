@@ -7,6 +7,7 @@ import axios from 'axios';
 import { FaArrowCircleRight, FaTrash, FaFileSignature} from 'react-icons/fa';
 import { Link } from 'react-router-dom'
 import getBaseURL from "./const.js"
+import alt from './assets/ersatzbild.jpg';
 
 
 const styles = {
@@ -74,7 +75,7 @@ class DeleteChangeApp extends React.Component{
       } else if (typeof param2 !== 'undefined' && param2 !== null) {
           return "" + param2
       } else {
-          return getBaseURL() + "/media/ersatzbild.jpg"
+          return getBaseURL() + alt
       }
   }
 

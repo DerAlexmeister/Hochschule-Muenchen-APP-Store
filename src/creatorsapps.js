@@ -7,6 +7,7 @@ import {FaRegEnvelope, FaRegCompass, FaRegCopyright, FaCheckCircle,
 import { IoIosSchool } from "react-icons/io";
 import { FiUser } from "react-icons/fi";
 import getBaseURL from "./const.js"
+import alt from './assets/ersatzbild.jpg';
 
 const styles = {
     card: {
@@ -53,7 +54,7 @@ class CreatorsApp extends React.Component{
         } else if (param2) {
             return "" + param2
         } else {
-            return getBaseURL() + "/media/ersatzbild.jpg"
+            return getBaseURL() + alt
         }
     }
   
