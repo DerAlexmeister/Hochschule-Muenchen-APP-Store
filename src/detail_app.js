@@ -43,11 +43,13 @@ class Appdetails extends React.Component{
         })
     }
     
-  getImage(param1, param2) {
-      if(param1) {
-          return getBaseURL() + param1
+    getImage(param1, param2) {
+      if (param1) {
+          return "" + param1
+      } else if (param2) {
+          return "" + param2
       } else if (typeof param2 !== 'undefined' && param2 !== null) {
-        return "" + param2
+          return "" + param2
       } else {
           return getBaseURL() + alt
       }
