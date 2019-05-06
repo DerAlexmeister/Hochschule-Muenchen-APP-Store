@@ -66,8 +66,6 @@ class RegisterPage extends React.Component {
         typOfAccount: this.state.typOfAccount,
         Fakultaet: this.state.Fakultaet,
     }).then(res => {
-            console.log(res);
-            console.log(res.data);
             this.props.history.push("/signin");
         });
     }
@@ -86,7 +84,7 @@ class RegisterPage extends React.Component {
                         <label style={{textAlign:'center', fontWeight:'bold',fontFamily: 'Montserrat'}}>Password</label>
                         <input style={{position:'absolute', width:'70%', left:'15%', borderRadius: 10, border: '2px solid #f10b51',color:'#fff', backgroundColor:'rgba(23, 26, 33, 1)'}} type="text" name="Password" onChange={this.handleChange} required /><br></br><br></br>
                         <label style={{textAlign:'center', fontWeight:'bold',fontFamily: 'Montserrat'}}>Nickname</label>
-                        <input style={{position:'absolute', width:'70%', left:'15%', borderRadius: 10, border: '2px solid #f10b51',color:'#fff', backgroundColor:'rgba(23, 26, 33, 1)'}} type="text" default="null" name="nickname" onChange={this.handleChange} /><br></br><br></br>
+                        <input style={{position:'absolute', width:'70%', left:'15%', borderRadius: 10, border: '2px solid #f10b51',color:'#fff', backgroundColor:'rgba(23, 26, 33, 1)'}} type="text" default="Anoynum" name="nickname" onChange={this.handleChange} /><br></br><br></br>
                         <label style={{textAlign:'center', fontWeight:'bold',fontFamily: 'Montserrat'}}>Facebook</label>
                         <input style={{position:'absolute', width:'70%', left:'15%', borderRadius: 10, border: '2px solid #f10b51',color:'#fff', backgroundColor:'rgba(23, 26, 33, 1)'}} type="text" name="fb" onChange={this.handleChange} /><br></br><br></br>
                         <label style={{textAlign:'center', fontWeight:'bold',fontFamily: 'Montserrat'}}>Twitter</label>
