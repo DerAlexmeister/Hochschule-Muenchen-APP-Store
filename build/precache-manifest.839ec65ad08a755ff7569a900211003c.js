@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/static/media/ersatzbild.782d65b7.jpg"
   },
   {
-    "revision": "7b4c179e292aa8eeaf85",
-    "url": "/static/css/main.60f87a0c.chunk.css"
+    "revision": "6fb51f2b00930366722e",
+    "url": "/static/css/main.3c425cf5.chunk.css"
   },
   {
     "revision": "42ac5946195a7306e2a5",
@@ -16,12 +16,12 @@ self.__precacheManifest = [
     "url": "/static/media/bemobil.67b59c95.jpg"
   },
   {
-    "revision": "6dadd256a87a01b1b93e",
-    "url": "/static/js/2.cec54730.chunk.js"
+    "revision": "17096426251a0c16a483",
+    "url": "/static/js/2.ed5b7d8c.chunk.js"
   },
   {
-    "revision": "7b4c179e292aa8eeaf85",
-    "url": "/static/js/main.441bcec3.chunk.js"
+    "revision": "6fb51f2b00930366722e",
+    "url": "/static/js/main.e523a6dc.chunk.js"
   },
   {
     "revision": "b6140d55398fc0d50916539646548ced",
@@ -36,11 +36,11 @@ self.__precacheManifest = [
     "url": "/static/media/banner1.b030aeec.jpg"
   },
   {
-    "revision": "6dadd256a87a01b1b93e",
-    "url": "/static/css/2.5f3ebead.chunk.css"
+    "revision": "17096426251a0c16a483",
+    "url": "/static/css/2.b682613e.chunk.css"
   },
   {
-    "revision": "51defa47d3d14fd19f923124073ba96e",
+    "revision": "c8693c286617066a989e242c855b38d6",
     "url": "/index.html"
   }
 ];
