@@ -56,6 +56,8 @@ export default class CreateApp extends React.Component{
     makeImgLink(param){
         if(param.includes('http') || param.includes('https')){
             return param
+        } else if (param === "" || param === " ") {
+            this.getDefault()
         } else {
             return "http://".concat(param)
         }
