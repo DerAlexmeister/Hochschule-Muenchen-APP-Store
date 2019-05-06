@@ -111,7 +111,7 @@ class DeleteChangeApp extends React.Component{
                     </div>
                     <div style={{paddingLeft: 100}}>
                     <Typography>
-                    <img style={{borderRadius:20, width: 150, height: 150}} src={this.getImage(item.smallPic, item.linkImg)} alt="" />
+                    <img style={{borderRadius:20, width: 150, height: 150}} src={item.linkImg} alt="" />
                     </Typography>
                     </div>
                     </div>

@@ -115,7 +115,7 @@ class SearchPage extends React.Component {
                             </div>
                             <div style={{paddingLeft: 10}}>
                             <Typography>
-                            <img style={{borderRadius:40, width: 150, height: 150}}  src={this.getImage(item.smallPic, item.linkImg)} alt="This app has no Pic yet" />
+                            <img style={{borderRadius:40, width: 150, height: 150}}  src={item.linkImg} alt="This app has no Pic yet" />
                             </Typography>
                             </div>
                             </div>

@@ -76,7 +76,7 @@ class SimpleCard extends React.Component{
                   </div>
                   <div style={{paddingLeft: 100}}>
                   <Typography>
-                  <img style={{borderRadius:20, width: 150, height: 150}} src={this.getImage(item.smallPic, item.linkImg)}  alt="This app has no graphic yet" />
+                  <img style={{borderRadius:20, width: 150, height: 150}} src={item.linkImg}  alt="This app has no graphic yet" />
                   </Typography>
                   </div>
                   </div>

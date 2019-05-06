@@ -67,7 +67,7 @@ class CreatorsApp extends React.Component{
               { items.map(item => (
                 <div>
                   <div style={{display:'flex'}}>
-                    <img style={{borderRadius:50, width:200, height:200}} src={this.getImage(item.smallPic, item.linkImg)}  alt="hshshsdh!" />
+                    <img style={{borderRadius:50, width:200, height:200}} src={item.linkImg}  alt="hshshsdh!" />
                     <h1 style={{color:'#fff', paddingLeft:40, paddingTop:150}}> {item.nickname}</h1>
                     <div style={{paddingTop:158, paddingLeft:20, maxHeight:300, maxWidth:300 }}>
                     { this.isVerified(item.verified) }

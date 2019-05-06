@@ -76,7 +76,7 @@ class Appdetails extends React.Component{
             {items.map(item => (
               <div>
                 <div style={{display:'flex'}}>
-                  <img style={{borderRadius:50, width:200, height:200}} src={this.getImage(item.smallPic, item.linkImg)}  alt="pic" />
+                  <img style={{borderRadius:50, width:200, height:200}} src={item.linkImg}  alt="pic" />
                   <h1 style={{color:'#fff', paddingLeft:40, paddingTop:150}}> {item.appname}</h1>
                 </div>
                 <hr style={{backgroundColor:'#fff', width:'100%', height:1}}></hr>
