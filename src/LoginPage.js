@@ -46,20 +46,20 @@ class LoginPage extends React.Component {
             email: this.state.email,
             password : this.state.Password,
         }).then(response => {
+                console.log(response)
                 if (response.status === 200) {
                     sessionStorage.setItem('token', String(response.data.token))
                     sessionStorage.setItem('isLoggedIn', true)
                     sessionStorage.setItem('user_id', response.data.user_id )
                     this.trytoLogin = true
+                    this.props.history.push("/");
                 } else {
-                    console.log(response);
-                    console.log(response.data.token);
-                    sessionStorage.setItem('wrongcred', true )
-                    if(this.reload){this.reload = false; window.location.reload();}
+                    this.props.history.push("/signin")
                 }
         }).catch(response => {
+            console.log(response)
             this.setState({wrongCred: true})
-            if(this.reload){this.reload = false; window.location.reload();}
+                this.props.history.push("/signin")
             }
         );
     }
@@ -100,7 +100,7 @@ class LoginPage extends React.Component {
                     </div>
                 );
             } else {
-                return <Redirect to='/'  />
+                return <Redirect to='/' />
             }
     }
 }

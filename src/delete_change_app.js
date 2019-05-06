@@ -61,9 +61,10 @@ class DeleteChangeApp extends React.Component{
         creator : this.user_id,
         app_Id: app_id,   
         token: token_,
-      }).then(res => {
-            if(this.reload){this.reload = false; window.location.reload();}
-      });
+      }).then(
+          this.setState({reload:true})
+          //this.props.history.push("/myapps")
+      );
     }
 
     getImage(param1, param2) {

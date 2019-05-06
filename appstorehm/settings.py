@@ -75,8 +75,11 @@ Database Information - Postgres/Heroku
 }
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> e16dd298c58e1a7912902d831fbc1f8b22e9e095
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -84,6 +87,10 @@ DATABASES = {
     }
 }
 '''
+<<<<<<< HEAD
+=======
+
+>>>>>>> e16dd298c58e1a7912902d831fbc1f8b22e9e095
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql', 
@@ -95,6 +102,12 @@ DATABASES = {
     }
 }
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> e16dd298c58e1a7912902d831fbc1f8b22e9e095
 '''
 Authentication Stuff 
 '''

@@ -76,10 +76,10 @@ export default class CreateApp extends React.Component{
         typOfAccount: this.state.typOfAccount,
         Fakultaet: this.state.Fakultaet,
     }).then(res => {
-            console.log(res);
-            console.log(res.data);
-            window.location.reload()
-        });
+            this.props.history.push("/myapps")
+        }).catch(
+            this.props.history.push("/createapp")
+        );
     }
 
     render() {
