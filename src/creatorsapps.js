@@ -48,11 +48,8 @@ class CreatorsApp extends React.Component{
     }
 
     getImage(param1, param2) {
-        console.log(param1, param2)
         if(param1) {
             return getBaseURL() + param1
-        } else if (param2) {
-            return "" + param2
         } else {
             return getBaseURL() + alt
         }

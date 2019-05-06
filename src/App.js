@@ -4,7 +4,7 @@ import Bemobile from "./bemobile.js"
 import SideNavPage from "./SideNavigation"
 import Footerown from "./footer.js"
 import React from "react";
-
+import { Link } from 'react-router-dom'
 
 export default class App extends React.Component{
   render(){
@@ -22,8 +22,7 @@ export default class App extends React.Component{
                 <br></br>
                 <h1 style={{textAlign: 'center', fontFamily: 'Montserrat', paddingTop: 30, color: '#fff', paddingLeft:30}}>Finde die richtige App für <span style={{color:'#f10b51'}}>dich</span></h1>
                 <ul style={{listStyle:'none', display:'flex', paddingTop: 50, justifyContent:'center'}}>
-                  <li style={{paddingLeft:0, paddingTop:0}}>
-                  <a href="/apps/" style={{paddingLeft:'40%',color:'#df0c0c', border:'2px solid #f10b51', borderRadius:4, width:'100%', height:'100%', textAlign:'center', margin:'auto', padding:15 }}> eine App herunterladen</a></li>
+                <span  style={{paddingLeft:0, paddingTop:0}}><Link to="/apps/" style={{paddingLeft:'40%',color:'#df0c0c', border:'2px solid #f10b51', borderRadius:4, width:'100%', height:'100%', textAlign:'center', margin:'auto', padding:15 }}> eine App herunterladen</Link></span>
                 </ul>
                 <br></br>
                 </div>
@@ -33,7 +32,7 @@ export default class App extends React.Component{
                   <ul style={{listStyle:'none'}}>
                   <li><br></br><h1 style={{textAlign:'center', color:'#fff'}}>Du bist noch kein <span style={{color:'#f10b51'}}>Mitglied</span></h1></li>
                   <li><h3 style={{textAlign:'center', color:'#fff'}}>Registiere dich jetzt und lade dir die passende App für deinen Alltag herunter</h3><br></br><br></br></li>
-                  <li style={{paddingLeft:'45%'}}><a href='/signup' style={{paddingLeft:'45%',color:'#df0c0c', border:'2px solid #f10b51', borderRadius:4, width:'100%', height:'100%', textAlign:'center', margin:'auto', padding:15 }}>Jetzt Registieren</a></li>
+                  <span style={{paddingLeft:'45%'}}><Link to='/signup/' style={{paddingLeft:'45%',color:'#df0c0c', border:'2px solid #f10b51', borderRadius:4, width:'100%', height:'100%', textAlign:'center', margin:'auto', padding:15 }}>Jetzt Registieren</Link></span>
                   </ul>
                   <br></br>
               </div>

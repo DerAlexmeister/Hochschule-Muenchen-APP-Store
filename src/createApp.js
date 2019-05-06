@@ -56,8 +56,6 @@ export default class CreateApp extends React.Component{
     makeImgLink(param){
         if(param.includes('http') || param.includes('https')){
             return param
-        } else if (param === null || typeof param === "undefined"  || param.includes("null")  || param.toString().includes(" ") || param.toString().includes("") || param.toString().includes("null")) {
-            return getBaseURL() + alt
         } else {
             return "http://".concat(param)
         }
@@ -83,6 +81,10 @@ export default class CreateApp extends React.Component{
         );
     }
 
+    getDefault() {
+        return alt.toString()
+    }
+
     render() {
         if (this.isLoggedIn) {
             return (
@@ -102,7 +104,8 @@ export default class CreateApp extends React.Component{
                             <label style={{textAlign:'center', fontWeight:'bold',fontFamily: 'Montserrat'}}>Kontaktemail</label>
                             <input style={{position:'absolute', width:'70%', left:'15%', borderRadius: 10, border: '2px solid #f10b51',color:'#fff', backgroundColor:'rgba(23, 26, 33, 1)'}} type="text" name="contectEmail" onChange={this.handleChange} required /><br></br><br></br>
                             <label style={{textAlign:'center', fontWeight:'bold',fontFamily: 'Montserrat'}}>App-Icon</label>
-                            <input style={{position:'absolute', width:'70%', left:'15%', borderRadius: 10, border: '2px solid #f10b51',color:'#fff', backgroundColor:'rgba(23, 26, 33, 1)'}} type="text" name="linkImg" onChange={this.handleChange} /><br></br><br></br>                        <label style={{textAlign:'center', fontWeight:'bold',fontFamily: 'Montserrat'}}>
+                            <input style={{position:'absolute', width:'70%', left:'15%', borderRadius: 10, border: '2px solid #f10b51',color:'#fff', backgroundColor:'rgba(23, 26, 33, 1)'}} type="text" default={this.getDefault()} name="linkImg" onChange={this.handleChange} /><br></br><br></br>                        
+                            <label style={{textAlign:'center', fontWeight:'bold',fontFamily: 'Montserrat'}}>
                                 Für wenn:
                                 </label>
                                 <select value={this.state.typOfAccount} onChange={(e) => this.setState({typOfAccount: e.target.value})} 
