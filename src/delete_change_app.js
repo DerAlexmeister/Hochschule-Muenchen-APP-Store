@@ -28,13 +28,14 @@ class DeleteChangeApp extends React.Component{
 
     state = {
           items: [],
+          deleted: false
     };
   
-    reload = false
     isLoggedIn = false
     token = null
     user_id = 0
     token_s = ""
+    
 
     componentWillMount() {
         this.isLoggedIn = sessionStorage.getItem("isLoggedIn")
@@ -44,10 +45,18 @@ class DeleteChangeApp extends React.Component{
     }
 
     componentDidMount() {
-      axios.get(getBaseURL() + '/api/apps/creator/' + this.user_id).then(res => {
-        const datem = res.data;
-        this.setState({items: datem})
-      })
+      if(this.state.deleted) {
+          axios.get(getBaseURL() + '/api/apps/creator/' + this.user_id).then(res => {
+            const datem = res.data;
+            this.setState({items: datem});
+          }) 
+      } else {
+        axios.get(getBaseURL() + '/api/apps/creator/' + this.user_id).then(res => {
+          const datem = res.data;
+          this.setState({items: datem});
+        }) 
+      }
+      this.setState({deleted:false})
     }
     
     getString(token_) {
@@ -55,17 +64,18 @@ class DeleteChangeApp extends React.Component{
     }
 
     deleteApp(app_id, token_) {
-      this.reload = true;
       this.token_s = "Token ".concat(token_)
       axios.defaults.headers.common['Authorization'] = `Token ${token_}`
       axios.post(getBaseURL() + '/api/apps/delete', {
         creator : this.user_id,
-        app_Id: app_id,   
+        app_Id: app_id,    
         token: token_,
-      }).then(
-          this.setState({reload:true})
-          //this.props.history.push("/myapps")
-      );
+      }).then( res =>  {
+        if (res.status === 201) {
+          this.setState({deleted:true})
+          this.componentDidMount()
+        } 
+      })
     }
 
     getImage(param1, param2) {
